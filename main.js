@@ -1,25 +1,41 @@
+const { ipcMain, ipcRenderer, Menu } = require('electron')
 const { app, BrowserWindow } = require('electron/main')
 const path = require('path')
-
-const env = process.env.NODE_ENV || development
-if (env === 'development') {
-  require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
-    forceHardReset: true,
-    hardResetMethod: 'exit'
-  })
-}
 
 let win
 const createWindow = () => {
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
     webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js')
     }
   })
   win.loadFile('index.html')
+
+  const loadFile = (file) => {
+    win.loadFile(path.join(__dirname, 'src', 'pages', 'about', file + '.html'))
+  }
+
+  const menuTemplate = [
+    {
+      label: 'File',
+      submenu: [
+        { label: 'Exit', click: () => app.quit() }
+      ]
+    },
+    {
+      label: 'Help',
+      submenu: [
+        { label: 'About', click: () => loadFile('about') }
+      ]
+    },
+  ]
+
+  const menu = Menu.buildFromTemplate(menuTemplate)
+  Menu.setApplicationMenu(menu)
 }
 
 app.whenReady().then(() => {
@@ -31,4 +47,8 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
+})
+
+ipcMain.on('changeTo', (e, v) => {
+  win.loadFile(path.join(__dirname, 'src', 'pages', v + '.html'))
 })

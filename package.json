@@ -1,12 +1,16 @@
 {
   "main": "main.js",
   "scripts": {
-    "start": "set NODE_ENV=development && electron ."
+    "start": "electron ."
   },
   "author": "Traly",
   "devDependencies": {
     "electron": "28.2.3",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-reloader": "^1.2.3"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "query": "^0.2.0"
   }
 }
