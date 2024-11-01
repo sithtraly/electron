@@ -16,7 +16,7 @@ const createWindow = () => {
   win.loadFile('index.html')
 
   const loadFile = (file) => {
-    win.loadFile(path.join(__dirname, 'src', 'pages', 'about', file + '.html'))
+    win.loadFile(path.join(__dirname, 'src', 'pages', file + '.html'))
   }
 
   const menuTemplate = [
@@ -27,9 +27,14 @@ const createWindow = () => {
       ]
     },
     {
+      label: 'Contact', submenu: [
+        { label: "Contact", click: () => loadFile('contact/contact') }
+      ]
+    },
+    {
       label: 'Help',
       submenu: [
-        { label: 'About', click: () => loadFile('about') }
+        { label: 'About', click: () => loadFile('about/about') }
       ]
     },
   ]
