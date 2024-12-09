@@ -6,7 +6,6 @@ body {
   padding: 2rem;
 }
 
-.login-container {
-  display: flex;
-  flex-direction: column;
+button {
+  width: 100px;
 }

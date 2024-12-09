@@ -29,6 +29,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "jquery": "^3.7.1",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7",
+    "sweetalert2": "^11.14.5"
   }
 }
