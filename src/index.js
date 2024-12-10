@@ -1,8 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 const { connectdb, sequelize } = require('./db.config');
 const pages = require('./constants/page.constant');
+const { customMenu } = require('./menu');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -29,6 +30,8 @@ const createWindow = async () => {
   // mainWindow.removeMenu()
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
+
+  Menu.setApplicationMenu(customMenu)
 
   await connectdb()
   await sequelize.sync({ alter: true })

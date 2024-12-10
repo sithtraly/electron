@@ -9,7 +9,7 @@ $('#bt-back-home').click(function () {
   ipcRenderer.send('back-to-home')
 })
 
-const dialog = {
+const dlg = {
   success: (text) => {
     return new Promise((res, rej) => {
       Swal.fire({ title: 'ជោគជ័យ', text, icon: 'success', confirmButtonText: "បិទ" }).then(() => res(true))

@@ -18,12 +18,12 @@ $('#bt-save').click(async function () {
   if (!id) {
     const customer = await CustomerModel.create({ name, phone, address, code })
     if (customer) {
-      dialog.success('បន្ថែមអតិថិជនថ្មីជោគជ័យ').then(() => ipcRenderer.send('back'))
+      dlg.success('បន្ថែមអតិថិជនថ្មីជោគជ័យ').then(() => ipcRenderer.send('back'))
     }
   } else {
     const customer = await CustomerModel.update({ name, phone, address, code }, { where: { id } })
     if (customer) {
-      dialog.success('កែព័ត៌មានអតិថិជនជោគជ័យ').then(() => ipcRenderer.send('back'))
+      dlg.success('កែព័ត៌មានអតិថិជនជោគជ័យ').then(() => ipcRenderer.send('back'))
     }
   }
 })
