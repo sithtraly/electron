@@ -1,4 +1,3 @@
-const $ = require('jquery')
 const { CustomerModel } = require('../../db.config')
 const { ipcRenderer } = require('electron')
 const pages = require('../../constants/page.constant')
@@ -11,9 +10,9 @@ $(document).on('DOMContentLoaded', async () => {
     const createdAt = DateUtil.datetime2stdDatetime(customer.createdAt)
     const row = `<tr id="cus-${customer.id}">\
       <td>${customer.name}</td>\
-      <td>${customer.phone}</td>\
       <td>${customer.address}</td>\
       <td>${customer.phone}</td>\
+      <td>${customer.code}</td>\
       <td>${createdAt}</td>\
     </tr>`
     $('#tbl-body').append(row)
@@ -26,10 +25,6 @@ $(document).on('DOMContentLoaded', async () => {
 function editCustomer(customer) {
   ipcRenderer.send('goto', { file: pages.customerNew, ...customer })
 }
-
-$('#bt-back').click(function () {
-  ipcRenderer.send('back-to-home')
-})
 
 $('#bt-new').click(function () {
   ipcRenderer.send('goto', pages.customerNew)

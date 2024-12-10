@@ -4,6 +4,10 @@
   font-family: "Battambang", Roboto, serif;
 }
 
+.swal2-styled {
+  height: auto;
+}
+
 input,
 button {
   height: 36px;

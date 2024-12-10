@@ -1,6 +1,4 @@
 const { ipcRenderer } = require("electron")
-const $ = require('jquery')
-const { default: Swal } = require("sweetalert2")
 const { CustomerModel } = require("../../db.config")
 var id
 
@@ -20,16 +18,12 @@ $('#bt-save').click(async function () {
   if (!id) {
     const customer = await CustomerModel.create({ name, phone, address, code })
     if (customer) {
-      Swal.fire({ title: 'Success', text: "បន្ថែមអតិថិជនថ្មីជោគជ័យ", icon: 'success' }).then((function () {
-        ipcRenderer.send('back')
-      }))
+      dialog.success('បន្ថែមអតិថិជនថ្មីជោគជ័យ').then(() => ipcRenderer.send('back'))
     }
   } else {
     const customer = await CustomerModel.update({ name, phone, address, code }, { where: { id } })
     if (customer) {
-      Swal.fire({ title: 'Success', text: "កែព័ត៌មានអតិថិជនជោគជ័យ", icon: 'success' }).then((function () {
-        ipcRenderer.send('back')
-      }))
+      dialog.success('កែព័ត៌មានអតិថិជនជោគជ័យ').then(() => ipcRenderer.send('back'))
     }
   }
 })
