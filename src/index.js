@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-const { connectdb } = require('./db.confog');
+const { connectdb, sequelize } = require('./db.config');
 const pages = require('./constants/page.constant');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -11,7 +11,7 @@ if (started) {
 var mainWindow
 const browsingHistory = []
 
-const createWindow = () => {
+const createWindow = async () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -30,7 +30,8 @@ const createWindow = () => {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 
-  connectdb()
+  await connectdb()
+  await sequelize.sync({ alter: true })
 };
 
 // This method will be called when Electron has finished

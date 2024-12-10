@@ -7,6 +7,25 @@ button {
   cursor: pointer;
 }
 
+table {
+  margin-top: 16px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  height: 36px;
+}
+
+table tr:hover {
+  
+}
+
+table td,
+table th {
+  border: 1px solid gray;
+}
+
 .flex {
   display: flex;
 }
