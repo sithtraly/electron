@@ -65,7 +65,12 @@ ipcMain.on('goto', (e, v) => {
   let file = mainWindow.webContents.getURL()
   file = 'src/' + file.split('/src/')[1]
   browsingHistory.push(file)
-  mainWindow.loadFile(v)
+  if (typeof v != 'string') {
+    const { file, ...query } = v
+    mainWindow.loadFile(file, { query })
+  } else {
+    mainWindow.loadFile(v)
+  }
 })
 
 ipcMain.on('back', () => {

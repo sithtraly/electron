@@ -9,7 +9,7 @@ $(document).on('DOMContentLoaded', async () => {
   $('#tbl-body').text = ''
   customers.forEach((customer) => {
     const createdAt = DateUtil.datetime2stdDatetime(customer.createdAt)
-    const row = `<tr>\
+    const row = `<tr id="cus-${customer.id}">\
       <td>${customer.name}</td>\
       <td>${customer.phone}</td>\
       <td>${customer.address}</td>\
@@ -17,8 +17,15 @@ $(document).on('DOMContentLoaded', async () => {
       <td>${createdAt}</td>\
     </tr>`
     $('#tbl-body').append(row)
+    $('#cus-' + customer.id).dblclick(function () {
+      editCustomer(customer)
+    })
   })
 })
+
+function editCustomer(customer) {
+  ipcRenderer.send('goto', { file: pages.customerNew, ...customer })
+}
 
 $('#bt-back').click(function () {
   ipcRenderer.send('back-to-home')

@@ -17,8 +17,8 @@ table th {
   height: 36px;
 }
 
-table tr:hover {
-  
+table tr:hover:not(thead tr) {
+  background-color: gainsboro;
 }
 
 table td,
