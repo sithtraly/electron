@@ -1,3 +1,9 @@
+@import url(../assets/fonts/fonts.css);
+
+* {
+  font-family: "Battambang", Roboto, serif;
+}
+
 input,
 button {
   height: 36px;
@@ -19,6 +25,10 @@ table th {
 
 table tr:hover:not(thead tr) {
   background-color: gainsboro;
+}
+
+table tr:nth-child(even) {
+  background-color: #f0f0f0;
 }
 
 table td,
@@ -55,7 +65,7 @@ table th {
 }
 
 nav {
-  width: 100%;
+  width: calc(100% + 16px);
   display: flex;
   flex-direction: row;
   background: #eeeeee;
@@ -70,4 +80,8 @@ nav>button {
   background: transparent;
   border: none;
   margin: 0 10px;
+}
+
+nav>h2 {
+  margin: auto 0;
 }

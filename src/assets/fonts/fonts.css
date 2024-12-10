@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "Battambang";
+  src:
+    /* url(./Battambang-Thin.ttf),
+    url(./Battambang-Light.ttf), */
+    url(./Battambang-Regular.ttf),
+    url(./Battambang-Bold.ttf),
+    url(./Battambang-Black.ttf);
+}
+
+@font-face {
+  font-family: Roboto;
+  src:
+    url(./Roboto-Black.ttf),
+    url(./Roboto-BlackItalic.ttf),
+    url(./Roboto-Bold.ttf),
+    url(./Roboto-BoldItalic.ttf),
+    url(./Roboto-Italic.ttf),
+    url(./Roboto-Light.ttf),
+    url(./Roboto-LightItalic.ttf),
+    url(./Roboto-Medium.ttf),
+    url(./Roboto-MediumItalic.ttf),
+    url(./Roboto-Regular.ttf),
+    url(./Roboto-Thin.ttf),
+    url(./Roboto-ThinItalic.ttf);
+}
+
+.siemreap-regular {
+  font-family: "Siemreap", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-thin {
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", serif;
+  font-weight: 900;
+  font-style: italic;
+}

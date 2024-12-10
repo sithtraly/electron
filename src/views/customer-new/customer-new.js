@@ -20,14 +20,14 @@ $('#bt-save').click(async function () {
   if (!id) {
     const customer = await CustomerModel.create({ name, phone, address, code })
     if (customer) {
-      Swal.fire({ title: 'Success', text: "Create customer successfully", icon: 'success' }).then((function () {
+      Swal.fire({ title: 'Success', text: "បន្ថែមអតិថិជនថ្មីជោគជ័យ", icon: 'success' }).then((function () {
         ipcRenderer.send('back')
       }))
     }
   } else {
     const customer = await CustomerModel.update({ name, phone, address, code }, { where: { id } })
     if (customer) {
-      Swal.fire({ title: 'Success', text: "Update customer successfully", icon: 'success' }).then((function () {
+      Swal.fire({ title: 'Success', text: "កែព័ត៌មានអតិថិជនជោគជ័យ", icon: 'success' }).then((function () {
         ipcRenderer.send('back')
       }))
     }
@@ -42,5 +42,5 @@ $(document).ready(function () {
   $('#tbAddress').val(params.address)
   $('#tbCode').val(params.code)
   $('#tbPhone').val(params.phone)
-  $('#page-title').text('Update customer')
+  if (id) $('#page-title').text('កែព័ត៌មានអតិថិជន')
 })
