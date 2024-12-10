@@ -1,8 +1,11 @@
+const { ipcRenderer } = require("electron")
+
 var txtUsername = document.getElementById('username')
 var txtPassword = document.getElementById('password')
 
 document.getElementById('bt-login').addEventListener('click', () => {
-  alert(txtUsername.value)
+  // alert(txtUsername.value)
+  ipcRenderer.send('open-file', 'register.html')
 })
 
 document.getElementById('showPassword').addEventListener('change', (event) => {
@@ -13,3 +16,4 @@ document.getElementById('showPassword').addEventListener('change', (event) => {
     txtPassword.setAttribute('type', 'password')
   }
 })
+

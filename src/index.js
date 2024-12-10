@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 
@@ -7,13 +7,17 @@ if (started) {
   app.quit();
 }
 
+var mainWindow
+
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false
     },
   });
 
@@ -50,3 +54,7 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on('open-file', (event, file) => {
+  mainWindow.loadFile(path.join(__dirname, 'views', file))
+})
