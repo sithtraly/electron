@@ -2,7 +2,7 @@ const $ = require('jquery')
 const { default: Swal } = require("sweetalert2")
 
 $('#bt-back').click(function () {
-  ipcRenderer.send('back-to-home')
+  ipcRenderer.send('back')
 })
 
 $('#bt-back-home').click(function () {

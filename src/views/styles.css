@@ -27,8 +27,12 @@ table th {
   height: 36px;
 }
 
-table tr:hover:not(thead tr) {
+table tbody tr:hover:not(table tbody tr td.no-data) {
   background-color: gainsboro;
+}
+
+table tr td.no-data {
+  text-align: center;
 }
 
 table tr:nth-child(even) {
@@ -66,6 +70,18 @@ table th {
 
 .text-warn {
   color: #f0f000;
+}
+
+.text-center {
+  text-align: center
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
 }
 
 nav {

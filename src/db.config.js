@@ -5,6 +5,7 @@ const sequelize = new Sequelize({
   dialect: "sqlite",
   storage: path.resolve(path.join(__dirname, 'database.sqlite')),
 })
+sequelize.getQueryInterface().sequelize.query('PRAGMA journal_mode=WAL;')
 
 const CustomerModel = sequelize.define('tb_customer', {
   name: DataTypes.STRING,
