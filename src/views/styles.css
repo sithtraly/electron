@@ -9,7 +9,8 @@
 }
 
 input,
-button {
+button,
+select {
   height: 36px;
 }
 

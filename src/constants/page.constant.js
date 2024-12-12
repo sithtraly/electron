@@ -5,6 +5,6 @@ const pages = {
   product: 'src/views/product/product.html',
   productNew: 'src/views/product-new/product-new.html',
   order: 'src/views/order/order.html',
-  orderNew: '/src/views/order-new/order-new.html',
+  orderNew: 'src/views/order-new/order-new.html',
 }
 module.exports = pages
