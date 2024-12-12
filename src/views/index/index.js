@@ -1,8 +1,7 @@
-const { ipcRenderer } = require('electron')
 const pages = require('../../constants/page.constant')
 
-const ids = ['#bt-cutomter', '#bt-product']
-const targetPages = [pages.customer, pages.product]
+const ids = ['#bt-cutomter', '#bt-product', '#bt-order']
+const targetPages = [pages.customer, pages.product, pages.order]
 
 for (const [index, selector] of ids.entries()) {
   $(selector).on('click', function () {

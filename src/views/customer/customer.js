@@ -1,5 +1,4 @@
 const { CustomerModel } = require('../../db.config')
-const { ipcRenderer } = require('electron')
 const pages = require('../../constants/page.constant')
 const { DateUtil } = require('../libs/date.utils')
 

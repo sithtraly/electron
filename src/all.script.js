@@ -1,3 +1,4 @@
+const { ipcRenderer } = require('electron')
 const $ = require('jquery')
 const { default: Swal } = require("sweetalert2")
 

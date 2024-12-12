@@ -1,4 +1,3 @@
-const { ipcRenderer } = require("electron")
 const pages = require("../../constants/page.constant")
 const { ProductModel } = require("../../db.config")
 const { DateUtil } = require("../libs/date.utils")
