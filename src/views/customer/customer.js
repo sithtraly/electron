@@ -8,6 +8,7 @@ $(document).on('DOMContentLoaded', async () => {
   customers.forEach((customer) => {
     const createdAt = DateUtil.datetime2stdDatetime(customer.createdAt)
     const row = `<tr id="cus-${customer.id}">\
+      <td>${customer.id}</td>\
       <td>${customer.name}</td>\
       <td>${customer.address}</td>\
       <td>${customer.phone}</td>\

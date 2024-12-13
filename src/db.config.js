@@ -5,7 +5,7 @@ const sequelize = new Sequelize({
   dialect: "sqlite",
   storage: path.resolve(path.join(__dirname, 'database.sqlite')),
 })
-sequelize.getQueryInterface().sequelize.query('PRAGMA journal_mode=WAL;')
+// sequelize.getQueryInterface().sequelize.query('PRAGMA journal_mode=WAL;')
 
 const CustomerModel = sequelize.define('tb_customer', {
   name: DataTypes.STRING,
@@ -28,7 +28,11 @@ const ProductModel = sequelize.define('tb_product', {
 
 const OrderModel = sequelize.define('tb_order', {
   qty: DataTypes.NUMBER,
-  price: DataTypes.NUMBER
+  price: DataTypes.NUMBER,
+  isPrinted: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
+  }
 }, {
   timestamps: true,
   freezeTableName: true,

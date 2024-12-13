@@ -1,4 +1,3 @@
-const { ipcRenderer } = require("electron")
 const { CustomerModel } = require("../../db.config")
 var id
 

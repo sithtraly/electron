@@ -11,6 +11,7 @@ if (started) {
 }
 var mainWindow
 const browsingHistory = []
+const iconPath = path.join(__dirname, 'favicon.ico')
 
 const createWindow = async () => {
   // Create the browser window.
@@ -23,6 +24,7 @@ const createWindow = async () => {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    icon: iconPath,
   });
 
   // and load the index.html of the app.
@@ -48,6 +50,7 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
+      app.dock.setIcon(iconPath)
     }
   });
 });
