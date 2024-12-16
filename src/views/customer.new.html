@@ -1,0 +1,26 @@
+<nav>
+  <button ng-click="back()">&#8592;</button>
+  <h2>អតិថិជន</h2>
+</nav>
+
+<div class="flex jusify-center">
+  <div class="container flex flex-column" style="min-width: 500px;">
+    <label for="tbName">ឈ្មោះ</label>
+    <input type="text" id="tbName" required ng-model="name">
+
+    <label for="tbPhone" class="mt-2">ទូរសព្ទ</label>
+    <input type="text" id="tbPhone" required ng-model="phone">
+
+    <label for="tbAddress" class="mt-2">អាសយដ្ឋាន</label>
+    <input type="text" id="tbAddress" required ng-model="address">
+
+    <label for="tbCode" class="mt-2">កូដកម្មង</label>
+    <input type="text" id="tbCode" required ng-model="code"><br>
+
+    <div class="flex flex-row">
+      <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save()">រក្សាទុក</button>
+    </div>
+  </div>
+</div>

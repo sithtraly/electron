@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-const { connectdb, sequelize } = require('./db.config');
+const { connectdb, sequelize, CustomerModel } = require('./db.config');
 const pages = require('./constants/page.constant');
 const { customMenu } = require('./menu');
 
@@ -16,22 +16,22 @@ const iconPath = path.join(__dirname, 'favicon.ico')
 const createWindow = async () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 720,
     modal: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
-      contextIsolation: false,
+      contextIsolation: true,
     },
     icon: iconPath,
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'views/index/index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'app.html'));
   // mainWindow.removeMenu()
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   Menu.setApplicationMenu(customMenu)
 
@@ -89,4 +89,18 @@ ipcMain.on('back', () => {
 ipcMain.on('back-to-home', () => {
   browsingHistory.length = 0
   mainWindow.loadFile(pages.home)
+})
+
+ipcMain.handle('getCustomer', async () => {
+  const customer = await CustomerModel.findAll({ raw: true })
+  return customer
+})
+ipcMain.handle('newCustomer', async (e, data) => {
+  const customer = await CustomerModel.create(data)
+  return customer
+})
+ipcMain.handle('updateCustomer', async (e, data) => {
+  const { id, ...d } = data
+  const customer = await CustomerModel.update(d, { where: { id } })
+  return customer
 })

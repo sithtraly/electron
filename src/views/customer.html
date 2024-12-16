@@ -1,0 +1,32 @@
+<nav>
+  <button ng-click="back()">&#8592;</button>
+  <h2>អតិថិជន</h2>
+</nav>
+<button ng-click="newCustomer()">បន្ថែមអតិថិជន</button>
+<button ng-click="getCustomer()">ស្វែងរក</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ល.រ</th>
+      <th>ឈ្មោះ</th>
+      <th>អាស័យដ្ឋាន</th>
+      <th>ទូរសព្ទ</th>
+      <th>កូដកម្មង</th>
+      <th>ថ្ងៃបង្កើត</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-if="customers.length == 0">
+      <td colspan="7" class="text-center">No data</td>
+    </tr>
+    <tr ng-repeat="c in customers" ng-dblclick="dblClick(c)">
+      <td>{{ c.id }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.address }}</td>
+      <td>{{ c.phone }}</td>
+      <td>{{ c.code }}</td>
+      <td>{{ c.createdAt }}</td>
+    </tr>
+  </tbody>
+</table>
