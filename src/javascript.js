@@ -5,7 +5,7 @@ var txtPassword = document.getElementById('password')
 
 document.getElementById('bt-login').addEventListener('click', () => {
   // alert(txtUsername.value)
-  ipcRenderer.send('open-file', 'register.html')
+  ipcRenderer.send('open-file', 'user.html')
 })
 
 document.getElementById('showPassword').addEventListener('change', (event) => {
