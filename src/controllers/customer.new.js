@@ -1,4 +1,5 @@
 app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
+  $scope.title = 'បង្កើតអតិថិជនថ្មី'
   $scope.name = ''
   $scope.phone = ''
   $scope.address = ''
@@ -8,6 +9,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
   const data = ShareData.get()
   ShareData.set(undefined)
   if (data) {
+    $scope.title = 'កែព័ត៌មានអតិថិជន'
     $scope.id = data.id
     $scope.name = data.name
     $scope.phone = data.phone
