@@ -1,11 +1,10 @@
 const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-const { connectdb, sequelize, CustomerModel, ProductModel } = require('./db.config');
+const { connectdb, sequelize } = require('./db.config');
 const pages = require('./constants/page.constant');
 const { customMenu } = require('./menu');
-const handle = require('./handler');
-const dialog = require('./dialog');
+const service = require('./services/service');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -93,5 +92,4 @@ ipcMain.on('back-to-home', () => {
   mainWindow.loadFile(pages.home)
 })
 
-handle()
-dialog()
+service()

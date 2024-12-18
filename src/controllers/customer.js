@@ -1,15 +1,25 @@
 app.controller('CustomerController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
+  $scope.from = ''
+  $scope.to = ''
+  $scope.search = ''
   $scope.customers = []
 
-  const getCustomer = function () {
-    window.api.getCustomer().then(res => {
+  $scope.getCustomer = function () {
+    const obj = {}
+    if ($scope.from && $scope.to) {
+      obj.from = $scope.from
+      obj.to = $scope.to
+    }
+    if ($scope.search) obj.search = $scope.search
+    window.api.getCustomer(obj).then(res => {
       if (res) {
         res.map(r => r.createdAt = DateUtil.datetime2stdDatetime(r.createdAt))
         $scope.$apply(() => $scope.customers = res)
       }
     })
-  }()
+  }
 
+  $scope.getCustomer()
   $scope.dblClick = (data) => {
     ShareData.set(data)
     $location.path('/newCustomer')
