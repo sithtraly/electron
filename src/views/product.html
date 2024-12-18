@@ -1,0 +1,26 @@
+<nav>
+  <button ng-click="back()">&#8592;</button>
+  <h2>ផលិតផល</h2>
+</nav>
+<button ng-click="newProduct()">បន្ថែមផលិតផល</button>
+<button ng-click="getProducts()">ស្វែងរក</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ល.រ</th>
+      <th>ឈ្មោះ</th>
+      <th>ថ្ងៃបង្កើត</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-if="products.length == 0">
+      <td colspan="7" class="text-center">No data</td>
+    </tr>
+    <tr ng-repeat="p in products" ng-dblclick="dblClick(c)">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.createdAt }}</td>
+    </tr>
+  </tbody>
+</table>

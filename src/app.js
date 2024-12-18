@@ -5,6 +5,7 @@ const config = ['$routeProvider', function ($routeProvider) {
     .when('/', { templateUrl: './views/home.html', controller: 'HomeController' })
     .when('/customers', { templateUrl: './views/customer.html', controller: 'CustomerController' })
     .when('/newCustomer', { templateUrl: './views/customer.new.html', controller: 'NewCustomerController' })
+    .when('/products', { templateUrl: './views/product.html', controller: 'ProductController' })
     .otherwise({ redirectTo: '/' })
 }]
 
@@ -18,14 +19,14 @@ app.factory('ShareData', () => {
 })
 
 function success(text, fn) {
-  Swal.fire({ title: 'ជោគជ័យ', text, icon: 'success', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => {fn()} })
+  Swal.fire({ title: 'ជោគជ័យ', text, icon: 'success', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => { fn() } })
 }
 function fail(text, fn) {
-  Swal.fire({ title: 'បរាជ័យ', text, icon: 'error', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => {fn()} })
+  Swal.fire({ title: 'បរាជ័យ', text, icon: 'error', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => { fn() } })
 }
 function warning(text, fn) {
-  Swal.fire({ title: 'បម្រាម', text, icon: 'warning', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => {fn()} })
+  Swal.fire({ title: 'បម្រាម', text, icon: 'warning', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => { fn() } })
 }
 function question(text, fn) {
-  Swal.fire({ title: 'សំណួរ', text, icon: 'question', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => {fn()} })
+  Swal.fire({ title: 'សំណួរ', text, icon: 'question', showCloseButton: true, confirmButtonText: "បិទ", didClose: () => { fn() } })
 }

@@ -26,13 +26,19 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
 
     if (!id) {
       window.api.newCustomer({ name, phone, address, code }).then(() => {
-        success('បន្ថែមអតិថិជនថ្មីជោគជ័យ', () => {
+        // success('បន្ថែមអតិថិជនថ្មីជោគជ័យ', () => {
+        //   $scope.$apply(() => $location.path('/customers'))
+        // })       
+        window.dialog.success('បន្ថែមអតិថិជនថ្មីជោគជ័យ').then(() => {
           $scope.$apply(() => $location.path('/customers'))
         })
       })
     } else {
       window.api.updateCustomer({ id, name, phone, address, code }).then(() => {
-        success('កែព័ត៌មានអតិថិជនជោគជ័យ', () => {
+        // success('កែព័ត៌មានអតិថិជនជោគជ័យ', () => {
+        //   $scope.$apply(() => $location.path('/customers'))
+        // })
+        window.dialog.success('កែព័ត៌មានអតិថិជនជោគជ័យ').then(() => {
           $scope.$apply(() => $location.path('/customers'))
         })
       })

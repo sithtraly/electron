@@ -9,9 +9,16 @@
 }
 
 input,
-button,
 select {
   height: 36px;
+}
+
+input[type=date] {
+  height: 38px;
+}
+
+button {
+  height: 42px;
 }
 
 button {
