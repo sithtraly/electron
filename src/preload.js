@@ -8,8 +8,13 @@ contextBridge.exposeInMainWorld('dialog', {
 })
 
 contextBridge.exposeInMainWorld('api', {
+  // customer
   getCustomer: (searchObj) => ipcRenderer.invoke('getCustomer', searchObj),
   newCustomer: (data) => ipcRenderer.invoke('newCustomer', data),
   updateCustomer: (data) => ipcRenderer.invoke('updateCustomer', data),
+  
+  // product
   getProducts: (data) => ipcRenderer.invoke('getProducts', data),
+  newProduct: (data) => ipcRenderer.invoke('newProduct', data),
+  editProduct: (data) => ipcRenderer.invoke('editProduct', data)
 })

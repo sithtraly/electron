@@ -1,0 +1,17 @@
+<nav>
+  <button ng-click="back()">&#8592;</button>
+  <h2>{{title}}</h2>
+</nav>
+
+<div class="flex jusify-center">
+  <div class="container flex flex-column" style="min-width: 500px;">
+    <label for="tbName">ឈ្មោះ</label>
+    <input type="text" id="tbName" required ng-model="name"><br>
+
+    <div class="flex flex-row">
+      <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save()">រក្សាទុក</button>
+    </div>
+  </div>
+</div>
