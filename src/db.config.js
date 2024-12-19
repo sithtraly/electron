@@ -29,6 +29,10 @@ const ProductModel = sequelize.define('tb_product', {
 const OrderModel = sequelize.define('tb_order', {
   qty: DataTypes.NUMBER,
   price: DataTypes.NUMBER,
+  isPaid: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true,
+  },
   isPrinted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false

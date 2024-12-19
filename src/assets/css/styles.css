@@ -68,6 +68,10 @@ table th {
   justify-content: center;
 }
 
+.flex.items-center {
+  align-items: center;
+}
+
 .text-primary {
   color: #2000d3;
 }
@@ -120,4 +124,8 @@ nav>h2 {
 
 .mt-2 {
   margin-top: 8px;
+}
+
+.home-page a {
+  display: contents;
 }

@@ -11,7 +11,7 @@ app.controller('CustomerController', ['$scope', '$location', 'ShareData', functi
       obj.to = $scope.to
     }
     if ($scope.search) obj.search = $scope.search
-    window.api.getCustomer(obj).then(res => {
+      (obj).then(res => {
       if (res) {
         res.map(r => r.createdAt = DateUtil.datetime2stdDatetime(r.createdAt))
         $scope.$apply(() => $scope.customers = res)

@@ -7,6 +7,8 @@ const config = ['$routeProvider', function ($routeProvider) {
     .when('/newCustomer', { templateUrl: './views/customer.new.html', controller: 'NewCustomerController' })
     .when('/products', { templateUrl: './views/product.html', controller: 'ProductController' })
     .when('/newProduct', { templateUrl: './views/product.new.html', controller: 'NewProductController' })
+    .when('/orders', { templateUrl: './views/order.html', controller: 'OrderController' })
+    .when('/newOrder', { templateUrl: './views/order.new.html', controller: 'NewOrderController' })
     .otherwise({ redirectTo: '/' })
 }]
 

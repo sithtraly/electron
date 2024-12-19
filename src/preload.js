@@ -16,5 +16,10 @@ contextBridge.exposeInMainWorld('api', {
   // product
   getProducts: (data) => ipcRenderer.invoke('getProducts', data),
   newProduct: (data) => ipcRenderer.invoke('newProduct', data),
-  editProduct: (data) => ipcRenderer.invoke('editProduct', data)
+  editProduct: (data) => ipcRenderer.invoke('editProduct', data),
+
+  // order
+  getOrder: (data) => ipcRenderer.invoke('getOrder', data),
+  newOrder: (data) => ipcRenderer.invoke('newOrder', data),
+  editOrder: (data) => ipcRenderer.invoke('editOrder', data),
 })

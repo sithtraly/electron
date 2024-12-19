@@ -3,8 +3,8 @@ const { CustomerModel } = require("../db.config")
 const { Op } = require("sequelize")
 
 module.exports = function () {
-  ipcMain.handle('getCustomer', async (_, obj) => {
-    const { limit, offset, search, from, to } = obj
+  ipcMain.handle('getCustomer', async (_, obj = {}) => {
+    const { limit = 50, offset = 0, search, from, to } = obj
     let findOption = {}
     if (search) {
       findOption = {
@@ -23,7 +23,7 @@ module.exports = function () {
         }
       })
     }
-    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit: limit || 50, offset: offset || 0 })
+    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset })
     return customer
   })
   ipcMain.handle('newCustomer', async (e, data) => {
