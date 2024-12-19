@@ -5,6 +5,7 @@ module.exports = function () {
   ipcMain.handle('getOrder', async (_, obj = {}) => {
     const { search, from, to, limit = 50, offset = 0 } = obj
     const orders = await OrderModel.findAll({
+      where: { isPrinted: false },
       include: [
         { model: CustomerModel, attributes: ['id', 'name'] },
         { model: ProductModel, attributes: ['id', 'name'] },
@@ -14,11 +15,11 @@ module.exports = function () {
     orders.map(o => {
       o.customerId = o['tb_customer.id']
       o.customer = o['tb_customer.name']
-      o.prodctId = o['tb_product.id']
-      o.prodct = o['tb_product.name']
+      o.productId = o['tb_product.id']
+      o.product = o['tb_product.name']
 
-      delete o['tb_product.id']
-      delete o['tb_product.name']
+      delete o['tb_customer.id']
+      delete o['tb_customer.name']
       delete o['tb_product.id']
       delete o['tb_product.name']
     })

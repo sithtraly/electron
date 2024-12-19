@@ -1,7 +1,15 @@
 @import url(./styles.css);
 
 * {
-  font-family: "Battambang", Roboto, serif;
+  font-family: Battambang, Roboto, serif;
+}
+
+.battambang {
+  font-family: Battambang;
+}
+
+.roboto {
+  font-family: Roboto, serif;
 }
 
 .swal2-styled {

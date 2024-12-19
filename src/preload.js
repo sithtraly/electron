@@ -4,7 +4,10 @@
 const { ipcRenderer, contextBridge } = require("electron");
 
 contextBridge.exposeInMainWorld('dialog', {
-  success: (message) => ipcRenderer.invoke('success', message)
+  success: (message) => ipcRenderer.invoke('success', message),
+  error: (message) => ipcRenderer.invoke('error', message),
+  question: (message) => ipcRenderer.invoke('question', message),
+  warning: (message) => ipcRenderer.invoke('warning', message),
 })
 
 contextBridge.exposeInMainWorld('api', {

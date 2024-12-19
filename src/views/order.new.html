@@ -5,33 +5,33 @@
 
 <div class="flex jusify-center">
   <div class="container flex flex-column" style="min-width: 500px;">
-    <label for="cbCustomer">ឈ្មោះអតិថិជន</label>
-    <input type="text" required list="cbCustomer" >
+    <label for="cbCustomer">អតិថិជន</label>
+    <input type="text" required list="cbCustomer" ng-model="customerId">
     <datalist id="cbCustomer">
-      <option ng-repeat="c in customers" value="{{c.id}}">{{c.name}}</option>
+      <option ng-repeat="c in customers" value="{{c.id}}. {{c.name}}"></option>
     </datalist>
 
     <label for="cbProduct" class="mt-2">ផលិតផល</label>
-    <input type="text" required list="cbProduct">
+    <input type="text" required list="cbProduct" ng-model="productId">
     <datalist id="cbProduct">
-      <option ng-repeat="p in products" value="{{p.id}}">{{p.name}}</option>
+      <option ng-repeat="p in products" value="{{p.id}}. {{p.name}}"></option>
     </datalist>
 
     <label for="txtQty" class="mt-2">ចំនួន</label>
-    <input type="number" id="txtQty" required>
+    <input type="number" id="txtQty" required ng-model="qty">
 
     <label for="txtPrice" class="mt-2">តម្លៃ</label>
-    <input type="number" id="txtPrice" required><br>
+    <input type="number" id="txtPrice" required ng-model="price">
 
     <div class="flex items-center">
       <input type="checkbox" id="isPaid" ng-model="isPaid">
       <label for="isPaid">ទូទាត់រួច</label>
-    </div><br>
+    </div>
 
     <div class="flex flex-row">
       <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <button style="flex-grow: 1;" class="text-primary">រក្សាទុក</button>
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save()">រក្សាទុក</button>
     </div>
   </div>
 </div>
