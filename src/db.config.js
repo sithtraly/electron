@@ -1,11 +1,36 @@
 const { Sequelize, DataTypes } = require("sequelize")
 const path = require('path')
+const { app } = require("electron")
+const { existsSync, writeFileSync, readFileSync, mkdirSync } = require("fs")
+
+
+const appdata = app.getPath('appData')
+const configPath = path.join(appdata, app.getName(), 'config.txt')
+const defaultDbPath = path.join(appdata, app.getName(), 'database.sqlite')
+let dbPath
+if (!existsSync(configPath)) {
+  const dp = path.join(appdata, app.getName())
+  if (!existsSync(dp)) mkdirSync(dp)
+  writeFileSync(configPath, defaultDbPath)
+} else {
+  const db = readFileSync(configPath)
+  dbPath = db.toString()
+}
 
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: path.resolve(path.join(__dirname, 'database.sqlite')),
+  storage: dbPath || defaultDbPath,
 })
 // sequelize.getQueryInterface().sequelize.query('PRAGMA journal_mode=WAL;')
+
+const SettingModel = sequelize.define('tb_setting', {
+  name: DataTypes.STRING,
+  value: DataTypes.STRING,
+}, {
+  timestamps: true,
+  freezeTableName: true,
+  modelName: 'tb_setting',
+})
 
 const CustomerModel = sequelize.define('tb_customer', {
   name: DataTypes.STRING,
@@ -36,18 +61,20 @@ const OrderModel = sequelize.define('tb_order', {
   isPrinted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
-  }
+  },
+  customerId: DataTypes.NUMBER,
+  productId: DataTypes.NUMBER,
 }, {
   timestamps: true,
   freezeTableName: true,
   modelName: 'tb_order'
 })
 
-CustomerModel.hasMany(OrderModel, { foreignKey: 'customerId' })
-OrderModel.belongsTo(CustomerModel, { foreignKey: 'customerId' })
+// CustomerModel.hasMany(OrderModel, { foreignKey: 'customerId' })
+// OrderModel.belongsTo(CustomerModel, { foreignKey: 'customerId' })
 
-ProductModel.hasMany(OrderModel, { foreignKey: 'productId' })
-OrderModel.belongsTo(ProductModel, { foreignKey: 'productId' })
+// ProductModel.hasMany(OrderModel, { foreignKey: 'productId' })
+// OrderModel.belongsTo(ProductModel, { foreignKey: 'productId' })
 
 async function connectdb() {
   try {
@@ -59,4 +86,4 @@ async function connectdb() {
   }
 }
 
-module.exports = { sequelize, connectdb, CustomerModel, ProductModel, OrderModel }
+module.exports = { sequelize, connectdb, SettingModel, CustomerModel, ProductModel, OrderModel, dbPath, configPath }

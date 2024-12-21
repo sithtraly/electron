@@ -23,7 +23,7 @@ module.exports = function () {
         }
       })
     }
-    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset })
+    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset: offset * limit })
     return customer
   })
   ipcMain.handle('newCustomer', async (e, data) => {

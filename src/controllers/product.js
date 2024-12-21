@@ -1,6 +1,6 @@
 app.controller('ProductController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
   $scope.products = []
-  $scope.search = ''
+  $scope.search = undefined
 
   $scope.getProducts = function () {
     window.api.getProducts($scope.search).then((res) => {
