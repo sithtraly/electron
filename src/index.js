@@ -11,11 +11,12 @@ const { writeFileSync } = require('node:fs');
 if (started) {
   app.quit();
 }
+var splashWindow
 var mainWindow
 const browsingHistory = []
 const iconPath = path.join(__dirname, 'favicon.ico')
 
-const createWindow = async () => {
+const createMainWindow = async () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1024,
@@ -36,6 +37,19 @@ const createWindow = async () => {
   mainWindow.webContents.openDevTools();
 
   Menu.setApplicationMenu(customMenu)
+};
+
+const createSplashWindow = async () => {
+  // Create the browser window.
+  splashWindow = new BrowserWindow({
+    width: 1024,
+    height: 720,
+    modal: true,
+    icon: iconPath,
+  });
+
+  splashWindow.removeMenu()
+  splashWindow.loadFile(path.join(__dirname, 'splash.html'))
 
   await connectdb()
   await sequelize.sync({ alter: true })
@@ -44,19 +58,22 @@ const createWindow = async () => {
   if (settings.length < 1) {
     await SettingModel.create({ name: 'station', value: 'Tela Siemreap' })
   }
-};
+  splashWindow.close()
+  createMainWindow()
+}
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow();
+  createSplashWindow()
 
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      createSplashWindow()
       app.dock.setIcon(iconPath)
     }
   });

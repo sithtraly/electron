@@ -4,6 +4,10 @@
   font-family: Battambang, Roboto, serif;
 }
 
+:lang(en) {
+  font-family: Roboto, Battambang, serif;
+}
+
 .battambang {
   font-family: Battambang;
 }

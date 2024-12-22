@@ -1,11 +1,10 @@
 @font-face {
   font-family: "Battambang";
   src:
-    /* url(./Battambang-Thin.ttf),
-    url(./Battambang-Light.ttf), */
     url(./Battambang-Regular.ttf),
     url(./Battambang-Bold.ttf),
     url(./Battambang-Black.ttf);
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
 }
 
 @font-face {
