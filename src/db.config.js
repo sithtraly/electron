@@ -54,6 +54,8 @@ const ProductModel = sequelize.define('tb_product', {
 const OrderModel = sequelize.define('tb_order', {
   qty: DataTypes.NUMBER,
   price: DataTypes.NUMBER,
+  carNo: DataTypes.STRING,
+  stockNo: DataTypes.STRING,
   isPaid: {
     type: DataTypes.BOOLEAN,
     defaultValue: true,
@@ -64,6 +66,7 @@ const OrderModel = sequelize.define('tb_order', {
   },
   customerId: DataTypes.NUMBER,
   productId: DataTypes.NUMBER,
+  transportNo: DataTypes.STRING,
 }, {
   timestamps: true,
   freezeTableName: true,

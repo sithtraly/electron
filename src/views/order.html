@@ -15,6 +15,9 @@
       <th>ផលិតផល</th>
       <th>ចំនួន</th>
       <th>តម្លៃ</th>
+      <th>លេខឡាន</th>
+      <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
+      <th>លេខប័ណ្ណដឹកជញ្ជូន</th>
       <th>បានទូទាត់</th>
       <th>ថ្ងៃបញ្ជាទិញ</th>
     </tr>
@@ -24,16 +27,19 @@
       <td colspan="7" class="text-center">No data</td>
     </tr>
     <tr ng-repeat="o in orders" ng-dblclick="dblClick(o)">
-      <td class="roboto">{{ o.id }}</td>
+      <td class="text-center">{{ o.id }}</td>
       <td>{{ o.customer }}</td>
       <td>{{ o.product }}</td>
-      <td class="roboto">{{ o.qty }}</td>
-      <td class="roboto">{{ o.price }}</td>
+      <td>{{ o.qty }}</td>
+      <td>{{ o.price }}</td>
+      <td>{{ o.carNo }}</td>
+      <td>{{ o.stockNo }}</td>
+      <td>{{ o.transportNo }}</td>
       <td class="text-center">
         <span ng-if="o.isPaid" class="text-primary">&#10004;</span>
         <span ng-if="!o.isPaid" class="text-danger">&#10006;</span>
       </td>
-      <td class="roboto">{{ o.createdAt }}</td>
+      <td>{{ o.createdAt }}</td>
     </tr>
   </tbody>
 </table>

@@ -7,6 +7,9 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   $scope.productId
   $scope.price
   $scope.qty
+  $scope.carNo
+  $scope.stockNo
+  $scope.transportNo
   let id
 
   window.api.getCustomer({}).then(function (customers) {
@@ -30,6 +33,9 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     $scope.qty = order.qty
     $scope.price = order.price
     $scope.isPaid = order.isPaid === 1 ? true : false
+    $scope.carNo = order.carNo
+    $scope.stockNo = order.stockNo
+    $scope.transportNo = order.transportNo
   }
 
   $scope.back = function () {
@@ -42,6 +48,9 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     const isPaid = $scope.isPaid
     const qty = $scope.qty
     const price = $scope.price
+    const carNo = $scope.carNo
+    const stockNo = $scope.stockNo
+    const transportNo = $scope.transportNo
     if (!customerId) return window.dialog.warning('សូមបញ្ចូលអតិថិជន')
     if (!productId) return window.dialog.warning('សូមបញ្ចូលផលិតផល')
     if (!qty) return window.dialog.warning('សូមបញ្ចូលចំនួន')
@@ -51,7 +60,10 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
       customerId: customerId.split('.')[0],
       isPaid,
       qty,
-      price
+      price,
+      carNo,
+      stockNo,
+      transportNo,
     }
     if (!id) {
       window.api.newOrder(data).then(function () {
