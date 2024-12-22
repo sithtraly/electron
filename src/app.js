@@ -15,10 +15,10 @@ const config = ['$routeProvider', function ($routeProvider) {
 
 app.config(config)
 app.factory('ShareData', () => {
-  let data
+  const data = {}
   return {
-    get: () => data,
-    set: (value) => data = value
+    get: (key) => data[key],
+    set: (key, value) => data[key] = value
   }
 })
 

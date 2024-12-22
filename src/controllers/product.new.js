@@ -3,8 +3,8 @@ app.controller('NewProductController', ['$scope', '$location', 'ShareData', func
   $scope.name = ''
   let id
 
-  const product = ShareData.get()
-  ShareData.set(undefined)
+  const product = ShareData.get('product')
+  ShareData.set('product', undefined)
   if (product) {
     $scope.title = 'កែផលិតផល'
     $scope.name = product.name

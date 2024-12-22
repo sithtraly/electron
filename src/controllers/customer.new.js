@@ -6,8 +6,8 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
   $scope.code = ''
 
   $scope.back = () => { $location.path('/customers') }
-  const data = ShareData.get()
-  ShareData.set(undefined)
+  const data = ShareData.get('customer')
+  ShareData.set('customer', undefined)
   if (data) {
     $scope.title = 'កែព័ត៌មានអតិថិជន'
     $scope.id = data.id

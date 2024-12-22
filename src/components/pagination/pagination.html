@@ -1,0 +1,15 @@
+<div class="no-select mt-4 mr-2 flex justify-end items-center">
+  <select class="roboto" ng-model="pageSize" ng-change="changePageSize()">
+    <option ng-repeat="s in size" ng-value="s">{{s}}</option>
+  </select>&nbsp;
+  <span>ក្នុងមួយទំព័រ</span>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;
+
+  <i class="fa-solid fa-chevron-left pointer" ng-click="prev()"></i>
+  &nbsp;ទំព័រ&nbsp;
+  <span class="roboto">{{page}}</span>
+  &nbsp;នៃ&nbsp;
+  <span class="roboto">{{totalPages}}</span>&nbsp;
+  <i class="fa-solid fa-chevron-right pointer" ng-click="next()"></i>
+</div>

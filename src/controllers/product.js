@@ -15,7 +15,7 @@ app.controller('ProductController', ['$scope', '$location', 'ShareData', functio
   $scope.back = () => $location.path('/')
   $scope.newProduct = () => $location.path('/newProduct')
   $scope.dblClick = (product) => {
-    ShareData.set(product)
+    ShareData.set('product', product)
     $location.path('/newProduct')
   }
 }])

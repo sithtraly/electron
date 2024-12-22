@@ -20,8 +20,8 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     })
   })
 
-  const order = ShareData.get()
-  ShareData.set(undefined)
+  const order = ShareData.get('order')
+  ShareData.set('order', undefined)
   if (order) {
     $scope.title = 'កែប្រែការបញ្ជាទិញ'
     id = order.id

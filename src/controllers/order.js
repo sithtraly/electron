@@ -17,7 +17,7 @@ app.controller('OrderController', ['$scope', '$location', 'ShareData', function 
     $location.path('/newOrder')
   }
   $scope.dblClick = function(order) {
-    ShareData.set(order)
+    ShareData.set('order', order)
     $location.path('/newOrder')
   }
 }])

@@ -29,6 +29,11 @@ button {
   height: 42px;
 }
 
+.no-select {
+  user-select: none;
+}
+
+.pointer,
 button {
   cursor: pointer;
 }
@@ -80,6 +85,10 @@ table th {
   align-items: center;
 }
 
+.flex.justify-end {
+  justify-content: end;
+}
+
 .text-primary {
   color: #2000d3;
 }
@@ -126,12 +135,52 @@ nav>h2 {
   margin: auto 0;
 }
 
+.mt-0 {
+  margin-top: 0;
+}
+
 .mt-1 {
   margin-top: 4px;
 }
 
 .mt-2 {
   margin-top: 8px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-5 {
+  margin-top: 20px;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.mr-1 {
+  margin-right: 4px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.mr-3 {
+  margin-right: 12px;
+}
+
+.mr-4 {
+  margin-right: 16px;
+}
+
+.mr-5 {
+  margin-right: 20px;
 }
 
 .home-page a {

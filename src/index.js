@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-const { connectdb, sequelize, dbPath, configPath } = require('./db.config');
+const { connectdb, sequelize, dbPath, configPath, SettingModel } = require('./db.config');
 const pages = require('./constants/page.constant');
 const { customMenu } = require('./menu');
 const service = require('./services/service');
@@ -23,7 +23,7 @@ const createWindow = async () => {
     modal: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
+      nodeIntegration: false,
       contextIsolation: true,
     },
     icon: iconPath,
@@ -39,6 +39,11 @@ const createWindow = async () => {
 
   await connectdb()
   await sequelize.sync({ alter: true })
+
+  const settings = await SettingModel.findAll({ raw: true })
+  if (settings.length < 1) {
+    await SettingModel.create({ name: 'station', value: 'Tela Siemreap' })
+  }
 };
 
 // This method will be called when Electron has finished
