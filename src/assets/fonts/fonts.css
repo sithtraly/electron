@@ -24,6 +24,11 @@
     url(./Roboto-ThinItalic.ttf);
 }
 
+@font-face {
+  font-family: "Roboto regular";
+  src: url(./Roboto-Regular.ttf);
+}
+
 .siemreap-regular {
   font-family: "Siemreap", sans-serif;
   font-weight: 400;

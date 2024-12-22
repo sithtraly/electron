@@ -1,11 +1,7 @@
-@import url(./styles.css);
+@import url(../fonts/fonts.css);
 
 * {
-  font-family: Battambang, Roboto, serif;
-}
-
-:lang(en) {
-  font-family: Roboto, Battambang, serif;
+  font-family: Battambang, "Roboto regular", serif;
 }
 
 .battambang {
@@ -13,7 +9,7 @@
 }
 
 .roboto {
-  font-family: Roboto, serif;
+  font-family: "Roboto regular", serif;
 }
 
 .swal2-styled {
@@ -64,9 +60,14 @@ table tr:nth-child(even) {
   background-color: #f0f0f0;
 }
 
+table tr:not(table tr th) {
+  height: 32px;
+}
+
 table td,
 table th {
   border: 1px solid gray;
+  padding: 1px 4px;
 }
 
 .flex {
@@ -185,6 +186,13 @@ nav>h2 {
 
 .mr-5 {
   margin-right: 20px;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .home-page a {
