@@ -10,6 +10,9 @@
 <table>
   <thead>
     <tr>
+      <th>
+        <input type="checkbox" ng-model="allSelected" ng-change="toggleAll()" id="selectAll">
+      </th>
       <th>ល.រ</th>
       <th>ឈ្មោះ</th>
       <th>ផលិតផល</th>
@@ -27,6 +30,9 @@
       <td colspan="7" class="text-center">No data</td>
     </tr>
     <tr ng-repeat="o in orders" ng-dblclick="dblClick(o)">
+      <td class="text-center">
+        <input type="checkbox" ng-model="o.selected" ng-change="toggleSelect()">
+      </td>
       <td class="text-center">{{ o.id }}</td>
       <td>{{ o.customer }}</td>
       <td>{{ o.product }}</td>
