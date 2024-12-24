@@ -9,11 +9,20 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        name: 'GasolineStation',
+        authors: 'Traly',
+        exe: 'Gasoline Station.exe',
+        setupExe: 'setup.exe',
+        setupIcon: 'src/favicon.ico',
+        ui: {
+          chooseDirectory: true,
+        },
+      },
     },
     {
       name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
+      platforms: ['win32', 'darwin'],
     },
     {
       name: '@electron-forge/maker-deb',
