@@ -8,6 +8,21 @@
 }
 
 @font-face {
+  font-family: "Khmer Muol";
+  src: url(./Moul.ttf);
+}
+
+@font-face {
+  font-family: "Freehand";
+  src: url(./Freehand.ttf);
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  src: url(./Times-New-Roman.ttf);
+}
+
+@font-face {
   font-family: Roboto;
   src:
     url(./Roboto-Black.ttf),
@@ -29,8 +44,26 @@
   src: url(./Roboto-Regular.ttf);
 }
 
+.khmer-muol {
+  font-family: "Khmer Muol";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.freehand {
+  font-family: Freehand, "Times New Roman";
+  font-style: normal;
+  font-weight: 400;
+}
+
 .siemreap-regular {
   font-family: "Siemreap", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.times-new-roman {
+  font-family: "Times New Roman";
   font-weight: 400;
   font-style: normal;
 }

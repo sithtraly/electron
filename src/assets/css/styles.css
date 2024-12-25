@@ -164,28 +164,93 @@ nav>h2 {
   margin-top: 20px;
 }
 
-.mr-0 {
+.mr-0,
+.mx-0 {
   margin-right: 0;
 }
 
-.mr-1 {
+.mr-1,
+.mx-1 {
   margin-right: 4px;
 }
 
-.mr-2 {
+.mr-2,
+.mx-2 {
   margin-right: 8px;
 }
 
-.mr-3 {
+.mr-3,
+.mx-3 {
   margin-right: 12px;
 }
 
-.mr-4 {
+.mr-4,
+.mx-4 {
   margin-right: 16px;
 }
 
-.mr-5 {
+.mr-5,
+.mx-5 {
   margin-right: 20px;
+}
+
+
+.ml-0,
+.mx-0 {
+  margin-left: 0;
+}
+
+.ml-1,
+.mx-1 {
+  margin-left: 4px;
+}
+
+.ml-2,
+.mx-2 {
+  margin-left: 8px;
+}
+
+.ml-3,
+.mx-3 {
+  margin-left: 12px;
+}
+
+.ml-4,
+.mx-4 {
+  margin-left: 16px;
+}
+
+.ml-5,
+.mx-5 {
+  margin-left: 20px;
+}
+
+.fs-7 {
+  font-size: 7px !important;
+}
+
+.fs-8 {
+  font-size: 8px !important;
+}
+
+.fs-9 {
+  font-size: 9px !important;
+}
+
+.fs-10 {
+  font-size: 10px !important;
+}
+
+.fs-11 {
+  font-size: 11px !important;
+}
+
+.fs-12 {
+  font-size: 12px !important;
+}
+
+.fw-bold {
+  font-weight: bold;
 }
 
 .home-page {
@@ -197,4 +262,62 @@ nav>h2 {
 
 .home-page a {
   display: contents;
+}
+
+.invoice {
+  display: flex;
+  justify-content: center;
+}
+
+.invoice-container {
+  width: 21cm;
+  box-shadow: 0 0 1px 1px gray;
+  padding: 3mm;
+}
+
+.invoice-container * {
+  font-size: 12px;
+}
+
+.invoice-container header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.invoice-container header img {
+  height: 70px;
+}
+
+.invoice-container header div span {
+  font-size: 20px;
+}
+
+.invoice-container table * {
+  border: none;
+  padding: 0;
+}
+
+.invoice-container table tr td {
+  padding: 0 2px;
+}
+
+.invoice-container table thead tr td {
+  font-family: Freehand, "Times New Roman";
+}
+
+.invoice-container table thead tr {
+  vertical-align: baseline;
+}
+
+.invoice-container table tr {
+  background: none;
+}
+
+.invoice-container table tbody tr td {
+  font-size: 9px;
+}
+
+.invoice-container table tbody tr:nth-child(n+3) {
+  border-bottom: 1px dashed gray;
 }
