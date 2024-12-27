@@ -1,4 +1,5 @@
-const { ipcMain, dialog } = require("electron")
+const { ipcMain, dialog, app } = require("electron")
+const { join } = require('path')
 
 module.exports = function () {
   ipcMain.handle('success', (event, message) => {
@@ -23,6 +24,14 @@ module.exports = function () {
         { name: 'Sqlite Files', extensions: ['sqlite'] },
         { name: 'All Files', extensions: ['*'] },
       ],
+    })
+  })
+
+  ipcMain.handle('saveFile', (_, options) => {
+    return dialog.showSaveDialog(undefined, {
+      title: options.title || 'Save file',
+      defaultPath: join(app.getPath('downloads'), options.name || 'untitle'),
+      buttonLabel: options.buttonLabel || 'Save',
     })
   })
 }

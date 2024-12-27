@@ -21,11 +21,11 @@ const createMainWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 1024,
     height: 720,
-    modal: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
+      enableRemoteModule: true,
     },
     icon: iconPath,
   });
@@ -35,7 +35,7 @@ const createMainWindow = async () => {
   // mainWindow.removeMenu()
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
-
+  mainWindow.maximize()
   Menu.setApplicationMenu(customMenu)
 };
 

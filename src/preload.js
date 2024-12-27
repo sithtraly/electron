@@ -1,6 +1,3 @@
-// See the Electron documentation for details on how to use preload scripts:
-// https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
-
 const { ipcRenderer, contextBridge } = require("electron");
 
 contextBridge.exposeInMainWorld('application', {
@@ -13,9 +10,12 @@ contextBridge.exposeInMainWorld('dialog', {
   question: (message) => ipcRenderer.invoke('question', message),
   warning: (message) => ipcRenderer.invoke('warning', message),
   browseFile: (options = {}) => ipcRenderer.invoke('browseFile', options),
+  saveFile: (options = {}) => ipcRenderer.invoke('saveFile', options),
 })
 
 contextBridge.exposeInMainWorld('api', {
+  html2pdf: (options) => ipcRenderer.invoke('html2pdf', options),
+  openItemInFolder: (item) => ipcRenderer.invoke('openItemInFolder', item),
   changeDbPath: (value) => ipcRenderer.invoke('changeDbPath', value),
   getDbPath: () => ipcRenderer.invoke('getDbPath'),
 

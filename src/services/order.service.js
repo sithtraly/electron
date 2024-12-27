@@ -1,4 +1,4 @@
-const { ipcMain } = require("electron");
+const { ipcMain, BrowserWindow } = require("electron");
 const { OrderModel, CustomerModel, ProductModel, sequelize } = require("../db.config");
 
 module.exports = function () {
@@ -31,7 +31,7 @@ module.exports = function () {
       LEFT JOIN tb_product p ON o.productId = p.id
       WHERE TRUE
       LIMIT ${limit} OFFSET ${offset * limit}
-      `, {type: 'SELECT'})
+      `, { type: 'SELECT' })
 
     return orders
   })

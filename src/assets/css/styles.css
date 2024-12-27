@@ -4,6 +4,10 @@
   font-family: Battambang, "Roboto regular", serif;
 }
 
+*:not(table) {
+  user-select: none;
+}
+
 .battambang {
   font-family: Battambang;
 }
@@ -272,7 +276,8 @@ nav>h2 {
 .invoice-container {
   width: 21cm;
   box-shadow: 0 0 1px 1px gray;
-  padding: 3mm;
+  padding: 0;
+  margin: 0;
 }
 
 .invoice-container * {
@@ -320,4 +325,23 @@ nav>h2 {
 
 .invoice-container table tbody tr:nth-child(n+3) {
   border-bottom: 1px dashed gray;
+}
+
+@media print {
+  body {
+    max-width: 21cm;
+    width: 21cm;
+    margin: 0;
+    padding: 0;
+  }
+
+  .invoice,
+  .invoice-container {
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .invoice-container button {
+    display: none;
+  }
 }
