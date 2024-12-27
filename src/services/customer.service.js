@@ -17,14 +17,15 @@ module.exports = function () {
       }
     }
     if (from && to) {
-      Object.assign(findOption, {
-        createdAt: {
-          [Op.and]: { [Op.gte]: from, [Op.lte]: to }
-        }
-      })
+      findOption.createdAt = { [Op.and]: { [Op.gte]: from, [Op.lte]: to } }
+    } else if (from) {
+      findOption.createdAt = { [Op.gte]: from }
+    } else if (to) {
+      findOption.createdAt = { [Op.lte]: to }
     }
     const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset: offset * limit })
-    return customer
+    const count = await CustomerModel.count({ where: findOption, raw: true })
+    return { data: customer, total: count }
   })
   ipcMain.handle('newCustomer', async (e, data) => {
     const customer = await CustomerModel.create(data)

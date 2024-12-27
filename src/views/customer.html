@@ -6,9 +6,9 @@
 </nav>
 <button ng-click="newCustomer()">បន្ថែមអតិថិជន</button>
 <label for="startDate" ng-value="from">ចាប់ពីថ្ងៃ</label>
-<input type="date" id="startDate">
+<input type="date" id="startDate" ng-model="from">
 <label for="toDate" ng-value="to">ដល់ថ្ងៃ</label>
-<input type="date" id="toDate">
+<input type="date" id="toDate" ng-model="to">
 <input type="text" placeholder="ឈ្មោះ, អាសយដ្ឋាន, លេខទូរសព្ទ, កូដកម្មង" ng-model="search">
 <button ng-click="getCustomer()">ស្វែងរក</button>
 
@@ -37,3 +37,5 @@
     </tr>
   </tbody>
 </table>
+
+<pagination page="{{page}}" total-pages="{{totalPages}}" on-change="onPageChange()"></pagination>

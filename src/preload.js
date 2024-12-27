@@ -20,7 +20,6 @@ contextBridge.exposeInMainWorld('api', {
   getDbPath: () => ipcRenderer.invoke('getDbPath'),
 
   // customer
-  getCustomer: (searchObj) => ipcRenderer.invoke('getCustomer', searchObj),
   newCustomer: (data) => ipcRenderer.invoke('newCustomer', data),
   updateCustomer: (data) => ipcRenderer.invoke('updateCustomer', data),
 

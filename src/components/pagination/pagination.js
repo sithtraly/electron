@@ -9,7 +9,7 @@ app.directive('pagination', function (ShareData) {
       onChange: '&',
     },
     link: function (scope) {
-      scope.size = [10, 25, 50, 75, 100, 150, 200, 500]
+      scope.size = [2, 10, 25, 50, 75, 100, 150, 200, 500]
       scope.pageSize = !scope.pageSize ? 50 : scope.pageSize
       scope.sharedata = function () {
         ShareData.set('pagination', { pageSize: scope.pageSize, page: scope.page, totalPages: parseInt(scope.totalPages) })
