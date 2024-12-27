@@ -1,10 +1,17 @@
+<nav>
+  <button ng-click="back()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <h2>ចេញវិក័បត្រ</h2>
+</nav>
+
 <div class="invoice" id="invoice">
   <div class="invoice-container">
     <header>
       <img src="assets/images/tela-logo.jpg" alt="">
       <div class="flex flex-column">
-        <span class="text-center khmer-muol">ក្រុមហ៊ុន កម្ពុជាតេលា</span>
-        <span class="text-center times-new-roman">KAMPUCHEA TELA LIMITED</span>
+        <span class="text-center khmer-muol fw-bold">ក្រុមហ៊ុន កម្ពុជាតេលា</span>
+        <span class="text-center times-new-roman fw-bold">KAMPUCHEA TELA LIMITED</span>
       </div>
       <img src="assets/images/paten.png" alt="">
     </header>
@@ -15,65 +22,53 @@
       <span class="mx-3">18/12/2024</span>
       ដល់
       <span class="mx-3">18/12/2024</span>
-      ឃ្លាំងទំនិញ: 
+      ឃ្លាំងទំនិញ:
       <span class="mx-3">All</span>
     </p>
 
     <table>
       <thead style="background-color: gainsboro;">
         <tr>
-          <td style="width: 110px;">ឈ្មោះ</td>
-          <td class="fs-8">SUPER URL95</td>
-          <td class="fs-8">REGULAR92</td>
-          <td class="fs-8">DIESEL AURO5</td>
-          <td class="fs-8">DIESEL AURO5</td>
-          <td class="fs-8">SUPER UNL9</td>
-          <td class="fs-9" style="width: 160px;">អាស័យដ្ឋានដាក់ទំនិញ</td>
-          <td class="fs-9" style="width: 51px;">លេខទូរស័ព្ទ</td>
-          <td class="fs-9" style="width: 64px;">លេខបញ្ជាទិញ</td>
-          <td class="fs-9">លេខឡាន</td>
-          <td class="fs-9">លេខប័ណ្ណផ្ទេរឃ្លាំង</td>
-          <td class="fs-8">លេខប័ណ្ណ ដឹកជញ្ជូន</td>
+          <th style="width: 15px;"></th>
+          <th style="width: 100px;">ឈ្មោះ</th>
+          <th class="fs-8 times-new-roman">SUPER URL95</th>
+          <th class="fs-8 times-new-roman">REGULAR92</th>
+          <th class="fs-8 times-new-roman">DIESEL AURO5</th>
+          <th class="fs-8 times-new-roman">DIESEL AURO5</th>
+          <th class="fs-8 times-new-roman">SUPER UNL9</th>
+          <th class="fs-9" style="width: 160px;">អាស័យដ្ឋានដាក់ទំនិញ</th>
+          <th class="fs-9" style="width: 51px;">លេខទូរស័ព្ទ</th>
+          <th class="fs-9" style="width: 64px;">លេខបញ្ជាទិញ</th>
+          <th class="fs-9">លេខឡាន</th>
+          <th class="fs-9" style="width: 83px;">លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
+          <th class="fs-8" style="width: 40px;">លេខប័ណ្ណ ដឹកជញ្ជូន</th>
         </tr>
       </thead>
 
       <tbody>
         <tr>
-          <td colspan="12" class="times-new-roman fs-12">Transfer Date: 18/12/2024</td>
+          <td colspan="13" class="times-new-roman fs-12 fw-bold">Transfer Date: 18/12/2024</td>
         </tr>
         <tr>
-          <td colspan="12">
-            <span class="ml-2 times-new-roman fs-12">Station Name: TelaSiem Reap</span>
+          <td colspan="13">
+            <span class="ml-2 times-new-roman fs-12 fw-bold">Station Name: TelaSiem Reap</span>
           </td>
         </tr>
 
-        <tr>
-          <td>ខាត់ ស៊ីត</td>
-          <td class="text-right">-</td>
-          <td class="text-right">4,200</td>
-          <td class="text-right">-</td>
-          <td class="text-right">-</td>
-          <td class="text-right">-</td>
-          <td>ភូមិដំដែកថ្មី ឃុំដំដែក ស្រុកសូត្រនិគម ខេត្តសៀមរាប</td>
-          <td>0123456789</td>
-          <td>09-1612202485</td>
-          <td>6955-342</td>
-          <td>TFRW5202412202420</td>
-          <td>12-0572</td>
-        </tr>
-        <tr>
-          <td>ខាត់ ស៊ីត</td>
-          <td class="text-right">-</td>
-          <td class="text-right">-</td>
-          <td class="text-right">8,200</td>
-          <td class="text-right">-</td>
-          <td class="text-right">-</td>
-          <td>ភូមិដំដែកថ្មី ឃុំដំដែក ស្រុកសូត្រនិគម ខេត្តសៀមរាប</td>
-          <td>0123456789</td>
-          <td>09-1612202485</td>
-          <td>6955-342</td>
-          <td>TFRW5202412202420</td>
-          <td>12-0572</td>
+        <tr ng-repeat="i in invoices">
+          <td></td>
+          <td>{{i.customer}}</td>
+          <td class="text-right">{{ i.productId == 1 ? i.price : '-' }}</td>
+          <td class="text-right">{{ i.productId == 2 ? i.price : '-' }}</td>
+          <td class="text-right">{{ i.productId == 3 ? i.price : '-' }}</td>
+          <td class="text-right">{{ i.productId == 4 ? i.price : '-' }}</td>
+          <td class="text-right">{{ i.productId == 5 ? i.price : '-' }}</td>
+          <td>{{i.address}}</td>
+          <td>{{i.phone}}</td>
+          <td>{{i.code}}</td>
+          <td>{{i.carNo}}</td>
+          <td>{{i.stockNo}}</td>
+          <td>{{i.transportNo}}</td>
         </tr>
       </tbody>
     </table>

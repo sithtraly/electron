@@ -1,4 +1,5 @@
-app.controller('OrderController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
+app.controller('OrderController', function ($scope, $location, ShareData) {
+  $scope.rowsSelected = false
   $scope.orders = []
   $scope.allSelected = false;
   $scope.getOrder = function () {
@@ -26,6 +27,7 @@ app.controller('OrderController', ['$scope', '$location', 'ShareData', function 
     let status = $scope.allSelected
     angular.forEach($scope.orders, function (o) {
       o.selected = status
+      $scope.rowsSelected = status
     })
   }
   $scope.toggleSelect = function () {
@@ -33,9 +35,11 @@ app.controller('OrderController', ['$scope', '$location', 'ShareData', function 
     let selected = $scope.orders.filter(function (o) {
       return o.selected
     })
+    $scope.rowsSelected = true
     document.getElementById('selectAll').indeterminate = false
     if (selected.length === 0) {
       $scope.allSelected = false
+      $scope.rowsSelected = false
     } else if (selected.length === total) {
       $scope.allSelected = true
     } else {
@@ -43,4 +47,11 @@ app.controller('OrderController', ['$scope', '$location', 'ShareData', function 
       document.getElementById('selectAll').indeterminate = true
     }
   }
-}])
+
+  $scope.createInvoice = function () {
+    let ids = $scope.orders.filter(o => o.selected)
+    ids = ids.map(i => i.id)
+    ShareData.set('invoiceIds', ids)
+    $location.path('/invoice')
+  }
+})

@@ -4,7 +4,7 @@
   font-family: Battambang, "Roboto regular", serif;
 }
 
-*:not(table) {
+*:not(table and input) {
   user-select: none;
 }
 
@@ -254,7 +254,11 @@ nav>h2 {
 }
 
 .fw-bold {
-  font-weight: bold;
+  font-weight: bold !important;
+}
+
+.fs-normal {
+  font-weight: normal !important;
 }
 
 .home-page {
@@ -268,6 +272,11 @@ nav>h2 {
   display: contents;
 }
 
+.shadow-0 {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .invoice {
   display: flex;
   justify-content: center;
@@ -275,7 +284,7 @@ nav>h2 {
 
 .invoice-container {
   width: 21cm;
-  box-shadow: 0 0 1px 1px gray;
+  /* box-shadow: 0 0 1px 1px gray; */
   padding: 0;
   margin: 0;
 }
@@ -303,27 +312,36 @@ nav>h2 {
   padding: 0;
 }
 
-.invoice-container table tr td {
+.invoice-container table tr>* {
   padding: 0 2px;
-}
-
-.invoice-container table thead tr td {
-  font-family: Freehand, "Times New Roman";
-}
-
-.invoice-container table thead tr {
-  vertical-align: baseline;
 }
 
 .invoice-container table tr {
   background: none;
 }
 
+.invoice-container table tr:hover {
+  background-color: none !important;
+}
+
+.invoice-container table thead tr th {
+  color: #000000;
+  font-family: Freehand, "Times New Roman";
+  font-weight: 600;
+  text-shadow: 0.001px 0 0 #000000, -0.001px 0 0 #000000, 0 0.001px 0 #000000, 0 -0.001px 0 #000000;
+  text-align: left;
+}
+
+
+.invoice-container table thead tr {
+  vertical-align: baseline;
+}
+
 .invoice-container table tbody tr td {
   font-size: 9px;
 }
 
-.invoice-container table tbody tr:nth-child(n+3) {
+.invoice-container table tbody tr:nth-child(n+3) td:not(td:first-child) {
   border-bottom: 1px dashed gray;
 }
 
@@ -333,6 +351,10 @@ nav>h2 {
     width: 21cm;
     margin: 0;
     padding: 0;
+  }
+
+  nav {
+    display: none;
   }
 
   .invoice,
