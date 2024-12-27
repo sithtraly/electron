@@ -30,13 +30,13 @@
       <thead style="background-color: gainsboro;">
         <tr>
           <th style="width: 15px;"></th>
-          <th style="width: 100px;">ឈ្មោះ</th>
+          <th style="width: 100px;" class="fs-11">ឈ្មោះ</th>
           <th class="fs-8 times-new-roman">SUPER URL95</th>
           <th class="fs-8 times-new-roman">REGULAR92</th>
           <th class="fs-8 times-new-roman">DIESEL AURO5</th>
           <th class="fs-8 times-new-roman">DIESEL AURO5</th>
           <th class="fs-8 times-new-roman">SUPER UNL9</th>
-          <th class="fs-9" style="width: 160px;">អាស័យដ្ឋានដាក់ទំនិញ</th>
+          <th class="fs-11" style="width: 160px;">អាស័យដ្ឋានដាក់ទំនិញ</th>
           <th class="fs-9" style="width: 51px;">លេខទូរស័ព្ទ</th>
           <th class="fs-9" style="width: 64px;">លេខបញ្ជាទិញ</th>
           <th class="fs-9">លេខឡាន</th>
@@ -58,11 +58,11 @@
         <tr ng-repeat="i in invoices">
           <td></td>
           <td>{{i.customer}}</td>
-          <td class="text-right">{{ i.productId == 1 ? i.price : '-' }}</td>
-          <td class="text-right">{{ i.productId == 2 ? i.price : '-' }}</td>
-          <td class="text-right">{{ i.productId == 3 ? i.price : '-' }}</td>
-          <td class="text-right">{{ i.productId == 4 ? i.price : '-' }}</td>
-          <td class="text-right">{{ i.productId == 5 ? i.price : '-' }}</td>
+          <td class="text-right">{{ i.productId == 1 ? (i.price | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 2 ? (i.price | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 3 ? (i.price | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 4 ? (i.price | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 5 ? (i.price | number) : '-' }}</td>
           <td>{{i.address}}</td>
           <td>{{i.phone}}</td>
           <td>{{i.code}}</td>

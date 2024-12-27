@@ -5,12 +5,13 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
   }
 
   const ids = ShareData.get('invoiceIds')
-  window.api.invoke('getInvoice', { ids }).then(res => {
-    res.map(r => r.price = r.price.toLocaleString())
-    $scope.$apply(function () {
-      $scope.invoices = res
+  if (ids) {
+    window.api.invoke('getInvoice', { ids }).then(res => {
+      $scope.$apply(function () {
+        $scope.invoices = res
+      })
     })
-  })
+  }
 
   $scope.savePdf = function () {
     window.dialog.saveFile({

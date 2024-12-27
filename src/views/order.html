@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-if="orders.length == 0">
+    <tr ng-if="orders.length == 0" class="no-data">
       <td colspan="11" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="o in orders" ng-dblclick="dblClick(o)">
@@ -38,7 +38,7 @@
       <td>{{ o.customer }}</td>
       <td>{{ o.product }}</td>
       <td>{{ o.qty }}</td>
-      <td>{{ o.price }}</td>
+      <td>{{ o.price | number }}</td>
       <td>{{ o.carNo }}</td>
       <td>{{ o.stockNo }}</td>
       <td>{{ o.transportNo }}</td>

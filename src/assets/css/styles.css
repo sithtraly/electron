@@ -4,8 +4,12 @@
   font-family: Battambang, "Roboto regular", serif;
 }
 
-*:not(table and input) {
+* {
   user-select: none;
+}
+
+table *, input, select, textarea {
+  user-select: unset;
 }
 
 .battambang {
@@ -52,7 +56,7 @@ table th {
   height: 36px;
 }
 
-table tbody tr:hover:not(table tbody tr td.no-data) {
+table tbody tr:not(tr.no-data):hover {
   background-color: gainsboro;
 }
 
@@ -316,13 +320,11 @@ nav>h2 {
   padding: 0 2px;
 }
 
+.invoice-container table tr:hover,
 .invoice-container table tr {
-  background: none;
+  background-color: unset !important;
 }
 
-.invoice-container table tr:hover {
-  background-color: none !important;
-}
 
 .invoice-container table thead tr th {
   color: #000000;
