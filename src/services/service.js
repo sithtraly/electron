@@ -4,6 +4,7 @@ const invoiceService = require("./invoice.service");
 const orderService = require("./order.service");
 const pdfService = require("./pdf.service");
 const productService = require("./product.service");
+const reportService = require("./report.service");
 
 module.exports = function () {
   dialogService()
@@ -12,4 +13,5 @@ module.exports = function () {
   orderService()
   pdfService()
   invoiceService()
+  reportService()
 }

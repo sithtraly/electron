@@ -1,0 +1,46 @@
+<nav>
+  <button ng-click="back()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <h2>របាយការណ៍</h2>
+</nav>
+
+<button id="bt-search" ng-click="getReports()">ស្វែងរក</button>
+
+<table>
+  <thead style="background-color: gainsboro;">
+    <tr>
+      <th>ល.រ</th>
+      <th>ឈ្មោះ</th>
+      <th>ភលិតផល</th>
+      <th>អាស័យដ្ឋានដាក់ទំនិញ</th>
+      <th>លេខទូរស័ព្ទ</th>
+      <th>លេខបញ្ជាទិញ</th>
+      <th>លេខឡាន</th>
+      <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
+      <th>លេខប័ណ្ណ ដឹកជញ្ជូន</th>
+      <th>បានទូទាត់</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-if="reports.length == 0" class="no-data">
+      <td colspan="8" class="text-center">គ្មានទិន្នន័យ</td>
+    </tr>
+    <tr ng-repeat="r in reports">
+      <td class="text-center">{{r.id}}</td>
+      <td>{{r.customer}}</td>
+      <td class="text-right">{{ r.price | number }}</td>
+      <td>{{r.address}}</td>
+      <td>{{r.phone}}</td>
+      <td>{{r.code}}</td>
+      <td>{{r.carNo}}</td>
+      <td>{{r.stockNo}}</td>
+      <td>{{r.transportNo}}</td>
+      <td class="text-center">
+        <span ng-if="r.isPaid" class="text-primary">&#10004;</span>
+        <span ng-if="!r.isPaid" class="text-danger">&#10006;</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

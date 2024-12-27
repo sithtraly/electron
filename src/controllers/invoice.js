@@ -23,10 +23,9 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
         }).then(function (file) {
           if (file) {
             window.api.invoke('printedInvoice', { ids })
-            window.dialog.success('រក្សាទុកជោគជ័យ ' + file).then(function () {
-              $scope.$apply(function () {
-                $scope.back()
-              })
+            window.api.openItemInFolder(file)
+            $scope.$apply(function () {
+              $scope.back()
             })
           }
         }).catch(function (err) {
