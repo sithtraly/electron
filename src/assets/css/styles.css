@@ -4,9 +4,9 @@
   font-family: Battambang, "Roboto regular", serif;
 }
 
-* {
+/* * {
   user-select: none;
-}
+} */
 
 table *, input, select, textarea {
   user-select: unset;

@@ -12,8 +12,8 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
 
   $scope.getOrder = function () {
     window.api.getOrder({
-      from: $scope.from,
-      to: $scope.to,
+      from: $scope.from ? DateUtil.date2stdDate($scope.from) : undefined,
+      to: $scope.to ? DateUtil.date2stdDate($scope.to) : undefined,
       search: $scope.search,
       limit: $scope.pageSize,
       offset: $scope.page - 1
