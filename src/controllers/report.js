@@ -34,4 +34,54 @@ app.controller('ReportController', function ($scope, $location, ShareData) {
     $scope.pageSize = data.pageSize
     $scope.getReports()
   }
+
+  $scope.downloadExcel = function () {
+    const header = document.querySelector('table thead tr').textContent.split('\n')// get header from table
+    header.forEach((v, i) => header[i] = v.trim())
+    header.pop()
+    header.shift()
+    let body = JSON.parse(JSON.stringify($scope.reports))
+    body.map(b => {
+
+      delete b['$$hashKey']
+      delete b.customerId
+      delete b.isPrinted
+      delete b.productId
+    })
+
+    const clone = []
+    body.map(b => {
+      const row = {}
+      row.id = b.id
+      row.customer = b.customer
+      row.product = b.product
+      row.price = b.price.toLocaleString()
+      row.currency = b.currency
+      row.address = b.address
+      row.phone = b.phone
+      row.code = b.code
+      row.carNo = b.carNo
+      row.stockNo = b.stockNo
+      row.transportNo = b.transportNo
+      row.isPaid = b.isPaid ? 'Yes' : 'No'
+      row.createdAt = DateUtil.datetime2stdDatetime(b.createdAt)
+      clone.push(row)
+    })
+    body = clone
+    delete clone
+
+    body = body.map(b => {
+      return Object.keys(b).map(k => b[k])
+    })
+
+    const from = $scope.from ? DateUtil.date2stdDate($scope.from) : ''
+    const to = $scope.to ? DateUtil.date2stdDate($scope.to) : ''
+    window.dialog.saveFile({ name: `report_${from ? from : ''}${to ? '_' + to : ''}_${Date.now()}.xlsx` }).then(function (res) {
+      if (!res.canceled) {
+        window.api.invoke('saveReport2Excel', { headerRow: header, rows: body, name: res.filePath }).then(function (file) {
+          window.api.openItemInFolder(file)
+        })
+      }
+    })
+  }
 })
