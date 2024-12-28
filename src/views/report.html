@@ -5,6 +5,14 @@
   <h2>របាយការណ៍</h2>
 </nav>
 
+<label for="startDate" ng-value="from">ចាប់ពីថ្ងៃ</label>
+<input type="date" id="startDate" ng-model="from">
+<label for="toDate" ng-value="to">ដល់ថ្ងៃ</label>
+<input type="date" id="toDate" ng-model="to">
+<input type="text" placeholder="ឈ្មោះ, លេខទូរសព្ទ, កូដកម្មង, រូបិយប័ណ្ណ, លេខប័ណ្ណផ្ទេរឃ្លាំង, លេខប័ណ្ណដឹកជញ្ជូន"
+  ng-model="search">
+
+
 <button id="bt-search" ng-click="getReports()">ស្វែងរក</button>
 
 <table>
@@ -20,12 +28,13 @@
       <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
       <th>លេខប័ណ្ណ ដឹកជញ្ជូន</th>
       <th>បានទូទាត់</th>
+      <th>ថ្ងៃបញ្ជាទិញ</th>
     </tr>
   </thead>
 
   <tbody>
     <tr ng-if="reports.length == 0" class="no-data">
-      <td colspan="8" class="text-center">គ្មានទិន្នន័យ</td>
+      <td colspan="10" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="r in reports">
       <td class="text-center">{{r.id}}</td>
@@ -41,6 +50,9 @@
         <span ng-if="r.isPaid" class="text-primary">&#10004;</span>
         <span ng-if="!r.isPaid" class="text-danger">&#10006;</span>
       </td>
+      <td>{{r.createdAt | stdDatetime}}</td>
     </tr>
   </tbody>
 </table>
+
+<pagination page="{{page}}" total-pages="{{totalPages}}" on-change="onPageChange()"></pagination>

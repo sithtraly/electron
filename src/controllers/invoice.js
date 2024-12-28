@@ -26,7 +26,7 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
           pdfName: res.filePath,
         }).then(function (file) {
           if (file) {
-            window.api.invoke('printedInvoice', { ids: data })
+            window.api.invoke('printedInvoice', { ids: data.ids })
             window.api.openItemInFolder(file)
             $scope.$apply(function () {
               $scope.back()
