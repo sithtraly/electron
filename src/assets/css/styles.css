@@ -102,6 +102,10 @@ table th {
   justify-content: end;
 }
 
+.flex.justify-between {
+  justify-content: space-between;
+}
+
 .text-primary {
   color: #2000d3;
 }

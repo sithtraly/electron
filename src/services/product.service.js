@@ -7,7 +7,12 @@ module.exports = function () {
     const { search, from, to, offset = 0, limit = 50 } = obj
     let findOption = {}
     if (search) {
-      findOption = { name: { [Op.like]: `%${search}%` } }
+      findOption = {
+        [Op.or]: {
+          name: { [Op.like]: `%${search}%` },
+          id: search,
+        }
+      }
     }
     const products = await ProductModel.findAll({ where: findOption, raw: true, limit, offset })
     return products

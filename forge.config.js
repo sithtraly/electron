@@ -4,6 +4,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: 'src/favicon',
   },
   rebuildConfig: {},
   makers: [
@@ -13,7 +14,7 @@ module.exports = {
         name: 'GasolineStation',
         authors: 'Traly',
         exe: 'Gasoline Station.exe',
-        setupExe: 'setup.exe',
+        setupExe: 'Setup.exe',
         setupIcon: 'src/favicon.ico',
         ui: {
           chooseDirectory: true,

@@ -32,11 +32,11 @@ const createMainWindow = async () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'app.html'));
-  // mainWindow.removeMenu()
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
   mainWindow.maximize()
-  Menu.setApplicationMenu(customMenu)
+  mainWindow.removeMenu()
+  // Menu.setApplicationMenu(customMenu)
 };
 
 const createSplashWindow = async () => {

@@ -4,17 +4,25 @@ const { OrderModel, CustomerModel, ProductModel, sequelize } = require("../db.co
 module.exports = function () {
   ipcMain.handle('getOrder', async (_, obj = {}) => {
     const { search, from, to, limit = 50, offset = 0 } = obj
-    const orders = await sequelize.query(`
-      SELECT o.id, o.qty, o.price, o.isPaid, o.isPrinted, c.id customerId, c.name customer,
-      p.id productId, p.name product, o.carNo, o.stockNo, o.transportNo
+    const condition = `
       FROM tb_order o
       LEFT JOIN tb_customer c ON o.customerId = c.id
       LEFT JOIN tb_product p ON o.productId = p.id
-      WHERE o.isPrinted = FALSE
+      WHERE o.isPrinted = FALSE ${from ? `AND o.createdAt >= '${from}'` : ''} ${to ? `AND o.createdAt <= '${to}'` : ''} 
+      ${search ? `AND (c.customerId = ${search} OR (c.customerName LIKE '%${search}%'))` : ''}`
+    const orders = await sequelize.query(`
+      SELECT o.id, o.qty, o.price, o.isPaid, o.isPrinted, c.id customerId, c.name customer,
+      p.id productId, p.name product, o.carNo, o.stockNo, o.transportNo, o.currency, o.createdAt
+      ${condition}
       LIMIT ${limit} OFFSET ${offset * limit}
-      `, { type: 'SELECT' })
+      `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
 
-    return orders
+    const count = await sequelize.query(`
+      SELECT COUNT(o.id) count
+      ${condition}
+      `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
+
+    return { data: orders, total: count[0].count }
   })
 
   ipcMain.handle('newOrder', async (_, data) => {

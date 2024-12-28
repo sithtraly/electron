@@ -1,12 +1,16 @@
 app.controller('InvoiceController', function ($scope, $location, ShareData) {
+  $scope.from
+  $scope.to
   $scope.invoices = []
   $scope.back = function () {
     $location.path('/orders')
   }
 
-  const ids = ShareData.get('invoiceIds')
-  if (ids) {
-    window.api.invoke('getInvoice', { ids }).then(res => {
+  const data = ShareData.get('invoiceIds')
+  if (data) {
+    $scope.from = data.from
+    $scope.to = data.to
+    window.api.invoke('getInvoice', { ids: data.ids }).then(res => {
       $scope.$apply(function () {
         $scope.invoices = res
       })
@@ -22,7 +26,7 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
           pdfName: res.filePath,
         }).then(function (file) {
           if (file) {
-            window.api.invoke('printedInvoice', { ids })
+            window.api.invoke('printedInvoice', { ids: data })
             window.api.openItemInFolder(file)
             $scope.$apply(function () {
               $scope.back()

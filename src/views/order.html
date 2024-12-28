@@ -5,6 +5,12 @@
   <h2>ការបញ្ជាទិញ</h2>
 </nav>
 <button ng-click="newOrder()">បញ្ជាទិញ</button>
+
+<label for="startDate" ng-value="from">ចាប់ពីថ្ងៃ</label>
+<input type="date" id="startDate" ng-model="from">
+<label for="toDate" ng-value="to">ដល់ថ្ងៃ</label>
+<input type="date" id="toDate" ng-model="to">
+
 <button id="bt-search" ng-click="getOrder()">ស្វែងរក</button>
 <button ng-if="rowsSelected == true" ng-click="createInvoice()">ចេញវិក័យបត្រ</button>
 
@@ -19,6 +25,7 @@
       <th>ផលិតផល</th>
       <th>ចំនួន</th>
       <th>តម្លៃ</th>
+      <th>រូបិយប័ណ្ណ</th>
       <th>លេខឡាន</th>
       <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
       <th>លេខប័ណ្ណដឹកជញ្ជូន</th>
@@ -37,8 +44,9 @@
       <td class="text-center">{{ o.id }}</td>
       <td>{{ o.customer }}</td>
       <td>{{ o.product }}</td>
-      <td>{{ o.qty }}</td>
-      <td>{{ o.price | number }}</td>
+      <td class="text-right">{{ o.qty }}</td>
+      <td class="text-right">{{ o.price | number }}</td>
+      <td>{{ o.currency }}</td>
       <td>{{ o.carNo }}</td>
       <td>{{ o.stockNo }}</td>
       <td>{{ o.transportNo }}</td>
@@ -50,3 +58,5 @@
     </tr>
   </tbody>
 </table>
+
+<pagination page="{{page}}" total-pages="{{totalPages}}" on-change="onPageChange()"></pagination>

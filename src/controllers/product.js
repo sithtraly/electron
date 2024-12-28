@@ -1,9 +1,11 @@
 app.controller('ProductController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
   $scope.products = []
-  $scope.search = undefined
+  $scope.search
+  $scope.from
+  $scope.to
 
   $scope.getProducts = function () {
-    window.api.getProducts($scope.search).then((res) => {
+    window.api.getProducts({search: $scope.search}).then((res) => {
       if (res) {
         res.map(r => r.createdAt = DateUtil.datetime2stdDatetime(r.createdAt))
         $scope.$apply(() => $scope.products = res)

@@ -67,6 +67,10 @@ const OrderModel = sequelize.define('tb_order', {
   customerId: DataTypes.NUMBER,
   productId: DataTypes.NUMBER,
   transportNo: DataTypes.STRING,
+  currency: {
+    type: DataTypes.STRING,
+    defaultValue: 'USD'
+  },
 }, {
   timestamps: true,
   freezeTableName: true,

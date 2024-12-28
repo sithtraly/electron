@@ -13,7 +13,7 @@ module.exports = function () {
       LEFT JOIN tb_product p ON o.productId = p.id
       WHERE o.id IN (${obj.ids.join(',')})
       LIMIT ${limit} OFFSET ${offset * limit}
-      `, { type: 'SELECT' })
+      `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
 
     return orders
   })

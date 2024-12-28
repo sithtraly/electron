@@ -15,5 +15,12 @@ const DateUtil = {
     const M = dt.getMinutes().toString().padStart(2, '0')
     const s = dt.getSeconds().toString().padStart(2, '0')
     return `${y}-${m}-${dd} ${h}:${M}:${s}`
-  }
+  },
+  date2ddmmyyyy: (date = new Date(), separator = '/') => {
+    const d = new Date(date)
+    const y = d.getFullYear()
+    const m = (d.getMonth() + 1).toString().padStart(2, '0')
+    const dd = d.getDate().toString().padStart(2, '0')
+    return `${dd}${separator}${m}${separator}${y}`
+  },
 }

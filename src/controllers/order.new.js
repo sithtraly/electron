@@ -6,15 +6,16 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   $scope.customerId
   $scope.productId
   $scope.price
+  $scope.currency
   $scope.qty
   $scope.carNo
   $scope.stockNo
   $scope.transportNo
   let id
 
-  window.api.getCustomer({}).then(function (customers) {
+  window.api.invoke('getCustomer', {}).then(function (customers) {
     $scope.$apply(function () {
-      $scope.customers = customers
+      $scope.customers = customers.data
     })
   })
   window.api.getProducts().then(function (products) {
@@ -32,6 +33,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     $scope.productId = order.productId + '. ' + order.product
     $scope.qty = order.qty
     $scope.price = order.price
+    $scope.currency = order.currency
     $scope.isPaid = order.isPaid === 1 ? true : false
     $scope.carNo = order.carNo
     $scope.stockNo = order.stockNo
@@ -48,6 +50,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     const isPaid = $scope.isPaid
     const qty = $scope.qty
     const price = $scope.price
+    const currency = $scope.currency
     const carNo = $scope.carNo
     const stockNo = $scope.stockNo
     const transportNo = $scope.transportNo
@@ -61,6 +64,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
       isPaid,
       qty,
       price,
+      currency,
       carNo,
       stockNo,
       transportNo,

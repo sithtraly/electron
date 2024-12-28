@@ -9,9 +9,12 @@ app.controller('CustomerController', ['$scope', '$location', 'ShareData', functi
   $scope.totalPages = 0
 
   $scope.getCustomer = function () {
-    const obj = { limit: $scope.pageSize, offset: $scope.page - 1 }
-    obj.from = $scope.from
-    obj.to = $scope.to
+    const obj = {
+      limit: $scope.pageSize,
+      offset: $scope.page - 1,
+      from: $scope.from,
+      to: $scope.to
+    }
     if ($scope.search) obj.search = $scope.search
     window.api.invoke('getCustomer', obj).then(res => {
       if (res) {
