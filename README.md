@@ -57,3 +57,9 @@ if you wish to get installer you can use external tool like [Inno](https://jrsof
     - **Yes** to save you config script for easy build next time
     - **No** to build setup now
 1. Click **Run**(F9) and wait until build finish
+
+## 4. Sign certificate
+
+```bash
+node_modules\electron-winstaller\vendor\signtool.exe sign /a /f certificate.pfx /p "123" out\make\squirrel.windows\x64\Setup.exe
+```

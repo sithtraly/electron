@@ -19,6 +19,8 @@ module.exports = {
         ui: {
           chooseDirectory: true,
         },
+        certificateFile: 'certificate.pfx',
+        certificatePassword: '123'
       },
     },
     {
