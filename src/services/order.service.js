@@ -10,10 +10,11 @@ module.exports = function () {
       LEFT JOIN tb_product p ON o.productId = p.id
       WHERE o.isPrinted = FALSE
       ${from ? `AND DATE(o.createdAt) >= '${from}'` : ''} ${to ? `AND DATE(o.createdAt) <= '${to}'` : ''}
-      ${search ? `AND (c.name LIKE '%${search}%' OR o.stockNo LIKE '%${search}%' OR o.carNo LIKE '%${search}%' OR o.transportNo LIKE '%${search}%' OR c.phone LIKE '%${search}%' OR c.code LIKE '%${search}%' OR o.currency = '%${search}%')` : ''}`
+      ${search ? `AND (c.name LIKE '%${search}%' OR o.carNo LIKE '%${search}%' OR c.phone LIKE '%${search}%' OR c.code LIKE '%${search}%' 
+         OR o.address LIKE '%${search}%')` : ''}`
     const orders = await sequelize.query(`
-      SELECT o.id, o.qty, o.price, o.isPaid, o.isPrinted, c.id customerId, c.name customer,
-      p.id productId, p.name product, o.carNo, o.stockNo, o.transportNo, o.currency, o.createdAt
+      SELECT o.id, o.qty, o.price, o.isPrinted, c.id customerId, c.name customer, o.code, o.address,
+      p.id productId, p.name product, o.carNo, o.createdAt
       ${condition}
       LIMIT ${limit} OFFSET ${offset * limit}
       `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
@@ -27,13 +28,16 @@ module.exports = function () {
   })
 
   ipcMain.handle('newOrder', async (_, data) => {
-    const order = await OrderModel.create(data)
+    if (!Array.isArray(data)) data = [data]
+    const order = await OrderModel.bulkCreate(data)
     return order
   })
 
   ipcMain.handle('editOrder', async (_, data) => {
-    const { id, ...order } = data
-    const edited = await OrderModel.update(order, { where: { id } })
-    return edited
+    data.forEach(async d => {
+      const { id, ...order } = d
+      await OrderModel.update(order, { where: { id } })
+    })
+    return true
   })
 }

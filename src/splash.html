@@ -14,37 +14,51 @@
       align-items: center;
       flex-direction: column;
     }
+
     /* HTML: <div class="loader"></div> */
     .loader {
-      width: 50px;
-      aspect-ratio: 1;
+      height: 15px;
+      aspect-ratio: 5;
       display: grid;
-      border-radius: 50%;
-      background:
-        linear-gradient(0deg, rgb(0 0 0/50%) 30%, #0000 0 70%, rgb(0 0 0/100%) 0) 50%/8% 100%,
-        linear-gradient(90deg, rgb(0 0 0/25%) 30%, #0000 0 70%, rgb(0 0 0/75%) 0) 50%/100% 8%;
-      background-repeat: no-repeat;
-      animation: l23 1s infinite steps(12);
+      animation: l39-0 1s infinite linear;
     }
 
-    .loader::before,
-    .loader::after {
+    .loader:before,
+    .loader:after {
       content: "";
+      width: calc(140%/3);
       grid-area: 1/1;
-      border-radius: 50%;
-      background: inherit;
-      opacity: 0.915;
-      transform: rotate(30deg);
+      --_g: no-repeat radial-gradient(farthest-side, #000 94%, #0000);
+      background:
+        var(--_g) left,
+        var(--_g) right;
+      background-size: calc(300%/7) 100%;
+      animation: l39-1 1s infinite linear;
     }
 
-    .loader::after {
-      opacity: 0.83;
-      transform: rotate(60deg);
+    .loader:after {
+      margin-left: auto;
+      --s: -1;
     }
 
-    @keyframes l23 {
+    @keyframes l39-0 {
+
+      0%,
+      30% {
+        transform: rotate(0)
+      }
+
+      50%,
       100% {
-        transform: rotate(1turn)
+        transform: rotate(.5turn)
+      }
+    }
+
+    @keyframes l39-1 {
+
+      30%,
+      70% {
+        transform: translate(calc(var(--s, 1)*400%/14))
       }
     }
   </style>
@@ -52,7 +66,7 @@
 
 <body>
   <div class="loader"></div>
-  <div>Loading</div>
+  <!-- <div>Loading</div> -->
 </body>
 
 </html>

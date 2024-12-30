@@ -27,6 +27,12 @@ module.exports = function () {
     const count = await CustomerModel.count({ where: findOption, raw: true })
     return { data: customer, total: count }
   })
+
+  ipcMain.handle('getCustomerById', async (_, id) => {
+    const customer = await CustomerModel.findByPk(id, { raw: true })
+    return customer
+  })
+
   ipcMain.handle('newCustomer', async (e, data) => {
     const customer = await CustomerModel.create(data)
     return customer

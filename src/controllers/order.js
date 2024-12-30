@@ -1,6 +1,6 @@
 app.controller('OrderController', function ($scope, $location, ShareData) {
-  $scope.from
-  $scope.to
+  $scope.from = new Date()
+  $scope.to = new Date()
   $scope.search
   $scope.rowsSelected = false
   $scope.orders = []
@@ -35,7 +35,8 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
     $location.path('/newOrder')
   }
   $scope.dblClick = function (order) {
-    ShareData.set('order', order)
+    const orders = $scope.orders.filter(o => o.code === order.code)
+    ShareData.set('order', orders)
     $location.path('/newOrder')
   }
 

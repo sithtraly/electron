@@ -7,22 +7,62 @@
 
 <div class="flex jusify-center">
   <div class="container flex flex-column" style="min-width: 500px;">
-    <label for="cbCustomer">អតិថិជន</label>
+    <!-- <label for="cbCustomer">អតិថិជន</label>
     <input type="text" required list="cbCustomer" ng-model="customerId">
     <datalist id="cbCustomer">
       <option ng-repeat="c in customers" value="{{c.id}}. {{c.name}}"></option>
-    </datalist>
-
+    </datalist> 
+    
     <label for="cbProduct" class="mt-2">ផលិតផល</label>
     <input type="text" required list="cbProduct" ng-model="productId">
     <datalist id="cbProduct">
       <option ng-repeat="p in products" value="{{p.id}}. {{p.name}}"></option>
-    </datalist>
+    </datalist> -->
 
-    <label for="txtQty" class="mt-2">ចំនួន</label>
+    <p class="m-0">លេខបញ្ជាទិញ៖ {{orderCode}}</p>
+
+    <label for="cbCustomer">អតិថិជន</label>
+    <input type="text" required list="cbCustomer" ng-model="customer" ng-blur="customerBlur()">
+
+    <div class="flex flex-row gap-2 mb-2" ng-repeat="p in products">
+      <div class="flex flex-column">
+        <label for="cbProduct" class="mt-2" ng-if="$index === 0">ផលិតផល</label>
+        <input type="text" required list="cbProduct" ng-model="p.product" ng-blur="productBlur($index)">
+      </div>
+      <div class="flex flex-column">
+        <label for="txtQty" class="mt-2" ng-if="$index === 0">បរិមាណ</label>
+        <input type="number" id="txtQty" required ng-model="p.qty">
+      </div>
+      <div class="flex flex-column">
+        <label for="txtPrice" class="mt-2" ng-if="$index === 0">តម្លៃ</label>
+        <input type="number" id="txtPrice" required ng-model="p.price">
+      </div>
+
+      <div class="flex flex-column" ng-if="products.length > 1">
+        <label class=" mt-2" style="visibility: hidden;" ng-if="$index === 0">ដក</label>
+        <button class="border-0 bg-none px-0" ng-click="removeProduct($index)">
+          <i class="fa-solid fa-x text-danger"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <button ng-click="addProduct()">
+        <i class="fa-solid fa-plus"></i>
+        Add
+      </button>
+    </div>
+
+    <!-- <label for="cbProduct" class="mt-2">ផលិតផល</label>
+    <input type="text" required list="cbProduct" ng-model="product" ng-blur="productBlur()">
+
+    <label for="txtQty" class="mt-2">បរិមាណ</label>
     <input type="number" id="txtQty" required ng-model="qty">
 
-    <div class="flex justify-between">
+    <label for="txtPrice" class="mt-2">តម្លៃ</label>
+    <input type="number" id="txtPrice" required ng-model="price"> -->
+
+    <!-- <div class="flex justify-between">
       <div class="flex flex-column" style="width: 70%;">
         <label for="txtPrice" class="mt-2">តម្លៃ</label>
         <input type="number" id="txtPrice" required ng-model="price">
@@ -35,23 +75,26 @@
           <option value="THB">THB</option>
         </select>
       </div>
-    </div>
+    </div> -->
 
-    <label for="carNo" class="mt-2">លេខឡាន</label>
-    <input type="text" id="carNo" required ng-model="carNo">
+    <label for="carNo">លេខឡាន</label>
+    <input type="text" id="carNo" ng-model="carNo">
 
-    <label for="stockNo" class="mt-2">លេខប័ណ្ណផ្ទេរឃ្លាំង</label>
+    <label for="address">អាសយដ្ឋាន</label>
+    <input type="text" id="address" ng-model="address">
+
+    <!-- <label for="stockNo" class="mt-2">លេខប័ណ្ណផ្ទេរឃ្លាំង</label>
     <input type="text" id="stockNo" required ng-model="stockNo">
 
     <label for="transportNo" class="mt-2">លេខប័ណ្ណដឹកជញ្ជូន</label>
-    <input type="text" id="transportNo" required ng-model="transportNo">
+    <input type="text" id="transportNo" required ng-model="transportNo"> -->
 
-    <div class="flex items-center">
+    <!-- <div class="flex items-center">
       <input type="checkbox" id="isPaid" ng-model="isPaid">
       <label for="isPaid">ទូទាត់រួច</label>
-    </div>
+    </div> -->
 
-    <div class="flex flex-row">
+    <div class="flex flex-row mt-2">
       <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <button style="flex-grow: 1;" class="text-primary" ng-click="save()">រក្សាទុក</button>

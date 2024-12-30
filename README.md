@@ -58,7 +58,25 @@ if you wish to get installer you can use external tool like [Inno](https://jrsof
     - **No** to build setup now
 1. Click **Run**(F9) and wait until build finish
 
-## 4. Sign certificate
+## 4. Generate certificate
+
+- **Generate crt and key file**
+
+```bash
+openssl req -new -newkey rsa:2048 -nodes -keyout private.key -x509 -days <365> -out certificate.crt
+```
+
+This command will create two file is: **certificate.crt** and **private.key**
+
+- **Generate pfx file**
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey private.key -in certificate.crt
+```
+
+## 5. Sign certificate
+
+Application need cerificate to prevent trojan and virus detection from windows defender or other antivirus software. normally this certificate will automatically by configuration in [**forge.config.js**](./forge.config.js), but you still can sign it manually by run below command your root folder of project:
 
 ```bash
 node_modules\electron-winstaller\vendor\signtool.exe sign /a /f certificate.pfx /p "123" out\make\squirrel.windows\x64\Setup.exe

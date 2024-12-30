@@ -17,22 +17,22 @@
     <tr>
       <th>ល.រ</th>
       <th>ឈ្មោះ</th>
-      <th>អាស័យដ្ឋាន</th>
+      <!-- <th>អាស័យដ្ឋាន</th> -->
       <th>លេខទូរសព្ទ</th>
-      <th>លេខបញ្ជាទិញ</th>
+      <!-- <th>លេខបញ្ជាទិញ</th> -->
       <th>ថ្ងៃបង្កើត</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-if="customers.length == 0">
-      <td colspan="7" class="text-center">គ្មានទិន្នន័យ</td>
+      <td colspan="4" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="c in customers" ng-dblclick="dblClick(c)">
       <td class="text-center">{{ c.id }}</td>
       <td>{{ c.name }}</td>
-      <td>{{ c.address }}</td>
+      <!-- <td>{{ c.address }}</td> -->
       <td>{{ c.phone }}</td>
-      <td>{{ c.code }}</td>
+      <!-- <td>{{ c.code }}</td> -->
       <td>{{ c.createdAt }}</td>
     </tr>
   </tbody>

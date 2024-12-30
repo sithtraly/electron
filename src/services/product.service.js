@@ -18,6 +18,11 @@ module.exports = function () {
     return products
   })
 
+  ipcMain.handle('getProductById', async (_, id) => {
+    const product = await ProductModel.findByPk(id, { raw: true })
+    return product
+  })
+
   ipcMain.handle('newProduct', async (_, data) => {
     try {
       const product = await ProductModel.create(data)

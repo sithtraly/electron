@@ -21,40 +21,42 @@
       <th>
         <input type="checkbox" ng-model="allSelected" ng-change="toggleAll()" id="selectAll">
       </th>
-      <th>ល.រ</th>
+      <th>លេខបញ្ជាទិញ</th>
       <th>ឈ្មោះ</th>
       <th>ផលិតផល</th>
-      <th>ចំនួន</th>
+      <th>បរិមាណ</th>
       <th>តម្លៃ</th>
-      <th>រូបិយប័ណ្ណ</th>
+      <!-- <th>រូបិយប័ណ្ណ</th> -->
       <th>លេខឡាន</th>
-      <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
-      <th>លេខប័ណ្ណដឹកជញ្ជូន</th>
-      <th>បានទូទាត់</th>
+      <th>អាសយដ្ឋាន</th>
+      <!-- <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
+      <th>លេខប័ណ្ណដឹកជញ្ជូន</th> -->
+      <!-- <th>បានទូទាត់</th> -->
       <th>ថ្ងៃបញ្ជាទិញ</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-if="orders.length == 0" class="no-data">
-      <td colspan="11" class="text-center">គ្មានទិន្នន័យ</td>
+      <td colspan="9" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="o in orders" ng-dblclick="dblClick(o)">
       <td class="text-center">
         <input type="checkbox" ng-model="o.selected" ng-change="toggleSelect()">
       </td>
-      <td class="text-center">{{ o.id }}</td>
+      <td class="text-center">{{ o.code }}</td>
       <td>{{ o.customer }}</td>
       <td>{{ o.product }}</td>
       <td class="text-right">{{ o.qty }}</td>
       <td class="text-right">{{ o.price | number }}</td>
-      <td>{{ o.currency }}</td>
+      <!-- <td>{{ o.currency }}</td> -->
       <td>{{ o.carNo }}</td>
-      <td>{{ o.stockNo }}</td>
-      <td>{{ o.transportNo }}</td>
-      <td class="text-center">
+      <td>{{ o.address }}</td>
+      <!-- <td>{{ o.stockNo }}</td>
+      <td>{{ o.transportNo }}</td> -->
+      <!-- <td class="text-center">
         <span ng-if="o.isPaid" class="text-primary">&#10004;</span>
         <span ng-if="!o.isPaid" class="text-danger">&#10006;</span>
-      </td>
+      </td> -->
       <td>{{ o.createdAt }}</td>
     </tr>
   </tbody>

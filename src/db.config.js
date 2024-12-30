@@ -35,8 +35,8 @@ const SettingModel = sequelize.define('tb_setting', {
 const CustomerModel = sequelize.define('tb_customer', {
   name: DataTypes.STRING,
   phone: DataTypes.STRING,
-  address: DataTypes.STRING,
-  code: DataTypes.STRING,
+  // address: DataTypes.STRING,
+  // code: DataTypes.STRING,
 }, {
   timestamps: true,
   freezeTableName: true,
@@ -55,22 +55,24 @@ const OrderModel = sequelize.define('tb_order', {
   qty: DataTypes.NUMBER,
   price: DataTypes.NUMBER,
   carNo: DataTypes.STRING,
-  stockNo: DataTypes.STRING,
-  isPaid: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: true,
-  },
+  // stockNo: DataTypes.STRING,
+  // isPaid: {
+  //   type: DataTypes.BOOLEAN,
+  //   defaultValue: true,
+  // },
   isPrinted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   },
   customerId: DataTypes.NUMBER,
   productId: DataTypes.NUMBER,
-  transportNo: DataTypes.STRING,
-  currency: {
-    type: DataTypes.STRING,
-    defaultValue: 'USD'
-  },
+  // transportNo: DataTypes.STRING,
+  // currency: {
+  //   type: DataTypes.STRING,
+  //   defaultValue: 'USD'
+  // },
+  code: DataTypes.STRING,
+  address: DataTypes.STRING,
 }, {
   timestamps: true,
   freezeTableName: true,

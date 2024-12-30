@@ -1,11 +1,13 @@
 app.controller('SettingController', ['$scope', '$location', function ($scope, $location) {
   $scope.back = function () { $location.path('/') }
   $scope.dbPath = ''
-  window.api.getDbPath().then(function (dbPath) {
+
+  window.api.invoke('getDbPath').then(function (dbPath) {
     $scope.$apply(function () {
       $scope.dbPath = dbPath
     })
   })
+
   $scope.browseFile = function () {
     window.dialog.browseFile().then(function (result) {
       if (!result.canceled) {

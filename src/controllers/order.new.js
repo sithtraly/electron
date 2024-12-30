@@ -1,43 +1,33 @@
 app.controller('NewOrderController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
   $scope.title = 'ការបញ្ជាទិញថ្មី'
-  $scope.customers = []
-  $scope.products = []
+  $scope.orderCode = 'SR' + Date.now()
+  $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined }]
   $scope.isPaid = true
   $scope.customerId
-  $scope.productId
-  $scope.price
-  $scope.currency
-  $scope.qty
+  $scope.customer
   $scope.carNo
-  $scope.stockNo
-  $scope.transportNo
-  let id
+  $scope.address
 
-  window.api.invoke('getCustomer', {}).then(function (customers) {
-    $scope.$apply(function () {
-      $scope.customers = customers.data
-    })
-  })
-  window.api.getProducts().then(function (products) {
-    $scope.$apply(function () {
-      $scope.products = products
-    })
-  })
-
-  const order = ShareData.get('order')
+  const orders = ShareData.get('order')
   ShareData.set('order', undefined)
-  if (order) {
+  if (orders) {
+    console.log(orders)
     $scope.title = 'កែប្រែការបញ្ជាទិញ'
-    id = order.id
-    $scope.customerId = order.customerId + '. ' + order.customer
-    $scope.productId = order.productId + '. ' + order.product
-    $scope.qty = order.qty
-    $scope.price = order.price
-    $scope.currency = order.currency
-    $scope.isPaid = order.isPaid === 1 ? true : false
-    $scope.carNo = order.carNo
-    $scope.stockNo = order.stockNo
-    $scope.transportNo = order.transportNo
+    $scope.customerId = orders[0].customerId
+    $scope.customer = orders[0].customer
+    $scope.carNo = orders[0].carNo
+    $scope.orderCode = orders[0].code
+    $scope.address = orders[0].address
+    $scope.products = []
+    orders.forEach(o => {
+      $scope.products.push({
+        productId: o.productId,
+        product: o.product,
+        qty: o.qty,
+        price: o.price,
+        id: o.id
+      })
+    })
   }
 
   $scope.back = function () {
@@ -46,41 +36,53 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
 
   $scope.save = function () {
     const customerId = $scope.customerId
-    const productId = $scope.productId
-    const isPaid = $scope.isPaid
-    const qty = $scope.qty
-    const price = $scope.price
-    const currency = $scope.currency
     const carNo = $scope.carNo
-    const stockNo = $scope.stockNo
-    const transportNo = $scope.transportNo
-    if (!customerId) return window.dialog.warning('សូមបញ្ចូលអតិថិជន')
-    if (!productId) return window.dialog.warning('សូមបញ្ចូលផលិតផល')
-    if (!qty) return window.dialog.warning('សូមបញ្ចូលចំនួន')
-    if (!price) return window.dialog.warning('សូមបញ្ចូលតម្លៃ')
-    const data = {
-      productId: productId.split('.')[0],
-      customerId: customerId.split('.')[0],
-      isPaid,
-      qty,
-      price,
-      currency,
-      carNo,
-      stockNo,
-      transportNo,
-    }
-    if (!id) {
-      window.api.newOrder(data).then(function () {
+    const address = $scope.address
+    const code = $scope.orderCode
+    const data = []
+    $scope.products.forEach(function (product) {
+      data.push({ ...product, customerId, carNo, address, code })
+    })
+    if (!orders) {
+      window.api.invoke('newOrder', data).then(function () {
         window.dialog.success('ការបញ្ជាទិញជោគជ័យ').then(function () {
           $scope.$apply(function () { $scope.back() })
         })
       })
     } else {
-      window.api.editOrder({ ...data, id }).then(function () {
+      window.api.invoke('editOrder', data).then(function () {
         window.dialog.success('កែប្រែការបញ្ជាទិញជោគជ័យ').then(function () {
           $scope.$apply(function () { $scope.back() })
         })
       })
     }
+  }
+
+  $scope.customerBlur = function () {
+    $scope.customerId = $scope.customer
+    window.api.invoke('getCustomerById', $scope.customerId).then(function (res) {
+      $scope.$apply(function () {
+        $scope.customer = res.name
+      })
+    })
+  }
+  $scope.productBlur = function (i) {
+    if ($scope.products[i].product) {
+      const id = $scope.products[i].product
+      $scope.products[i].productId = id
+      window.api.invoke('getProductById', id).then(function (res) {
+        $scope.$apply(function () {
+          $scope.products[i].product = res.name
+        })
+      })
+    }
+  }
+
+  $scope.addProduct = function () {
+    $scope.products.push({ id: undefined, name: undefined, qty: undefined, price: undefined })
+  }
+
+  $scope.removeProduct = function (i) {
+    if ($scope.products.length > 1) $scope.products.splice(i, 1)
   }
 }])
