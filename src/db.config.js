@@ -24,7 +24,7 @@ const sequelize = new Sequelize({
 // sequelize.getQueryInterface().sequelize.query('PRAGMA journal_mode=WAL;')
 
 const SettingModel = sequelize.define('tb_setting', {
-  name: DataTypes.STRING,
+  key: DataTypes.STRING,
   value: DataTypes.STRING,
 }, {
   timestamps: true,

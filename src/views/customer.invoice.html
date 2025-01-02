@@ -1,0 +1,58 @@
+<nav>
+  <button ng-click="back()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <h2>ចេញវិក័បត្រ</h2>
+</nav>
+
+<div class="invoice flex flex-column items-center" id="invoice">
+  <div class="invoice-container customer-invoice">
+    <span class="bokor">{{station}}</span>
+    <span>08123</span>
+    <span>{{stationPhone}}</span>
+    <span>{{datetime | normalDatetime}}</span>
+    <span>{{transferNo}}</span>
+    <span>{{dnNo}}</span>
+    <span>{{orderNo}}</span>
+    <span>{{dnDate | normalDatetime}}</span>
+    <span>{{orderDate | normalDatetime}}</span>
+    <span>{{customer}}</span>
+    <span>{{app1}}</span>
+    <span class="fs-12">{{address}}</span>
+    <span>{{app2}}</span>
+    <span>{{tel}}</span>
+    <span>{{sellType}}</span>
+    <span>{{delBy}}</span>
+    <span>{{payTerm}}</span>
+    <span>{{carNo}}</span>
+    <div class="table">
+      <div class="flex items-center">
+        <div>1</div>
+        <div>Regular 92</div>
+        <div>Litre</div>
+        <div>4,200</div>
+        <div>1,195</div>
+        <div></div>
+        <div>3,610.79</div>
+      </div>
+      <div class="flex items-center">
+        <div>1</div>
+        <div>Regular 92</div>
+        <div>Litre</div>
+        <div>4,200</div>
+        <div>1,195</div>
+        <div></div>
+        <div>3,610.79</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="invoice-container">
+    <div class="flex justify-end mt-3">
+      <button ng-click="savePdf()">
+        <i class="fa-solid fa-file-pdf"></i>
+        Save PDF
+      </button>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,14 @@
 <div class="flex jusify-center">
   <div class="container flex flex-column" style="min-width: 500px;">
     <div>
-      <span>ទីតាំងទិន្នន័យ</span>
+      <span>ទីតាំងទិន្នន័យ(Database): </span>
       <span>{{dbPath}}</span>
-      <button ng-click="browseFile()">ប្ដូរទីតាំង</button>
+      <button ng-click="browDatabase()">ប្ដូរទីតាំង</button>
+    </div>
+    <div>
+      <span>ទីតាំងរក្សាទុកឯកសារ: </span>
+      <span>{{savePath}}</span>
+      <button ng-click="browseFolder()">ប្ដូរទីតាំង</button>
     </div>
   </div>
 </div>

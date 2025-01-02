@@ -10,11 +10,19 @@
 @font-face {
   font-family: "Khmer Muol";
   src: url(./Moul.ttf);
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
 }
 
 @font-face {
   font-family: "Freehand";
   src: url(./KhmerOSfreehand.ttf);
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+@font-face {
+  font-family: "Bokor";
+  src: url(./KhmerOSBokor.ttf);
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
 }
 
 @font-face {
@@ -60,6 +68,10 @@
   font-family: "Siemreap", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.bokor {
+  font-family: Bokor, "Times New Roman", sans-serif;
 }
 
 .times-new-roman {

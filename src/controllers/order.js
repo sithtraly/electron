@@ -73,7 +73,7 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
       from: DateUtil.date2ddmmyyyy($scope.from || new Date()),
       to: DateUtil.date2ddmmyyyy($scope.to || new Date()),
     })
-    $location.path('/invoice')
+    $location.path('/customerInvoice')
   }
 
   $scope.onPageChange = function () {

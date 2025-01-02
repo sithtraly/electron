@@ -24,14 +24,24 @@ module.exports = function () {
         { name: 'Sqlite Files', extensions: ['sqlite'] },
         { name: 'All Files', extensions: ['*'] },
       ],
+      defaultPath: options.defaultPath || undefined
     })
   })
 
   ipcMain.handle('saveFile', (_, options) => {
     return dialog.showSaveDialog(undefined, {
       title: options.title || 'Save file',
-      defaultPath: join(app.getPath('downloads'), options.name || 'untitle'),
+      defaultPath: join(options.defaultPath || app.getPath('downloads'), options.name || 'untitle'),
       buttonLabel: options.buttonLabel || 'Save',
+    })
+  })
+
+  ipcMain.handle('browseFolder', (_, defaultPath = app.getPath('downloads'), options = {}) => {
+    return dialog.showOpenDialog(undefined, {
+      title: options.title || 'Browse file',
+      buttonLabel: options.buttonLabel || 'Select folder',
+      properties: ['openDirectory'],
+      defaultPath: defaultPath,
     })
   })
 }

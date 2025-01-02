@@ -33,5 +33,5 @@ contextBridge.exposeInMainWorld('api', {
   newOrder: (data) => ipcRenderer.invoke('newOrder', data),
   editOrder: (data) => ipcRenderer.invoke('editOrder', data),
 
-  invoke: (action, data) => ipcRenderer.invoke(action, data)
+  invoke: (action, ...args) => ipcRenderer.invoke(action, ...args)
 })
