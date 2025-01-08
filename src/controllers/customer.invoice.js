@@ -17,6 +17,22 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   $scope.payTerm = 'ចុងគ្រា'
   $scope.carNo = '123'
 
+  const data = ShareData.get('invoiceIds')
+  if (data) {
+    $scope.from = data.from
+    $scope.to = data.to
+    window.api.invoke('getCustomerInvoice', data.orderNo).then(res => {
+      console.log(res)
+      $scope.$apply(function () {
+        $scope.carNo = res[0].carNo
+        $scope.dnNo = res[0].code // order number
+        $scope.customer = `${res[0].customer} (${res[0].customerId})`
+        $scope.tel = res[0].phone
+        $scope.orderDate = res[0].orderDate
+      })
+    })
+  }
+
   $scope.back = function () {
     $location.path('/orders')
   }

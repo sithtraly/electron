@@ -1,5 +1,5 @@
 app.controller('OrderController', function ($scope, $location, ShareData) {
-  $scope.from = new Date()
+  $scope.from// = new Date()
   $scope.to = new Date()
   $scope.search
   $scope.rowsSelected = false
@@ -66,10 +66,11 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
   }
 
   $scope.createInvoice = function () {
-    let ids = $scope.orders.filter(o => o.selected)
-    ids = ids.map(i => i.id)
+    let orderNo = $scope.orders.filter(o => o.selected)
+    orderNo = orderNo.map(i => i.code)
+    orderNo = Array.from(new Set(orderNo))
     ShareData.set('invoiceIds', {
-      ids,
+      orderNo,
       from: DateUtil.date2ddmmyyyy($scope.from || new Date()),
       to: DateUtil.date2ddmmyyyy($scope.to || new Date()),
     })

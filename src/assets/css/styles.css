@@ -511,7 +511,7 @@ nav>h2 {
 
 .invoice-container.customer-invoice span:nth-child(6) {
   top: 212px;
-  right: 120px;
+  left: 640px;
 }
 
 .invoice-container.customer-invoice span:nth-child(7) {

@@ -16,7 +16,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     $scope.customerId = orders[0].customerId
     $scope.customer = orders[0].customer
     $scope.carNo = orders[0].carNo
-    $scope.orderCode = orders[0].code
+    $scope.orderCode = orders[0].code ?? $scope.orderCode
     $scope.address = orders[0].address
     $scope.products = []
     orders.forEach(o => {

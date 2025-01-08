@@ -18,6 +18,19 @@ module.exports = function () {
     return orders
   })
 
+  ipcMain.handle('getCustomerInvoice', async (_, orderNos) => {
+    const orders = await sequelize.query(`
+      SELECT o.carNo, o.address, c.name customer, c.id customerId, o.createdAt orderDate, o.updatedAt deliveryDate,
+      p.name product, p.id productId, o.qty, o.price, c.phone, o.code
+      FROM tb_order o
+      LEFT JOIN tb_customer c ON o.customerId = c.id
+      LEFT JOIN tb_product p ON o.productId = p.id
+      WHERE o.code IN ('${orderNos.join('\',\'')}');
+    `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
+
+    return orders
+  })
+
   ipcMain.handle('printedInvoice', async (_, obj = {}) => {
     const { ids } = obj
     const updated = await OrderModel.update({ isPrinted: true }, { where: { id: { [Op.in]: ids } } })
