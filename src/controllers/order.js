@@ -65,10 +65,13 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
     }
   }
 
-  $scope.createInvoice = function () {
-    let orderNo = $scope.orders.filter(o => o.selected)
-    orderNo = orderNo.map(i => i.code)
-    orderNo = Array.from(new Set(orderNo))
+  $scope.createInvoice = function (orderNo) {
+    event.preventDefault()
+    if (!orderNo) {
+      orderNo = $scope.orders.filter(o => o.selected)
+      orderNo = orderNo.map(i => i.code)
+      orderNo = Array.from(new Set(orderNo))
+    } else orderNo = [orderNo]
     ShareData.set('invoiceIds', {
       orderNo,
       from: DateUtil.date2ddmmyyyy($scope.from || new Date()),

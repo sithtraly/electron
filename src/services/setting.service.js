@@ -6,23 +6,29 @@ module.exports = function () {
 
   ipcMain.handle('setting', async (_, key, value) => {
     if (value) {
-      settings['key'] = value
+      settings[key] = value
       const setting = await SettingModel.findOne({ where: { key }, raw: true })
       if (setting) {
         setting.value = value
-        await setting.save()
+        await SettingModel.update({ value }, { where: { key } })
         return setting
       } else {
         const setting = await SettingModel.create({ key, value })
         return setting
       }
     } else {
-      if (settings['key']) {
-        return { key, value: settings['key'] }
-      }
+      if (settings[key]) return { key, value: settings[key] }
       const setting = await SettingModel.findOne({ where: { key }, raw: true })
-      settings['key'] = setting.value || { key, value: app.getPath('downloads') }
-      return setting || { key, value: settings['key'] }
+      if (setting == null) {
+        const newSetting = await SettingModel.create({ key, value: 0 })
+        settings[key] = newSetting.value
+      } else {
+        settings[key] = setting.value
+      }
+      const returnSetting = {}
+      returnSetting['key'] = Object.keys(settings).filter(k => k == key)[0]
+      returnSetting['value'] = settings[key]
+      return returnSetting
     }
   })
 }

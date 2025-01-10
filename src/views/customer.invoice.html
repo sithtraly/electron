@@ -7,44 +7,41 @@
 
 <div class="invoice flex flex-column items-center" id="invoice">
   <div class="invoice-container customer-invoice">
-    <span class="bokor">{{station}}</span>
-    <span>08123</span>
-    <span>{{stationPhone}}</span>
-    <span>{{datetime | normalDatetime}}</span>
-    <span>{{transferNo}}</span>
-    <span>{{dnNo}}</span>
-    <span>{{orderNo}}</span>
-    <span>{{dnDate | normalDatetime}}</span>
-    <span>{{orderDate | normalDatetime}}</span>
-    <span>{{customer}}</span>
-    <span>{{app1}}</span>
-    <span class="fs-12">{{address}}</span>
-    <span>{{app2}}</span>
-    <span>{{tel}}</span>
-    <span>{{sellType}}</span>
-    <span>{{delBy}}</span>
-    <span>{{payTerm}}</span>
-    <span>{{carNo}}</span>
+    <p class="bokor">{{station}}</p>
+    <p>{{invoiceNumber | padStart:3:'0'}}</p>
+    <p>{{stationPhone}}</p>
+    <p>{{datetime | normalDatetime}}</p>
+    <p>{{transferNo}}</p>
+    <p>{{dnNo}}</p>
+    <p>{{orderNo}}</p>
+    <p>{{dnDate | normalDatetime}}</p>
+    <p>{{orderDate | normalDatetime}}</p>
+    <p>{{customer}}</p>
+    <p>{{app1}}</p>
+    <p class="fs-12">{{address}}</p>
+    <p>{{app2}}</p>
+    <p>{{tel}}</p>
+    <p>{{sellType}}</p>
+    <p>{{delBy}}</p>
+    <p>{{payTerm}}</p>
+    <p>{{carNo}}</p>
+
     <div class="table">
-      <div class="flex items-center">
-        <div>1</div>
-        <div>Regular 92</div>
+      <div class="flex items-center" ng-repeat="o in orders">
+        <div>{{$index + 1}}</div>
+        <div>{{o.product}}</div>
         <div>Litre</div>
-        <div>4,200</div>
-        <div>1,195</div>
+        <div>{{o.qty | number}}</div>
+        <div>{{o.price | number}}</div>
         <div></div>
-        <div>3,610.79</div>
-      </div>
-      <div class="flex items-center">
-        <div>1</div>
-        <div>Regular 92</div>
-        <div>Litre</div>
-        <div>4,200</div>
-        <div>1,195</div>
-        <div></div>
-        <div>3,610.79</div>
+        <div>{{o.total | number:2}}</div>
       </div>
     </div>
+
+    <p>{{totalQty | number:0}}</p>
+    <p>{{totalPrice | number:0}}</p>
+
+    <p>{{totalPrice | number2word}}</p>
   </div>
 
   <div class="invoice-container">

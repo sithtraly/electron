@@ -44,7 +44,8 @@ const CustomerModel = sequelize.define('tb_customer', {
 })
 
 const ProductModel = sequelize.define('tb_product', {
-  name: DataTypes.STRING
+  name: DataTypes.STRING,
+  dividend: DataTypes.NUMBER,
 }, {
   timestamps: true,
   freezeTableName: true,
@@ -90,6 +91,15 @@ async function connectdb() {
     await sequelize.authenticate()
     await sequelize.sync({ alter: true })
     console.log("Conntected to database successfully")
+
+    // seeder
+    // create invoice number
+    const invNum = await SettingModel.findOne({ where: { key: 'invNum' } })
+    if (!invNum) await SettingModel.create({ key: 'invNum', value: 1 })
+
+    // create max invoice number
+    const maxInvNum = await SettingModel.findOne({ where: { key: 'maxInvNum' } })
+    if (!maxInvNum) await SettingModel.create({ key: 'maxInvNum', value: 999 })
   } catch (err) {
     console.error("Cannot conntect to database", err)
   }

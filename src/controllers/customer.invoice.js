@@ -8,6 +8,7 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   $scope.dnDate = new Date()
   $scope.orderDate = new Date()
   $scope.customer = 'ឈួន វន្ថា ()'
+  $scope.customerId = 1
   $scope.app1 = 'លោក ឈឿង សុផារ៉ា'
   $scope.address = 'ក្រវ៉ាត់ក្រុង ខេត្តសៀមរាបក្រុងសៀមរាប'
   $scope.app2 = 'លោក តុង ហ៊ាន់'
@@ -16,6 +17,10 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   $scope.delBy = 'ឡានស៊ីតែន'
   $scope.payTerm = 'ចុងគ្រា'
   $scope.carNo = '123'
+  $scope.invoiceNumber = 0
+  $scope.orders = []
+  $scope.totalQty = 0
+  $scope.totalPrice = 0
 
   const data = ShareData.get('invoiceIds')
   if (data) {
@@ -24,12 +29,28 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
     window.api.invoke('getCustomerInvoice', data.orderNo).then(res => {
       console.log(res)
       $scope.$apply(function () {
-        $scope.carNo = res[0].carNo
-        $scope.dnNo = res[0].code // order number
-        $scope.customer = `${res[0].customer} (${res[0].customerId})`
-        $scope.tel = res[0].phone
-        $scope.orderDate = res[0].orderDate
+        res.forEach(r => {
+          $scope.totalQty += r.qty
+          $scope.totalPrice += r.total
+        })
+        const r0 = res[0]
+        $scope.orders = res
+        $scope.carNo = r0.carNo
+        $scope.dnNo = r0.code // order number
+        $scope.customer = `${r0.customer} (${r0.customerId})`
+        $scope.tel = r0.phone
+        $scope.orderDate = r0.orderDate
+        $scope.address = r0.address
       })
+    })
+    window.api.invoke('setting', 'invNum').then(function (res) {
+      res.value = res.value == 0 ? 1 : parseInt(res.value)
+      $scope.$apply(function () {
+        $scope.invoiceNumber = parseInt(res.value)
+      })
+      const max = ShareData.get('ShareData')
+      const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
+      window.api.invoke('setting', 'invNum', newInvNum)
     })
   }
 

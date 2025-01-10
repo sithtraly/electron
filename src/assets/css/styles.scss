@@ -1,4 +1,5 @@
 @import url(../fonts/fonts.css);
+
 * {
   font-family: Battambang, "Times New Roman", "Roboto regular", serif;
 }
@@ -26,6 +27,7 @@
 /* * {
   user-select: none;
 } */
+
 table *,
 input,
 select,
@@ -168,7 +170,7 @@ table th {
 }
 
 .text-center {
-  text-align: center;
+  text-align: center
 }
 
 .text-right {
@@ -189,7 +191,7 @@ nav {
   margin-bottom: 8px;
 }
 
-nav > button {
+nav>button {
   height: unset;
   width: unset;
   background: transparent;
@@ -197,7 +199,7 @@ nav > button {
   margin: 0 10px;
 }
 
-nav > h2 {
+nav>h2 {
   margin: auto 0;
 }
 
@@ -234,6 +236,7 @@ nav > h2 {
 .m-5 {
   margin-top: 20px;
 }
+
 
 .mb-0,
 .m-0 {
@@ -300,6 +303,7 @@ nav > h2 {
 .m-5 {
   margin-right: 20px;
 }
+
 
 .ml-0,
 .mx-0,
@@ -436,7 +440,7 @@ nav > h2 {
   padding: 0;
 }
 
-.invoice-container table tr > * {
+.invoice-container table tr>* {
   padding: 0 2px;
 }
 
@@ -445,6 +449,7 @@ nav > h2 {
   background-color: unset !important;
 }
 
+
 .invoice-container table thead tr th {
   color: #000000;
   font-family: Freehand, "Times New Roman";
@@ -452,6 +457,7 @@ nav > h2 {
   text-shadow: 0.001px 0 0 #000000, -0.001px 0 0 #000000, 0 0.001px 0 #000000, 0 -0.001px 0 #000000;
   text-align: left;
 }
+
 
 .invoice-container table thead tr {
   vertical-align: baseline;
@@ -480,103 +486,126 @@ nav > h2 {
 
 .invoice-container.customer-invoice p {
   margin: 0;
-}
-.invoice-container.customer-invoice p:nth-child(1) {
-  top: 130px;
-  left: 145px;
-}
-.invoice-container.customer-invoice p:nth-child(2) {
-  top: 138px;
-  left: 185mm;
-}
-.invoice-container.customer-invoice p:nth-child(3) {
-  top: 175px;
-  left: 145px;
-}
-.invoice-container.customer-invoice p:nth-child(4) {
-  top: 175px;
-  right: 58px;
-}
-.invoice-container.customer-invoice p:nth-child(5) {
-  top: 212px;
-  left: 210px;
-}
-.invoice-container.customer-invoice p:nth-child(6) {
-  top: 212px;
-  left: 640px;
-}
-.invoice-container.customer-invoice p:nth-child(7) {
-  top: 244px;
-  left: 215px;
-}
-.invoice-container.customer-invoice p:nth-child(8) {
-  top: 244px;
-  right: 65px;
-}
-.invoice-container.customer-invoice p:nth-child(9) {
-  top: 272px;
-  left: 180px;
-}
-.invoice-container.customer-invoice p:nth-child(10) {
-  top: 265px;
-  right: 147px;
-}
-.invoice-container.customer-invoice p:nth-child(11) {
-  top: 298px;
-  left: 201px;
-}
-.invoice-container.customer-invoice p:nth-child(12) {
-  top: 300px;
-  left: 153mm;
-}
-.invoice-container.customer-invoice p:nth-child(13) {
-  top: 325px;
-  left: 201px;
-}
-.invoice-container.customer-invoice p:nth-child(14) {
-  top: 331px;
-  left: 146mm;
-}
-.invoice-container.customer-invoice p:nth-child(15) {
-  top: 355px;
-  left: 174px;
-}
-.invoice-container.customer-invoice p:nth-child(16) {
-  top: 355px;
-  left: 165mm;
-}
-.invoice-container.customer-invoice p:nth-child(17) {
-  top: 384px;
-  left: 177px;
-}
-.invoice-container.customer-invoice p:nth-child(18) {
-  top: 390px;
-  left: 156mm;
-}
-.invoice-container.customer-invoice p:nth-child(19) {
-  top: 800px;
-  left: 156mm;
-}
-.invoice-container.customer-invoice p:nth-child(20) {
-  top: 790px;
-  left: 100mm;
-  text-align: center;
-  width: 80px;
-}
-.invoice-container.customer-invoice p:nth-child(21) {
-  top: 790px;
-  left: 174mm;
-  text-align: center;
-  width: 115px;
-}
-.invoice-container.customer-invoice p:nth-child(21)::before {
-  position: absolute;
-  content: "$";
-  left: 0;
-}
-.invoice-container.customer-invoice p:nth-child(22) {
-  top: 828px;
-  left: 280px;
+
+  &:nth-child(1) {
+    top: 130px;
+    left: 145px;
+  }
+
+  &:nth-child(2) {
+    top: 138px;
+    left: 185mm;
+  }
+
+  &:nth-child(3) {
+    top: 175px;
+    left: 145px;
+  }
+
+  &:nth-child(4) {
+    top: 175px;
+    right: 58px;
+  }
+
+  &:nth-child(5) {
+    top: 212px;
+    left: 210px;
+  }
+
+  &:nth-child(6) {
+    top: 212px;
+    left: 640px;
+  }
+
+  &:nth-child(7) {
+    top: 244px;
+    left: 215px;
+  }
+
+  &:nth-child(8) {
+    top: 244px;
+    right: 65px;
+  }
+
+  &:nth-child(9) {
+    top: 272px;
+    left: 180px;
+  }
+
+  &:nth-child(10) {
+    top: 265px;
+    right: 147px;
+  }
+
+  &:nth-child(11) {
+    top: 298px;
+    left: 201px;
+  }
+
+  &:nth-child(12) {
+    top: 300px;
+    left: 153mm;
+  }
+
+  &:nth-child(13) {
+    top: 325px;
+    left: 201px;
+  }
+
+  &:nth-child(14) {
+    top: 331px;
+    left: 146mm;
+  }
+
+  &:nth-child(15) {
+    top: 355px;
+    left: 174px;
+  }
+
+  &:nth-child(16) {
+    top: 355px;
+    left: 165mm;
+  }
+
+  &:nth-child(17) {
+    top: 384px;
+    left: 177px;
+  }
+
+  &:nth-child(18) {
+    top: 390px;
+    left: 156mm;
+  }
+
+  &:nth-child(19) {
+    top: 800px;
+    left: 156mm;
+  }
+
+  &:nth-child(20) {
+    top: 790px;
+    left: 100mm;
+    text-align: center;
+    width: 80px;
+  }
+
+  &:nth-child(21) {
+    top: 790px;
+    left: 174mm;
+    text-align: center;
+    width: 115px;
+
+    &::before {
+      position: absolute;
+      content: '$';
+      left: 0;
+    }
+  }
+
+  &:nth-child(22) {
+    top: 828px;
+    left: 280px;
+  }
 }
 
 .invoice-container.customer-invoice div.table {
@@ -587,43 +616,43 @@ nav > h2 {
   right: 0;
 }
 
-.invoice-container.customer-invoice div.table > div {
+.invoice-container.customer-invoice div.table>div {
   position: unset;
   width: 100%;
   height: 35px;
   border-bottom: 2px dashed gray;
 }
 
-.invoice-container.customer-invoice div.table > div > div {
+.invoice-container.customer-invoice div.table>div>div {
   position: unset;
   text-align: center;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(1) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(1) {
   width: 60px;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(2) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(2) {
   width: 239px;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(3) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(3) {
   width: 60px;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(4) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(4) {
   width: 80px;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(5) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(5) {
   width: 89px;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(6) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(6) {
   width: 110px;
 }
 
-.invoice-container.customer-invoice div.table > div > div:nth-child(7) {
+.invoice-container.customer-invoice div.table>div>div:nth-child(7) {
   width: 120px;
 }
 
@@ -634,20 +663,22 @@ nav > h2 {
     margin: 0;
     padding: 0;
   }
+
   .frame {
     display: none;
   }
+
   nav {
     display: none;
   }
+
   .invoice,
   .invoice-container {
     box-shadow: none;
     margin: 0;
   }
+
   .invoice-container button {
     display: none;
   }
 }
-
-/*# sourceMappingURL=styles.css.map */

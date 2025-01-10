@@ -18,6 +18,7 @@
     <tr>
       <th>ល.រ</th>
       <th>ឈ្មោះ</th>
+      <th>ចែកដោយ</th>
       <th>ថ្ងៃបង្កើត</th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
     <tr ng-repeat="p in products" ng-dblclick="dblClick(p)">
       <td class="text-center">{{ p.id }}</td>
       <td>{{ p.name }}</td>
+      <td>{{ p.dividend }}</td>
       <td>{{ p.createdAt }}</td>
     </tr>
   </tbody>

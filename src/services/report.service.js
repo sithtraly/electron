@@ -14,8 +14,8 @@ module.exports = function () {
       ${search ? `AND (c.id = '${search}' OR c.name LIKE '%${search}%' OR c.phone LIKE '%${search}%' OR c.code LIKE '%${search}%'
         OR o.transportNo LIKE '%${search}%' OR o.stockNo LIKE '%${search}%' OR o.carNo LIKE '%${search}%' OR c.address LIKE '%${search}%')` : ''}`
     const reports = await sequelize.query(`
-      SELECT o.id, c.name customer, o.qty, o.price, o.currency, o.isPaid, o.isPrinted, c.id customerId, c.address, c.phone,
-      p.id productId, p.name product, o.carNo, o.stockNo, o.transportNo, c.code, o.createdAt
+      SELECT o.id, c.name customer, o.qty, o.price, o.isPrinted, c.id customerId, c.address, c.phone,
+      p.id productId, p.name product, o.carNo, c.code, o.createdAt
       ${condition}
       LIMIT ${limit} OFFSET ${offset * limit}
     `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
