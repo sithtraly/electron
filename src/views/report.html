@@ -22,15 +22,15 @@
       <th>ល.រ</th>
       <th>ឈ្មោះ</th>
       <th>ផលិតផល</th>
+      <th>បរិមាណ</th>
       <th>តម្លៃ</th>
-      <th>រូបិយប័ណ្ណ</th>
+      <th>តម្លៃសរុប</th>
+      <!-- <th>រូបិយប័ណ្ណ</th> -->
       <th>អាស័យដ្ឋានដាក់ទំនិញ</th>
       <th>លេខទូរស័ព្ទ</th>
       <th>លេខបញ្ជាទិញ</th>
       <th>លេខឡាន</th>
-      <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
-      <th>លេខប័ណ្ណ ដឹកជញ្ជូន</th>
-      <th>បានទូទាត់</th>
+      <!-- <th>បានទូទាត់</th> -->
       <th>ថ្ងៃបញ្ជាទិញ</th>
     </tr>
   </thead>
@@ -43,18 +43,18 @@
       <td class="text-center">{{r.id}}</td>
       <td>{{r.customer}}</td>
       <td>{{r.product}}</td>
-      <td class="text-right">{{ r.price | number }}</td>
-      <td>{{r.currency}}</td>
+      <td class="text-right">{{ r.qty | number:0 }}</td>
+      <td class="text-right">{{ r.price | number:0 }}</td>
+      <td class="text-right">{{ r.totalPrice | number:0 }}</td>
+      <!-- <td>{{r.currency}}</td> -->
       <td>{{r.address}}</td>
       <td>{{r.phone}}</td>
       <td>{{r.code}}</td>
       <td>{{r.carNo}}</td>
-      <td>{{r.stockNo}}</td>
-      <td>{{r.transportNo}}</td>
-      <td class="text-center">
+      <!-- <td class="text-center">
         <span ng-if="r.isPaid" class="text-primary">&#10004;</span>
         <span ng-if="!r.isPaid" class="text-danger">&#10006;</span>
-      </td>
+      </td> -->
       <td>{{r.createdAt | stdDatetime}}</td>
     </tr>
   </tbody>

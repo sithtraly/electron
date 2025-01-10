@@ -55,8 +55,7 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   }
 
   $scope.savePdf = function () {
-    let savePath
-    window.api.invoke('setting', 'savePath').then(r => savePath = r)
+    const savePath = ShareData.get('savePath')
     window.dialog.saveFile({
       name: `Invoice ${DateUtil.date2stdDate(new Date())}_${Date.now()}.pdf`,
       defaultPath: savePath,
