@@ -27,7 +27,6 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
     $scope.from = data.from
     $scope.to = data.to
     window.api.invoke('getCustomerInvoice', data.orderNo).then(res => {
-      console.log(res)
       $scope.$apply(function () {
         res.forEach(r => {
           $scope.totalQty += r.qty
@@ -48,9 +47,6 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
       $scope.$apply(function () {
         $scope.invoiceNumber = parseInt(res.value)
       })
-      const max = ShareData.get('ShareData')
-      const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
-      window.api.invoke('setting', 'invNum', newInvNum)
     })
   }
 
@@ -59,7 +55,8 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   }
 
   $scope.savePdf = function () {
-    let savePath = window.api.invoke('setting', 'savePath')
+    let savePath
+    window.api.invoke('setting', 'savePath').then(r => savePath = r)
     window.dialog.saveFile({
       name: `Invoice ${DateUtil.date2stdDate(new Date())}_${Date.now()}.pdf`,
       defaultPath: savePath,
@@ -69,7 +66,11 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
           pdfName: res.filePath,
         }).then(function (file) {
           if (file) {
-            // window.api.invoke('printedInvoice', { ids: data.ids }) // update order to isPrinted = true
+            const max = ShareData.get('ShareData')
+            const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
+            window.api.invoke('setting', 'invNum', newInvNum)
+            const ids = $scope.orders.map(o => o.id)
+            window.api.invoke('printedInvoice', { ids }) // update order to isPrinted = true
             window.api.openItemInFolder(file)
             $scope.$apply(function () {
               $scope.back()
