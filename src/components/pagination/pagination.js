@@ -15,7 +15,7 @@ app.directive('pagination', function (ShareData) {
         ShareData.set('pagination', { pageSize: scope.pageSize, page: scope.page, totalPages: parseInt(scope.totalPages) })
       }
       scope.next = function () {
-        if (scope.page < scope.totalPages) {
+        if (scope.page < parseInt(scope.totalPages)) {
           scope.page++
           scope.sharedata()
           scope.onChange()
