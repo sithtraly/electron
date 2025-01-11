@@ -16,7 +16,7 @@ var mainWindow
 const browsingHistory = []
 const iconPath = path.join(__dirname, 'favicon.ico')
 
-const createMainWindow = async () => {
+async function createMainWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1024,
@@ -28,6 +28,7 @@ const createMainWindow = async () => {
       enableRemoteModule: true,
     },
     icon: iconPath,
+    title: 'តេលាខ្មែរ',
   });
 
   // and load the index.html of the app.
@@ -39,7 +40,7 @@ const createMainWindow = async () => {
   // Menu.setApplicationMenu(customMenu)
 };
 
-const createSplashWindow = async () => {
+async function createSplashWindow() {
   // Create the browser window.
   splashWindow = new BrowserWindow({
     width: 1024,
@@ -62,7 +63,6 @@ const createSplashWindow = async () => {
   splashWindow.close()
   createMainWindow()
 }
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

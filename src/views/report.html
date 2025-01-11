@@ -15,6 +15,7 @@
 <button id="bt-search" ng-click="getReports()">ស្វែងរក</button>
 
 <button ng-click="downloadExcel()">ទាញយក Excel</button>
+<button ng-click="downloadPdf()">ទាញយក Pdf</button>
 
 <table>
   <thead style="background-color: gainsboro;">
@@ -45,7 +46,7 @@
       <td>{{r.product}}</td>
       <td class="text-right">{{ r.qty | number:0 }}</td>
       <td class="text-right">{{ r.price | number:0 }}</td>
-      <td class="text-right">{{ r.totalPrice | number:0 }}</td>
+      <td class="text-right">{{ r.total | number:0 }}</td>
       <!-- <td>{{r.currency}}</td> -->
       <td>{{r.address}}</td>
       <td>{{r.phone}}</td>

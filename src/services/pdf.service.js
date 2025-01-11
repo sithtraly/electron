@@ -15,7 +15,7 @@ module.exports = function () {
       }).then(data => {
         try {
           writeFileSync(options.pdfName, data)
-          console.log(options.pdfName)
+          // console.log(options.pdfName)
           resolve(options.pdfName)
         } catch (err) {
           console.error(err)

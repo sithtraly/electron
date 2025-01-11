@@ -11,7 +11,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   const orders = ShareData.get('order')
   ShareData.set('order', undefined)
   if (orders) {
-    console.log(orders)
+    // console.log(orders)
     $scope.title = 'កែប្រែការបញ្ជាទិញ'
     $scope.customerId = orders[0].customerId
     $scope.customer = orders[0].customer
