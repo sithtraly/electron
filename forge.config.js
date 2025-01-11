@@ -11,10 +11,10 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        name: 'GasolineStation',
+        name: 'TelaKhmer',
         authors: 'Traly',
-        exe: 'Gasoline Station.exe',
-        setupExe: 'Setup.exe',
+        exe: 'Tela Khmer.exe',
+        setupExe: 'Setup-${version}.exe',
         setupIcon: 'src/favicon.ico',
         ui: {
           chooseDirectory: true,
@@ -25,7 +25,7 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-zip',
-      platforms: ['win32', 'darwin'],
+      platforms: [/*'win32', 'darwin'*/],
     },
     {
       name: '@electron-forge/maker-deb',

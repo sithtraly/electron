@@ -1,7 +1,7 @@
 {
   "name": "electronjs",
-  "productName": "Gasoline Station",
-  "version": "1.0.0",
+  "productName": "Tela Khmer",
+  "version": "1.0.2",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
@@ -10,6 +10,17 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
+  },
+  "build": {
+    "appId": "com.telakhmer.kh",
+    "productName": "TelaKhmer",
+    "win": {
+      "icon": "build/icon.ico"
+    },
+    "squirrelWindows": {
+      "icon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    }
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.6.0",
