@@ -10,7 +10,7 @@
 <input type="date" id="startDate" ng-model="from">
 <label for="toDate" ng-value="to">ដល់ថ្ងៃ</label>
 <input type="date" id="toDate" ng-model="to">
-<input type="text" placeholder="ឈ្មោះ, លេខទូរសព្ទ, កូដកម្មង, រូបិយប័ណ្ណ, លេខប័ណ្ណផ្ទេរឃ្លាំង, លេខប័ណ្ណដឹកជញ្ជូន" ng-model="search">
+<input type="text" placeholder="ឈ្មោះ, លេខទូរស័ព្ទ, កូដកម្មង, រូបិយប័ណ្ណ, លេខប័ណ្ណផ្ទេរឃ្លាំង, លេខប័ណ្ណដឹកជញ្ជូន" ng-model="search">
 
 <button id="bt-search" ng-click="getOrder()">ស្វែងរក</button>
 <button ng-if="rowsSelected == true" ng-click="createInvoice()">ចេញវិក័យបត្រ</button>
@@ -28,7 +28,7 @@
       <th>តម្លៃ</th>
       <!-- <th>រូបិយប័ណ្ណ</th> -->
       <th>លេខឡាន</th>
-      <th>អាសយដ្ឋាន</th>
+      <th>អាស័យដ្ឋាន</th>
       <!-- <th>លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
       <th>លេខប័ណ្ណដឹកជញ្ជូន</th> -->
       <!-- <th>បានទូទាត់</th> -->
@@ -61,7 +61,8 @@
       <td>{{ o.createdAt }}</td>
       <td class="text-center">
         <a class="pointer" ng-click="createInvoice(o.code)">
-          <i class="fa-solid fa-file-pdf"></i>
+          <!-- <i class="fa-solid fa-file-pdf"></i> -->
+           <button style="height: unset;">ចេញវិក័បត្រ</button>
         </a>
       </td>
     </tr>

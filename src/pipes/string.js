@@ -7,6 +7,7 @@ app.filter('padStart', function () {
 
 app.filter('number2word', function () {
   return function (input) {
+    if (input === 0) return 'សូន្យ'
     if (!input) return input
     input = Math.floor(input)
     const ones = ['', 'មួយ', 'ពីរ', 'បី', 'បួន', 'ប្រាំ', 'ប្រាំមួយ', 'ប្រាំពីរ', 'ប្រាំបី', 'ប្រាំបួន',]

@@ -26,6 +26,12 @@
 }
 
 @font-face {
+  font-family: "Khmer Os Content";
+  src: url(./Content-Regular.ttf), url(./Content-Bold.ttf);
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+@font-face {
   font-family: "Times New Roman";
   src: url(./Times-New-Roman.ttf);
 }

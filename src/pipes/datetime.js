@@ -6,7 +6,7 @@ app.filter('stdDatetime', function () {
 })
 
 app.filter('normalDatetime', function() {
-  return function (input) {
+  return function (input, splitter = " ") {
     if (!input) return input
     const date = new Date(input)
     const d = date.getDate().toString().padStart(2, '0')
@@ -15,6 +15,6 @@ app.filter('normalDatetime', function() {
     const ampm = date.getHours() < 12 ? 'AM' : 'PM'
     const h = date.getHours() % 12 || 12
     const min = date.getMinutes().toString().padStart(2, '0')
-    return `${d}/${m}/${y} ${h}:${min}${ampm}`
+    return `${d}/${m}/${y}${splitter}${h}:${min}${ampm}`
   }
 })
