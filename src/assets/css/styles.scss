@@ -472,212 +472,217 @@ nav>h2 {
 }
 
 .invoice-container.customer-invoice {
-  background: url(../images/customer-invoice.jpg);
-  background-size: contain;
+  // background: url(../images/customer-invoice.jpg);
+  // background-size: contain;
   min-height: 29.7cm;
   position: relative;
 
   &>* {
     font-family: "Khmer Os Content", "Times New Roman";
   }
-}
 
-.invoice-container.customer-invoice * {
-  position: absolute;
-  font-size: 15px;
-
-}
-
-.invoice-container.customer-invoice img {
-  width: 62px;
-  left: 209px;
-}
-
-
-.invoice-container.customer-invoice p {
-  margin: 0;
-  // font-weight: bold;
-
-  &:nth-of-type(1) {
-    top: 125px;
-    left: 145px;
-    font-weight: bold;
-    font-size: 16px;
+  * {
+    position: absolute;
+    font-size: 15px;
   }
 
-  &:nth-of-type(2) {
-    top: 128px;
-    left: 180mm;
-    font-weight: bold;
-    font-size: 19px;
+  img:nth-of-type(1) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 21cm;
   }
 
-  &:nth-of-type(3) {
-    top: 175px;
-    left: 145px;
+  img:nth-of-type(2) {
+    width: 62px;
+    left: 209px;
   }
 
-  &:nth-of-type(4) {
-    top: 175px;
-    left: 160mm;
-  }
+  p {
+    margin: 0;
+    // font-weight: bold;
 
-  &:nth-of-type(5) {
-    top: 218px;
-    left: 210px;
-  }
+    &:nth-of-type(1) {
+      top: 125px;
+      left: 145px;
+      font-weight: bold;
+      font-size: 16px;
+    }
 
-  &:nth-of-type(6) {
-    top: 218px;
-    left: 640px;
-  }
+    &:nth-of-type(2) {
+      top: 128px;
+      left: 180mm;
+      font-weight: bold;
+      font-size: 19px;
+    }
 
-  &:nth-of-type(7) {
-    top: 260px;
-    left: 215px;
-    display: none;
-  }
+    &:nth-of-type(3) {
+      top: 175px;
+      left: 145px;
+    }
 
-  &:nth-of-type(8) {
-    top: 260px;
-    right: 65px;
-    display: none;
-  }
+    &:nth-of-type(4) {
+      top: 175px;
+      left: 160mm;
+    }
 
-  &:nth-of-type(9) {
-    top: 295px;
-    left: 180px;
-    display: none;
-  }
+    &:nth-of-type(5) {
+      top: 218px;
+      left: 210px;
+    }
 
-  &:nth-of-type(10) {
-    top: 290px;
-    left: 150mm;
-  }
+    &:nth-of-type(6) {
+      top: 218px;
+      left: 640px;
+    }
 
-  &:nth-of-type(11) {
-    top: 326px;
-    left: 201px;
-  }
+    &:nth-of-type(7) {
+      top: 260px;
+      left: 215px;
+      display: none;
+    }
 
-  &:nth-of-type(12) {
-    top: 326px;
-    left: 153mm;
-  }
+    &:nth-of-type(8) {
+      top: 260px;
+      right: 65px;
+      display: none;
+    }
 
-  &:nth-of-type(13) {
-    top: 362px;
-    left: 201px;
-  }
+    &:nth-of-type(9) {
+      top: 295px;
+      left: 180px;
+      display: none;
+    }
 
-  &:nth-of-type(14) {
-    top: 367px;
-    left: 146mm;
-  }
+    &:nth-of-type(10) {
+      top: 290px;
+      left: 150mm;
+    }
 
-  &:nth-of-type(15) {
-    top: 397px;
-    left: 174px;
-  }
+    &:nth-of-type(11) {
+      top: 326px;
+      left: 201px;
+    }
 
-  &:nth-of-type(16) {
-    top: 397px;
-    left: 165mm;
-  }
+    &:nth-of-type(12) {
+      top: 326px;
+      left: 153mm;
+    }
 
-  &:nth-of-type(17) {
-    top: 434px;
-    left: 177px;
-  }
+    &:nth-of-type(13) {
+      top: 362px;
+      left: 201px;
+    }
 
-  &:nth-of-type(18) {
-    top: 438px;
-    left: 156mm;
-  }
+    &:nth-of-type(14) {
+      top: 367px;
+      left: 146mm;
+    }
 
-  &:nth-of-type(19) {
-    top: 800px;
-    left: 156mm;
-  }
+    &:nth-of-type(15) {
+      top: 397px;
+      left: 174px;
+    }
 
-  &:nth-of-type(19) {
-    top: 841px;
-    left: 100mm;
-    text-align: center;
-    width: 80px;
-  }
+    &:nth-of-type(16) {
+      top: 397px;
+      left: 165mm;
+    }
 
-  &:nth-of-type(20) {
-    top: 841px;
-    left: 174mm;
-    text-align: center;
-    width: 115px;
+    &:nth-of-type(17) {
+      top: 434px;
+      left: 177px;
+    }
 
-    &::before {
-      position: absolute;
-      content: '$';
-      left: 0;
+    &:nth-of-type(18) {
+      top: 438px;
+      left: 156mm;
+    }
+
+    &:nth-of-type(19) {
+      top: 800px;
+      left: 156mm;
+    }
+
+    &:nth-of-type(19) {
+      top: 841px;
+      left: 100mm;
+      text-align: center;
+      width: 80px;
+    }
+
+    &:nth-of-type(20) {
+      top: 841px;
+      left: 174mm;
+      text-align: center;
+      width: 115px;
+
+      &::before {
+        position: absolute;
+        content: '$';
+        left: 0;
+      }
+    }
+
+    &:nth-of-type(21) {
+      top: 883px;
+      left: 280px;
     }
   }
 
-  &:nth-of-type(21) {
-    top: 883px;
-    left: 280px;
+  div.table {
+    position: absolute;
+    top: 518px;
+    padding: 0 18px;
+    left: 0;
+    right: 0;
   }
-}
 
-.invoice-container.customer-invoice div.table {
-  position: absolute;
-  top: 518px;
-  padding: 0 18px;
-  left: 0;
-  right: 0;
-}
+  div.table>div {
+    position: unset;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px dashed #bfbfbf;
+    font-weight: normal;
 
-.invoice-container.customer-invoice div.table>div {
-  position: unset;
-  width: 100%;
-  height: 40px;
-  border-bottom: 1px dashed #bfbfbf;
-  font-weight: normal;
+    &>div:nth-child(2) {
+      text-align: left;
+      text-indent: 10mm;
+    }
 
-  &>div:nth-child(2) {
-    text-align: left;
-    text-indent: 10mm;
+    &>div {
+      position: unset;
+      text-align: center;
+
+      &:nth-child(1) {
+        width: 60px;
+      }
+
+      &:nth-child(2) {
+        width: 239px;
+      }
+
+      &:nth-child(3) {
+        width: 60px;
+      }
+
+      &:nth-child(4) {
+        width: 80px;
+      }
+
+      &:nth-child(5) {
+        width: 89px;
+      }
+
+      &:nth-child(6) {
+        width: 110px;
+      }
+
+      &:nth-child(7) {
+        width: 120px;
+      }
+    }
   }
-}
-
-.invoice-container.customer-invoice div.table>div>div {
-  position: unset;
-  text-align: center;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(1) {
-  width: 60px;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(2) {
-  width: 239px;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(3) {
-  width: 60px;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(4) {
-  width: 80px;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(5) {
-  width: 89px;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(6) {
-  width: 110px;
-}
-
-.invoice-container.customer-invoice div.table>div>div:nth-child(7) {
-  width: 120px;
 }
 
 @media print {
@@ -705,4 +710,15 @@ nav>h2 {
   .invoice-container button {
     display: none;
   }
+
+  .invoice-container.customer-invoice img:nth-of-type(1) {
+    margin-top: 0;
+  }
+
+  // .invoice-container.customer-invoice {
+  //   background-image: url(../images/customer-invoice.jpg);
+  //   background-size: contain;
+  //   min-height: 29.7cm;
+  //   position: relative;
+  // }
 }

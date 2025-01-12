@@ -466,25 +466,26 @@ nav > h2 {
 }
 
 .invoice-container.customer-invoice {
-  background: url(../images/customer-invoice.jpg);
-  background-size: contain;
   min-height: 29.7cm;
   position: relative;
 }
 .invoice-container.customer-invoice > * {
   font-family: "Khmer Os Content", "Times New Roman";
 }
-
 .invoice-container.customer-invoice * {
   position: absolute;
   font-size: 15px;
 }
-
-.invoice-container.customer-invoice img {
+.invoice-container.customer-invoice img:nth-of-type(1) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 21cm;
+}
+.invoice-container.customer-invoice img:nth-of-type(2) {
   width: 62px;
   left: 209px;
 }
-
 .invoice-container.customer-invoice p {
   margin: 0;
 }
@@ -592,7 +593,6 @@ nav > h2 {
   top: 883px;
   left: 280px;
 }
-
 .invoice-container.customer-invoice div.table {
   position: absolute;
   top: 518px;
@@ -600,7 +600,6 @@ nav > h2 {
   left: 0;
   right: 0;
 }
-
 .invoice-container.customer-invoice div.table > div {
   position: unset;
   width: 100%;
@@ -612,36 +611,28 @@ nav > h2 {
   text-align: left;
   text-indent: 10mm;
 }
-
 .invoice-container.customer-invoice div.table > div > div {
   position: unset;
   text-align: center;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(1) {
   width: 60px;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(2) {
   width: 239px;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(3) {
   width: 60px;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(4) {
   width: 80px;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(5) {
   width: 89px;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(6) {
   width: 110px;
 }
-
 .invoice-container.customer-invoice div.table > div > div:nth-child(7) {
   width: 120px;
 }
@@ -666,6 +657,9 @@ nav > h2 {
   }
   .invoice-container button {
     display: none;
+  }
+  .invoice-container.customer-invoice img:nth-of-type(1) {
+    margin-top: 0;
   }
 }
 

@@ -55,29 +55,42 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
     $location.path('/orders')
   }
 
+  function savePdf(name, showFolder = false) {
+    window.api.html2pdf({
+      pdfName: name,
+    }).then(function (file) {
+      if (file) {
+        const max = ShareData.get('ShareData')
+        window.api.invoke('setting', 'invNum').then(function (res) {
+          const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
+          window.api.invoke('setting', 'invNum', newInvNum)
+          const ids = $scope.orders.map(o => o.id)
+          window.api.invoke('printedInvoice', { ids, invNumber: $scope.invoiceNumber }) // update order to isPrinted = true
+          if (showFolder) window.api.openItemInFolder(file)
+          $scope.$apply(function () {
+            $scope.back()
+          })
+        })
+      }
+    })
+  }
+
   $scope.savePdf = function () {
     const savePath = ShareData.get('savePath')
     window.dialog.saveFile({
-      name: `Invoice ${DateUtil.date2stdDate(new Date())}_${Date.now()}.pdf`,
+      name: `Invoice ${$scope.orders[0].customer} ${Date.now()}.pdf`,
       defaultPath: savePath,
     }).then(function (res) {
-      if (!res.canceled) {
-        window.api.html2pdf({
-          pdfName: res.filePath,
-        }).then(function (file) {
-          if (file) {
-            const max = ShareData.get('ShareData')
-            const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
-            window.api.invoke('setting', 'invNum', newInvNum)
-            const ids = $scope.orders.map(o => o.id)
-            window.api.invoke('printedInvoice', { ids }) // update order to isPrinted = true
-            window.api.openItemInFolder(file)
-            $scope.$apply(function () {
-              $scope.back()
-            })
-          }
-        })
-      }
+      if (!res.canceled) savePdf(res.filePath, true)
+    })
+  }
+
+  $scope.print = function () {
+    window.api.invoke('print', { copies: 3 }).then(function (success) {
+      const savePath = `${ShareData.get('savePath')}\\Invoice ${$scope.orders[0].customer} ${Date.now()}.pdf`
+      savePdf(savePath)
+    }).catch(function (err) {
+      console.error(err)
     })
   }
 })

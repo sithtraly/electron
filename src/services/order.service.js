@@ -14,7 +14,7 @@ module.exports = function () {
          OR o.address LIKE '%${search}%')` : ''}`
     const orders = await sequelize.query(`
       SELECT o.id, o.qty, o.price, o.isPrinted, c.id customerId, c.name customer, o.code, o.address,
-      p.id productId, p.name product, o.carNo, o.createdAt
+      p.id productId, p.name product, o.carNo, o.createdAt, o.invNumber
       ${condition}
       LIMIT ${limit} OFFSET ${offset * limit}
       `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })

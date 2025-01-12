@@ -74,6 +74,7 @@ const OrderModel = sequelize.define('tb_order', {
   // },
   code: DataTypes.STRING,
   address: DataTypes.STRING,
+  invNumber: DataTypes.STRING,
 }, {
   timestamps: true,
   freezeTableName: true,
