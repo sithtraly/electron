@@ -1,7 +1,7 @@
 {
   "name": "electronjs",
   "productName": "Tela Khmer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {

@@ -10,9 +10,10 @@ module.exports = function () {
       findOption = {
         [Op.or]: {
           name: { [Op.like]: `%${search}%` },
-          address: { [Op.like]: `%${search}%` },
+          // address: { [Op.like]: `%${search}%` },
           phone: { [Op.like]: `%${search}%` },
-          code: { [Op.like]: `%${search}%` },
+          // code: { [Op.like]: `%${search}%` },
+          id: !isNaN(search) ? parseInt(search) : 'NOT NULL',
         }
       }
     }
