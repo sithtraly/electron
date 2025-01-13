@@ -10,7 +10,7 @@
     <img src="assets/images/customer-invoice.jpg" alt="">
     <img src="assets/images/tela-logo.jpg" alt="">
     <p class="bokor">{{station}}</p>
-    <p>{{invoiceNumber | padStart:5:'0'}}</p>
+    <p>{{ (oldInvNum || invoiceNumber) | padStart:5:'0'}}</p>
     <p>{{stationPhone}}</p>
     <p>{{datetime | normalDatetime:"&nbsp;&nbsp;&nbsp;&nbsp;"}}</p>
     <p>{{transferNo}}</p>

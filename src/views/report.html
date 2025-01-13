@@ -33,6 +33,7 @@
       <th>លេខឡាន</th>
       <!-- <th>បានទូទាត់</th> -->
       <th>ថ្ងៃបញ្ជាទិញ</th>
+      <th>ចេញវិក័យបត្រ</th>
     </tr>
   </thead>
 
@@ -56,7 +57,11 @@
         <span ng-if="r.isPaid" class="text-primary">&#10004;</span>
         <span ng-if="!r.isPaid" class="text-danger">&#10006;</span>
       </td> -->
-      <td>{{r.createdAt | stdDatetime}}</td>
+      <td>{{r.createdAt | stdDatetime}}</td>      <td class="text-center">
+        <a class="pointer" ng-click="createInvoice(r.code)">
+          <button style="height: unset;">ចេញវិក័បត្រ</button>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

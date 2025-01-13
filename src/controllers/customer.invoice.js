@@ -41,6 +41,7 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
         $scope.tel = r0.phone
         $scope.orderDate = r0.orderDate
         $scope.address = r0.address
+        $scope.oldInvNum = r0.invNumber
       })
     })
     window.api.invoke('setting', 'invNum').then(function (res) {
@@ -52,7 +53,8 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   }
 
   $scope.back = function () {
-    $location.path('/orders')
+    // $location.path('/orders')
+    $location.path(ShareData.get('backPath'))
   }
 
   function savePdf(name, showFolder = false) {
@@ -60,16 +62,18 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
       pdfName: name,
     }).then(function (file) {
       if (file) {
-        const max = ShareData.get('ShareData')
-        window.api.invoke('setting', 'invNum').then(function (res) {
-          const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
-          window.api.invoke('setting', 'invNum', newInvNum)
-          const ids = $scope.orders.map(o => o.id)
-          window.api.invoke('printedInvoice', { ids, invNumber: $scope.invoiceNumber }) // update order to isPrinted = true
-          if (showFolder) window.api.openItemInFolder(file)
-          $scope.$apply(function () {
-            $scope.back()
+        if (!$scope.oldInvNum) {
+          const max = ShareData.get('ShareData')
+          window.api.invoke('setting', 'invNum').then(function (res) {
+            const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
+            window.api.invoke('setting', 'invNum', newInvNum)
+            const ids = $scope.orders.map(o => o.id)
+            window.api.invoke('printedInvoice', { ids, invNumber: $scope.invoiceNumber }) // update order to isPrinted = true
           })
+        }
+        if (showFolder) window.api.openItemInFolder(file)
+        $scope.$apply(function () {
+          $scope.back()
         })
       }
     })

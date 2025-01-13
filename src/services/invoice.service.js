@@ -21,7 +21,7 @@ module.exports = function () {
   ipcMain.handle('getCustomerInvoice', async (_, orderNos) => {
     const orders = await sequelize.query(`
       SELECT o.id, o.carNo, o.address, c.name customer, c.id customerId, o.createdAt orderDate, o.updatedAt deliveryDate,
-      p.name product, p.id productId, o.qty, o.price, c.phone, o.code, p.dividend
+      p.name product, p.id productId, o.qty, o.price, c.phone, o.code, p.dividend, o.invNumber
       FROM tb_order o
       LEFT JOIN tb_customer c ON o.customerId = c.id
       LEFT JOIN tb_product p ON o.productId = p.id

@@ -78,6 +78,7 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
       to: DateUtil.date2ddmmyyyy($scope.to || new Date()),
     })
     $location.path('/customerInvoice')
+    ShareData.set('backPath', '/orders')
   }
 
   $scope.onPageChange = function () {
