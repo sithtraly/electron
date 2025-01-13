@@ -3,6 +3,10 @@ app.controller('SettingController', ['$scope', '$location', function ($scope, $l
   $scope.dbPath
   $scope.savePath
 
+  window.api.invoke('version').then((v) => {
+    $scope.version = v
+  })
+
   window.api.invoke('getDbPath').then(function (dbPath) {
     $scope.$apply(function () {
       $scope.dbPath = dbPath

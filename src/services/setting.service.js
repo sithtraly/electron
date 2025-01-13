@@ -31,4 +31,8 @@ module.exports = function () {
       return returnSetting
     }
   })
+
+  ipcMain.handle('version', () => {
+    return app.getVersion()
+  })
 }
