@@ -31,11 +31,14 @@
         <tr>
           <th style="width: 15px;"></th>
           <th style="width: 100px;" class="fs-11">ឈ្មោះ</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">SUPER URL95</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">REGULAR92</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">DIESEL AURO5</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">DIESEL AURO5</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">SUPER UNL9</th>
+          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">REGULAR 92</th>
+          <th class="fs-8 freehand" style="transform: translateY(-5px);">តម្លៃ</th>
+          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">SUPER UNL95</th>
+          <th class="fs-8 freehand" style="transform: translateY(-5px);">តម្លៃ</th>
+          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">DIESEL EURO5</th>
+          <th class="fs-8 freehand" style="transform: translateY(-5px);">តម្លៃ</th>
+          <!-- <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">DIESEL AURO5</th>
+          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">SUPER UNL9</th> -->
           <th class="fs-11" style="width: 160px;">អាស័យដ្ឋានដាក់ទំនិញ</th>
           <th class="fs-9" style="width: 51px;">លេខទូរស័ព្ទ</th>
           <th class="fs-9" style="width: 64px;">លេខបញ្ជាទិញ</th>
@@ -46,9 +49,9 @@
       </thead>
 
       <tbody>
-        <tr>
+        <!-- <tr>
           <td colspan="13" class="times-new-roman fs-12 fw-bold">Transfer Date: 18/12/2024</td>
-        </tr>
+        </tr> -->
         <tr>
           <td colspan="13">
             <span class="ml-2 times-new-roman fs-12 fw-bold">Station Name: TelaSiem Reap</span>
@@ -58,11 +61,14 @@
         <tr ng-repeat="i in invoices">
           <td></td>
           <td>{{i.customer}}</td>
+          <td class="text-right">{{ i.productId == 1 ? (i.qty | number) : '-' }}</td>
           <td class="text-right">{{ i.productId == 1 ? (i.price | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 2 ? (i.qty | number) : '-' }}</td>
           <td class="text-right">{{ i.productId == 2 ? (i.price | number) : '-' }}</td>
-          <td class="text-right">{{ i.productId == 3 ? (i.price | number) : '-' }}</td>
-          <td class="text-right">{{ i.productId == 4 ? (i.price | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 5 ? (i.qty | number) : '-' }}</td>
           <td class="text-right">{{ i.productId == 5 ? (i.price | number) : '-' }}</td>
+          <!-- <td class="text-right">{{ i.productId == 4 ? (i.qty | number) : '-' }}</td>
+          <td class="text-right">{{ i.productId == 5 ? (i.qty | number) : '-' }}</td> -->
           <td>{{i.address}}</td>
           <td>{{i.phone}}</td>
           <td>{{i.code}}</td>

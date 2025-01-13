@@ -14,6 +14,7 @@ module.exports = function () {
           phone: { [Op.like]: `%${search}%` },
           // code: { [Op.like]: `%${search}%` },
           id: !isNaN(search) ? parseInt(search) : 'NOT NULL',
+          customerCode: !isNaN(search) ? parseInt(search) : 'NOT NULL',
         }
       }
     }
@@ -31,6 +32,11 @@ module.exports = function () {
 
   ipcMain.handle('getCustomerById', async (_, id) => {
     const customer = await CustomerModel.findByPk(id, { raw: true })
+    return customer
+  })
+
+  ipcMain.handle('getCustomerByCode', async (_, code) => {
+    const customer = await CustomerModel.findOne({ where: { customerCode: code }, raw: true })
     return customer
   })
 

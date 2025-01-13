@@ -13,7 +13,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
     $scope.id = data.id
     $scope.name = data.name
     $scope.phone = data.phone
-    $scope.address = data.address
+    // $scope.address = data.address
     $scope.code = data.code
   }
 
@@ -21,11 +21,11 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
     const id = $scope.id
     const name = $scope.name
     const phone = $scope.phone
-    const address = $scope.address
+    // const address = $scope.address
     const code = $scope.code
 
     if (!id) {
-      window.api.newCustomer({ name, phone, address, code }).then(() => {
+      window.api.newCustomer({ name, phone, customerCode: code }).then(() => {
         // success('បន្ថែមអតិថិជនថ្មីជោគជ័យ', () => {
         //   $scope.$apply(() => $location.path('/customers'))
         // })       
@@ -34,7 +34,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
         })
       })
     } else {
-      window.api.updateCustomer({ id, name, phone, address, code }).then(() => {
+      window.api.updateCustomer({ id, name, phone, customerCode: code }).then(() => {
         // success('កែព័ត៌មានអតិថិជនជោគជ័យ', () => {
         //   $scope.$apply(() => $location.path('/customers'))
         // })

@@ -15,7 +15,7 @@
 <table>
   <thead>
     <tr>
-      <th>ល.រ</th>
+      <th>លេខកូដ</th>
       <th>ឈ្មោះ</th>
       <!-- <th>អាស័យដ្ឋាន</th> -->
       <th>លេខទូរស័ព្ទ</th>
@@ -28,7 +28,7 @@
       <td colspan="4" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="c in customers" ng-dblclick="dblClick(c)">
-      <td class="text-center">{{ c.id }}</td>
+      <td class="text-center">{{ c.customerCode }}</td>
       <td>{{ c.name }}</td>
       <!-- <td>{{ c.address }}</td> -->
       <td>{{ c.phone }}</td>

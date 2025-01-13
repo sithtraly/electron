@@ -58,14 +58,24 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     }
   }
 
+  // $scope.customerBlur = function () {
+  //   $scope.customerId = $scope.customer
+  //   window.api.invoke('getCustomerById', $scope.customerId).then(function (res) {
+  //     $scope.$apply(function () {
+  //       $scope.customer = res.name
+  //     })
+  //   })
+  // }
+
   $scope.customerBlur = function () {
     $scope.customerId = $scope.customer
-    window.api.invoke('getCustomerById', $scope.customerId).then(function (res) {
+    window.api.invoke('getCustomerByCode', $scope.customerId).then(function (res) {
       $scope.$apply(function () {
         $scope.customer = res.name
       })
     })
   }
+
   $scope.productBlur = function (i) {
     if ($scope.products[i].product) {
       const id = $scope.products[i].product

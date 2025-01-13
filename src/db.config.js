@@ -37,6 +37,7 @@ const CustomerModel = sequelize.define('tb_customer', {
   phone: DataTypes.STRING,
   // address: DataTypes.STRING,
   // code: DataTypes.STRING,
+  customerCode: DataTypes.NUMBER,
 }, {
   timestamps: true,
   freezeTableName: true,
