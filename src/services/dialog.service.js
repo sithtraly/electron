@@ -14,6 +14,18 @@ module.exports = function () {
   ipcMain.handle('warning', (event, message) => {
     return dialog.showMessageBox(undefined, { message: message, type: 'warning' })
   })
+  ipcMain.handle('confirm', (_) => {
+    return new Promise((resolve, reject) => {
+      dialog.showMessageBox(undefined, {
+        type: 'question',
+        title: 'បញ្ជាក់',
+        message: 'តើអ្នកប្រាកដចិត្តទេ',
+        buttons: ['No', 'Yes',]
+      }).then((result) => {
+        resolve(result.response)
+      })
+    })
+  })
 
   ipcMain.handle('browseFile', (event, options) => {
     return dialog.showOpenDialog(undefined, {

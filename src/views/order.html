@@ -10,7 +10,8 @@
 <input type="date" id="startDate" ng-model="from">
 <label for="toDate" ng-value="to">ដល់ថ្ងៃ</label>
 <input type="date" id="toDate" ng-model="to">
-<input type="text" placeholder="ឈ្មោះ, លេខទូរស័ព្ទ, កូដកម្មង, រូបិយប័ណ្ណ, លេខប័ណ្ណផ្ទេរឃ្លាំង, លេខប័ណ្ណដឹកជញ្ជូន" ng-model="search">
+<input type="text" placeholder="ឈ្មោះ, លេខទូរស័ព្ទ, កូដកម្មង, រូបិយប័ណ្ណ, លេខប័ណ្ណផ្ទេរឃ្លាំង, លេខប័ណ្ណដឹកជញ្ជូន"
+  ng-model="search">
 
 <button id="bt-search" ng-click="getOrder()">ស្វែងរក</button>
 <button ng-if="rowsSelected == true" ng-click="createInvoice()">ចេញវិក័យបត្រ</button>
@@ -62,11 +63,12 @@
       <td class="text-center">
         <a class="pointer" ng-click="createInvoice(o.code)">
           <!-- <i class="fa-solid fa-file-pdf"></i> -->
-           <button style="height: unset;">ចេញវិក័បត្រ</button>
+          <button style="height: unset;">ចេញវិក័បត្រ</button>
         </a>
+        <button class="pointer text-danger" style="height: unset;" ng-click="deleteOrder(o.code)">លុប</button>
       </td>
     </tr>
   </tbody>
 </table>
 
-<pagination page="{{page}}" total-pages="{{totalPages}}" on-change="onPageChange()"></pagination>
+<pagination page=" {{page}}" total-pages="{{totalPages}}" on-change="onPageChange()"></pagination>

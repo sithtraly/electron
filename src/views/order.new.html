@@ -94,10 +94,13 @@
       <label for="isPaid">ទូទាត់រួច</label>
     </div> -->
 
-    <div class="flex flex-row mt-2">
+    <div class="flex flex-row mt-2 gap-2">
       <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <button style="flex-grow: 1;" class="text-primary" ng-click="save()">រក្សាទុក</button>
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save(true)" ng-if="orders.length == 0">
+        រក្សាទុក និងបញ្ជាទីញថ្មី
+      </button>
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save(false)">
+        {{orders.length == 0 ? 'រក្សាទុក និងចាកចេញ' : 'រក្សាទុក' }} </button>
     </div>
   </div>
 </div>

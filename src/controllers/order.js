@@ -86,4 +86,16 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
     $scope.pageSize = data.pageSize
     $scope.getOrder()
   }
+
+  $scope.deleteOrder = function (code) {
+    event.preventDefault()
+    window.api.invoke('confirm').then(res => {
+      if (res) {
+        window.api.invoke('removeOrder', code).then(res => {
+          $scope.getOrder()
+          window.dialog.success('ការបញ្ជាទិញជោគជ័យ')
+        })
+      }
+    })
+  }
 })

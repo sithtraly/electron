@@ -1,16 +1,21 @@
 app.controller('NewOrderController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
+  function generateOrder() {
+    return 'SR' + Date.now()
+  }
   $scope.title = 'ការបញ្ជាទិញថ្មី'
-  $scope.orderCode = 'SR' + Date.now()
+  $scope.orderCode = generateOrder()
   $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined }]
   $scope.isPaid = true
   $scope.customerId
   $scope.customer
   $scope.carNo
   $scope.address
+  $scope.orders = []
 
   const orders = ShareData.get('order')
   ShareData.set('order', undefined)
   if (orders) {
+    $scope.orders = orders
     // console.log(orders)
     $scope.title = 'កែប្រែការបញ្ជាទិញ'
     $scope.customerId = orders[0].customerId
@@ -34,7 +39,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     $location.path('/orders')
   }
 
-  $scope.save = function () {
+  $scope.save = function (isAdd = false) {
     const customerId = $scope.customerId
     const carNo = $scope.carNo
     const address = $scope.address
@@ -46,7 +51,17 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     if (!orders) {
       window.api.invoke('newOrder', data).then(function () {
         window.dialog.success('ការបញ្ជាទិញជោគជ័យ').then(function () {
-          $scope.$apply(function () { $scope.back() })
+          if (!isAdd) $scope.$apply(function () { $scope.back() })
+          else {
+            $scope.$apply((function () {
+              $scope.orderCode = generateOrder()
+              $scope.customerId = undefined
+              $scope.customer = undefined
+              $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined }]
+              $scope.carNo = undefined
+              $scope.address = undefined
+            }))
+          }
         })
       })
     } else {

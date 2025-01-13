@@ -40,4 +40,9 @@ module.exports = function () {
     })
     return true
   })
+
+  ipcMain.handle('removeOrder', async (_, orderCode) => {
+    await OrderModel.destroy({ where: { code: orderCode } })
+    return true
+  })
 }
