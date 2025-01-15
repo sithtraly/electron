@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 const { connectdb, sequelize, dbPath, configPath, SettingModel } = require('./db.config');
@@ -11,6 +11,8 @@ const { writeFileSync } = require('node:fs');
 if (started) {
   app.quit();
 }
+
+var mainWindow
 var splashWindow
 var mainWindow
 const browsingHistory = []
@@ -109,3 +111,7 @@ ipcMain.handle('maximize', () => mainWindow.isMaximized() ? mainWindow.unmaximiz
 ipcMain.handle('close', () => mainWindow.close())
 
 service()
+
+ipcMain.on('open-file', (event, file) => {
+  mainWindow.loadFile(path.join(__dirname, 'views', file))
+})
