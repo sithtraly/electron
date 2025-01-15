@@ -9,7 +9,7 @@
 <input type="date" id="startDate" ng-model="from">
 <label for="toDate" ng-value="to">ដល់ថ្ងៃ</label>
 <input type="date" id="toDate" ng-model="to">
-<input type="text" placeholder="លេខរៀង, ឈ្មោះ, លេខទូរស័ព្ទ" ng-model="search">
+<input type="text" placeholder="លេខកូដ, ឈ្មោះ" ng-model="search">
 <button ng-click="getCustomer()">ស្វែងរក</button>
 
 <table>
@@ -18,7 +18,7 @@
       <th>លេខកូដ</th>
       <th>ឈ្មោះ</th>
       <!-- <th>អាស័យដ្ឋាន</th> -->
-      <th>លេខទូរស័ព្ទ</th>
+      <!-- <th>លេខទូរស័ព្ទ</th> -->
       <!-- <th>លេខបញ្ជាទិញ</th> -->
       <th>ថ្ងៃបង្កើត</th>
     </tr>
@@ -31,7 +31,7 @@
       <td class="text-center">{{ c.customerCode }}</td>
       <td>{{ c.name }}</td>
       <!-- <td>{{ c.address }}</td> -->
-      <td>{{ c.phone }}</td>
+      <!-- <td>{{ c.phone }}</td> -->
       <!-- <td>{{ c.code }}</td> -->
       <td>{{ c.createdAt }}</td>
     </tr>

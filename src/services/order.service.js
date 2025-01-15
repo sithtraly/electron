@@ -10,11 +10,11 @@ module.exports = function () {
       LEFT JOIN tb_product p ON o.productId = p.id
       WHERE o.isPrinted = FALSE
       ${from ? `AND DATE(o.createdAt) >= '${from}'` : ''} ${to ? `AND DATE(o.createdAt) <= '${to}'` : ''}
-      ${search ? `AND (c.name LIKE '%${search}%' OR o.carNo LIKE '%${search}%' OR c.phone LIKE '%${search}%' OR c.code LIKE '%${search}%' 
+      ${search ? `AND (c.name LIKE '%${search}%' OR o.carNo LIKE '%${search}%' OR c.code LIKE '%${search}%' 
          OR o.address LIKE '%${search}%')` : ''}`
     const orders = await sequelize.query(`
       SELECT o.id, o.qty, o.price, o.isPrinted, c.id customerId, c.name customer, o.code, o.address,
-      p.id productId, p.name product, o.carNo, o.createdAt, o.invNumber
+      p.id productId, p.name product, o.carNo, o.createdAt, o.invNumber, o.phone
       ${condition}
       LIMIT ${limit} OFFSET ${offset * limit}
       `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })

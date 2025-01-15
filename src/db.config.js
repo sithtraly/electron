@@ -1,3 +1,5 @@
+
+
 const { Sequelize, DataTypes } = require("sequelize")
 const path = require('path')
 const { app } = require("electron")
@@ -34,7 +36,7 @@ const SettingModel = sequelize.define('tb_setting', {
 
 const CustomerModel = sequelize.define('tb_customer', {
   name: DataTypes.STRING,
-  phone: DataTypes.STRING,
+  // phone: DataTypes.STRING,c
   // address: DataTypes.STRING,
   // code: DataTypes.STRING,
   customerCode: DataTypes.NUMBER,
@@ -57,6 +59,7 @@ const OrderModel = sequelize.define('tb_order', {
   qty: DataTypes.NUMBER,
   price: DataTypes.NUMBER,
   carNo: DataTypes.STRING,
+  phone: DataTypes.STRING,
   // stockNo: DataTypes.STRING,
   // isPaid: {
   //   type: DataTypes.BOOLEAN,

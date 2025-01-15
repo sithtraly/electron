@@ -24,6 +24,7 @@
       </th> -->
       <th>លេខបញ្ជាទិញ</th>
       <th>ឈ្មោះ</th>
+      <th>លេខទូរស័ព្ទ</th>
       <th>ផលិតផល</th>
       <th>បរិមាណ</th>
       <th>តម្លៃ</th>
@@ -39,7 +40,7 @@
   </thead>
   <tbody>
     <tr ng-if="orders.length == 0" class="no-data">
-      <td colspan="9" class="text-center">គ្មានទិន្នន័យ</td>
+      <td colspan="10" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="o in orders" ng-dblclick="dblClick(o)">
       <!-- <td class="text-center">
@@ -47,6 +48,7 @@
       </td> -->
       <td class="text-center">{{ o.code }}</td>
       <td>{{ o.customer }}</td>
+      <td>{{ o.phone }}</td>
       <td>{{ o.product }}</td>
       <td class="text-right">{{ o.qty | number }}</td>
       <td class="text-right">{{ o.price | number }}</td>

@@ -10,6 +10,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   $scope.customer
   $scope.carNo
   $scope.address
+  $scope.phone
   $scope.orders = []
 
   const orders = ShareData.get('order')
@@ -44,9 +45,10 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     const carNo = $scope.carNo
     const address = $scope.address
     const code = $scope.orderCode
+    const phone = $scope.phone
     const data = []
     $scope.products.forEach(function (product) {
-      data.push({ ...product, customerId, carNo, address, code })
+      data.push({ ...product, customerId, carNo, address, code, phone })
     })
     if (!orders) {
       window.api.invoke('newOrder', data).then(function () {
@@ -60,6 +62,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
               $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined }]
               $scope.carNo = undefined
               $scope.address = undefined
+              $scope.phone = undefined
             }))
           }
         })
@@ -87,6 +90,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     window.api.invoke('getCustomerByCode', $scope.customerId).then(function (res) {
       $scope.$apply(function () {
         $scope.customer = res.name
+        $scope.customerId = res.id
       })
     })
   }

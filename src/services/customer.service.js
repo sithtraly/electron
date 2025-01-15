@@ -11,7 +11,7 @@ module.exports = function () {
         [Op.or]: {
           name: { [Op.like]: `%${search}%` },
           // address: { [Op.like]: `%${search}%` },
-          phone: { [Op.like]: `%${search}%` },
+          // phone: { [Op.like]: `%${search}%` },
           // code: { [Op.like]: `%${search}%` },
           id: !isNaN(search) ? parseInt(search) : 'NOT NULL',
           customerCode: !isNaN(search) ? parseInt(search) : 'NOT NULL',

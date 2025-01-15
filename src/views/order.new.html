@@ -24,6 +24,9 @@
     <label for="cbCustomer">អតិថិជន</label>
     <input type="text" required list="cbCustomer" ng-model="customer" ng-blur="customerBlur()">
 
+    <label for="cbCustomer">លេខទូរស័ព្ទ</label>
+    <input type="text" list="cbCustomer" ng-model="phone">
+
     <div class="flex flex-row gap-2 mb-2" ng-repeat="p in products">
       <div class="flex flex-column">
         <label for="cbProduct" class="mt-2" ng-if="$index === 0">ផលិតផល</label>

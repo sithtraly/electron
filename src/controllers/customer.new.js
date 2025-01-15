@@ -1,7 +1,7 @@
 app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
   $scope.title = 'បង្កើតអតិថិជនថ្មី'
   $scope.name = ''
-  $scope.phone = ''
+  // $scope.phone = ''
   $scope.address = ''
   $scope.code = ''
 
@@ -12,7 +12,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
     $scope.title = 'កែព័ត៌មានអតិថិជន'
     $scope.id = data.id
     $scope.name = data.name
-    $scope.phone = data.phone
+    // $scope.phone = data.phone
     // $scope.address = data.address
     $scope.code = data.code
   }
@@ -20,12 +20,12 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
   $scope.save = () => {
     const id = $scope.id
     const name = $scope.name
-    const phone = $scope.phone
+    // const phone = $scope.phone
     // const address = $scope.address
     const code = $scope.code
 
     if (!id) {
-      window.api.newCustomer({ name, phone, customerCode: code }).then(() => {
+      window.api.newCustomer({ name, customerCode: code }).then(() => {
         // success('បន្ថែមអតិថិជនថ្មីជោគជ័យ', () => {
         //   $scope.$apply(() => $location.path('/customers'))
         // })       
@@ -34,7 +34,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
         })
       })
     } else {
-      window.api.updateCustomer({ id, name, phone, customerCode: code }).then(() => {
+      window.api.updateCustomer({ id, name, customerCode: code }).then(() => {
         // success('កែព័ត៌មានអតិថិជនជោគជ័យ', () => {
         //   $scope.$apply(() => $location.path('/customers'))
         // })

@@ -37,7 +37,7 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
         $scope.orders = res
         $scope.carNo = r0.carNo
         $scope.dnNo = r0.code // order number
-        $scope.customer = `${r0.customer} (${StringUtil.arabNumber2KhmerNumber(r0.customerId)})`
+        $scope.customer = `${r0.customer} (${StringUtil.arabNumber2KhmerNumber(r0.customerCode)})`
         $scope.tel = r0.phone
         $scope.orderDate = r0.orderDate
         $scope.address = r0.address
