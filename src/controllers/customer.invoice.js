@@ -33,15 +33,18 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
           $scope.totalQty += r.qty
           $scope.totalPrice += r.total
         })
+        $scope.readPrice = Math.round($scope.totalPrice)
         const r0 = res[0]
         $scope.orders = res
         $scope.carNo = r0.carNo
         $scope.dnNo = r0.code // order number
-        $scope.customer = `${r0.customer} (${StringUtil.arabNumber2KhmerNumber(r0.customerCode)})`
+        $scope.customer = r0.customer
+        $scope.customerCode = StringUtil.arabNumber2KhmerNumber(r0.customerCode)
         $scope.tel = r0.phone
         $scope.orderDate = r0.orderDate
         $scope.address = r0.address
         $scope.oldInvNum = r0.invNumber
+        if (r0.invNumber) $scope.datetime = new Date(r0.updatedAt)
       })
     })
     window.api.invoke('setting', 'invNum').then(function (res) {
@@ -68,13 +71,19 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
             const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
             window.api.invoke('setting', 'invNum', newInvNum)
             const ids = $scope.orders.map(o => o.id)
-            window.api.invoke('printedInvoice', { ids, invNumber: $scope.invoiceNumber }) // update order to isPrinted = true
+            window.api.invoke('printedInvoice', { ids, invNumber: $scope.invoiceNumber }).then(function () {
+              setTimeout(() => {
+                $scope.$apply(function () { $scope.back() })
+              }, 50)
+            }) // update order to isPrinted = true
           })
         }
         if (showFolder) window.api.openItemInFolder(file)
-        $scope.$apply(function () {
-          $scope.back()
-        })
+        if (!$scope.oldInvNum) {
+          $scope.$apply(function () {
+            $scope.back()
+          })
+        }
       }
     })
   }

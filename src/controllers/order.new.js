@@ -25,6 +25,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     $scope.orderCode = orders[0].code ?? $scope.orderCode
     $scope.address = orders[0].address
     $scope.products = []
+    $scope.phone = orders[0].phone
     orders.forEach(o => {
       $scope.products.push({
         productId: o.productId,
@@ -97,7 +98,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
 
   $scope.productBlur = function (i) {
     if ($scope.products[i].product) {
-      const id = $scope.products[i].product
+      const id = parseInt($scope.products[i].product)
       $scope.products[i].productId = id
       window.api.invoke('getProductById', id).then(function (res) {
         $scope.$apply(function () {

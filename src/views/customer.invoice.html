@@ -18,9 +18,9 @@
     <p>{{orderNo}}</p>
     <p>{{dnDate | normalDatetime}}</p>
     <p>{{orderDate | normalDatetime}}</p>
-    <p>{{customer}}</p>
+    <p>{{customer}}<small>&nbsp;({{customerCode}})</small></p>
     <p>{{app1}}</p>
-    <p class="fs-12">{{address}}</p>
+    <p class="fs-10">{{address}}</p>
     <p>{{app2}}</p>
     <p>{{tel}}</p>
     <p>{{sellType}}</p>
@@ -43,7 +43,7 @@
     <p>{{totalQty | number:0}}</p>
     <p>{{totalPrice | number:0}}</p>
 
-    <p>{{totalPrice | number2word}}</p>
+    <p>{{readPrice | number2word}}</p>
   </div>
 
   <div class="invoice-container">

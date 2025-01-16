@@ -25,9 +25,10 @@
       <th>លេខបញ្ជាទិញ</th>
       <th>ឈ្មោះ</th>
       <th>លេខទូរស័ព្ទ</th>
-      <th>ផលិតផល</th>
+      <!-- <th>ផលិតផល</th> -->
+      <th>ប្រភេទប្រេង</th>
       <th>បរិមាណ</th>
-      <th>តម្លៃ</th>
+      <th>តម្លៃតោន</th>
       <!-- <th>រូបិយប័ណ្ណ</th> -->
       <th>លេខឡាន</th>
       <th>អាស័យដ្ឋាន</th>
@@ -50,8 +51,8 @@
       <td>{{ o.customer }}</td>
       <td>{{ o.phone }}</td>
       <td>{{ o.product }}</td>
-      <td class="text-right">{{ o.qty | number }}</td>
-      <td class="text-right">{{ o.price | number }}</td>
+      <td>{{ o.qty | number }}</td>
+      <td>{{ o.price | number }}</td>
       <!-- <td>{{ o.currency }}</td> -->
       <td>{{ o.carNo }}</td>
       <td>{{ o.address }}</td>
@@ -65,7 +66,7 @@
       <td class="text-center">
         <a class="pointer" ng-click="createInvoice(o.code)">
           <!-- <i class="fa-solid fa-file-pdf"></i> -->
-          <button style="height: unset;">ចេញវិក័បត្រ</button>
+          <button style="height: unset;">បោះពុម្ភវិក័យបត្រ</button>
         </a>
         <button class="pointer text-danger" style="height: unset;" ng-click="deleteOrder(o.code)">លុប</button>
       </td>
