@@ -11,18 +11,19 @@
   margin-top: -8px;
   background: #eeeeee;
   margin-bottom: 8px;
+
+  button {
+    height: 34px;
+    width: 34px;
+    border: none;
+    background: none;
+
+    &:hover {
+      background: gainsboro;
+    }
+  }
 }
 
-.frame button {
-  height: 34px;
-  width: 34px;
-  border: none;
-  background: none;
-}
-
-.frame button:hover {
-  background: gainsboro;
-}
 
 /* * {
   user-select: none;
@@ -77,84 +78,68 @@ table {
   margin-top: 16px;
   width: 100%;
   border-collapse: collapse;
-}
 
-table th {
-  height: 36px;
-}
+  th {
+    height: 36px;
+  }
 
-table tbody tr:not(tr.no-data):hover {
-  background-color: gainsboro;
-}
+  td,
+  th {
+    border: 1px solid gray;
+    padding: 1px 4px;
+  }
 
-table tr td.no-data {
-  text-align: center;
-}
+  tbody tr:not(tr.no-data):hover {
+    background-color: gainsboro;
+  }
 
-table tr:nth-child(even) {
-  background-color: #f0f0f0;
-}
+  tr {
+    &:nth-child(even) {
+      background-color: #bbffff;
+    }
 
-table tr:not(table tr th) {
-  height: 32px;
-}
+    td.no-data {
+      text-align: center;
+    }
 
-table td,
-table th {
-  border: 1px solid gray;
-  padding: 1px 4px;
+    &:not(table tr th) {
+      height: 32px;
+    }
+  }
 }
 
 .flex {
   display: flex;
-}
 
-.flex.flex-row {
-  flex-direction: row;
-}
+  &.flex-row {
+    flex-direction: row;
+  }
 
-.flex.flex-column {
-  flex-direction: column;
-}
+  &.flex-column {
+    flex-direction: column;
+  }
 
-.flex.jusify-center {
-  justify-content: center;
-}
+  &.jusify-center {
+    justify-content: center;
+  }
 
-.flex.items-center {
-  align-items: center;
-}
+  &.items-center {
+    align-items: center;
+  }
 
-.flex.justify-end {
-  justify-content: end;
-}
+  &.justify-end {
+    justify-content: end;
+  }
 
-.flex.justify-between {
-  justify-content: space-between;
-}
+  &.justify-between {
+    justify-content: space-between;
+  }
 
-.flex.gap-0 {
-  gap: 0;
-}
-
-.flex.gap-1 {
-  gap: 4px;
-}
-
-.flex.gap-2 {
-  gap: 8px;
-}
-
-.flex.gap-3 {
-  gap: 12px;
-}
-
-.flex.gap-4 {
-  gap: 16px;
-}
-
-.flex.gap-5 {
-  gap: 20px;
+  @for $i from 0 through 5 {
+    &.gap-#{$i} {
+      gap: #{$i * 4}px;
+    }
+  }
 }
 
 .text-primary {

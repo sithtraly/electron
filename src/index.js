@@ -1,8 +1,7 @@
-const { app, BrowserWindow, ipcMain, Menu, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 const { connectdb, sequelize, dbPath, configPath, SettingModel } = require('./db.config');
-const pages = require('./constants/page.constant');
 const { customMenu } = require('./menu');
 const service = require('./services/service');
 const { writeFileSync } = require('node:fs');
@@ -15,7 +14,6 @@ if (started) {
 var mainWindow
 var splashWindow
 var mainWindow
-const browsingHistory = []
 const iconPath = path.join(__dirname, 'favicon.ico')
 
 async function createMainWindow() {
@@ -36,7 +34,7 @@ async function createMainWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'app.html'));
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   mainWindow.maximize()
   mainWindow.removeMenu()
   // Menu.setApplicationMenu(customMenu)

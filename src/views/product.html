@@ -16,7 +16,7 @@
 <table>
   <thead>
     <tr>
-      <th>ល.រ</th>
+      <th>លេខកូដផលិតផល</th>
       <th>ឈ្មោះ</th>
       <th>ចែកដោយ</th>
       <th>ថ្ងៃបង្កើត</th>
@@ -27,7 +27,7 @@
       <td colspan="7" class="text-center">គ្មានទិន្នន័យ</td>
     </tr>
     <tr ng-repeat="p in products" ng-dblclick="dblClick(p)">
-      <td class="text-center">{{ p.id }}</td>
+      <td class="text-center">{{ p.code }}</td>
       <td>{{ p.name }}</td>
       <td>{{ p.dividend }}</td>
       <td>{{ p.createdAt }}</td>

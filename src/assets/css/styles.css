@@ -11,14 +11,12 @@
   background: #eeeeee;
   margin-bottom: 8px;
 }
-
 .frame button {
   height: 34px;
   width: 34px;
   border: none;
   background: none;
 }
-
 .frame button:hover {
   background: gainsboro;
 }
@@ -76,81 +74,63 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 table th {
   height: 36px;
 }
-
-table tbody tr:not(tr.no-data):hover {
-  background-color: gainsboro;
-}
-
-table tr td.no-data {
-  text-align: center;
-}
-
-table tr:nth-child(even) {
-  background-color: #f0f0f0;
-}
-
-table tr:not(table tr th) {
-  height: 32px;
-}
-
 table td,
 table th {
   border: 1px solid gray;
   padding: 1px 4px;
 }
+table tbody tr:not(tr.no-data):hover {
+  background-color: gainsboro;
+}
+table tr:nth-child(even) {
+  background-color: #bbffff;
+}
+table tr td.no-data {
+  text-align: center;
+}
+table tr:not(table tr th) {
+  height: 32px;
+}
 
 .flex {
   display: flex;
 }
-
 .flex.flex-row {
   flex-direction: row;
 }
-
 .flex.flex-column {
   flex-direction: column;
 }
-
 .flex.jusify-center {
   justify-content: center;
 }
-
 .flex.items-center {
   align-items: center;
 }
-
 .flex.justify-end {
   justify-content: end;
 }
-
 .flex.justify-between {
   justify-content: space-between;
 }
-
 .flex.gap-0 {
-  gap: 0;
+  gap: 0px;
 }
-
 .flex.gap-1 {
   gap: 4px;
 }
-
 .flex.gap-2 {
   gap: 8px;
 }
-
 .flex.gap-3 {
   gap: 12px;
 }
-
 .flex.gap-4 {
   gap: 16px;
 }
-
 .flex.gap-5 {
   gap: 20px;
 }

@@ -49,6 +49,7 @@ const CustomerModel = sequelize.define('tb_customer', {
 const ProductModel = sequelize.define('tb_product', {
   name: DataTypes.STRING,
   dividend: DataTypes.NUMBER,
+  code: DataTypes.NUMBER,
 }, {
   timestamps: true,
   freezeTableName: true,
@@ -112,6 +113,12 @@ async function connectdb() {
 
     const savePath = await SettingModel.findOne({ where: { key: 'savePath' } })
     if (!savePath) await SettingModel.create({ key: 'savePath', value: app.getPath('documents') })
+
+    const customers = await CustomerModel.findAll({ where: { customerCode: null }, raw: true })
+    if (customers.length > 0) await sequelize.query('update tb_customer set customerCode = id where customerCode is NULL;')
+    const products = await CustomerModel.findAll({ where: { code: null, raw: true } })
+    if (products.length > 0) await sequelize.query('update tb_product set code = id where code is NULL;')
+
   } catch (err) {
     console.error("Cannot conntect to database", err)
   }

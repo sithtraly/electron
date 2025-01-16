@@ -4,7 +4,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   }
   $scope.title = 'ការបញ្ជាទិញថ្មី'
   $scope.orderCode = generateOrder()
-  $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined }]
+  $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined, productCode: undefined }]
   $scope.isPaid = true
   $scope.customerId
   $scope.customer
@@ -60,7 +60,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
               $scope.orderCode = generateOrder()
               $scope.customerId = undefined
               $scope.customer = undefined
-              $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined }]
+              $scope.products = [{ productId: undefined, product: undefined, qty: undefined, price: undefined, productCode: undefined }]
               $scope.carNo = undefined
               $scope.address = undefined
               $scope.phone = undefined
@@ -96,13 +96,26 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     })
   }
 
+  // $scope.productBlur = function (i) {
+  //   if ($scope.products[i].product) {
+  //     const id = parseInt($scope.products[i].product)
+  //     $scope.products[i].productId = id
+  //     window.api.invoke('getProductById', id).then(function (res) {
+  //       $scope.$apply(function () {
+  //         $scope.products[i].product = res.name
+  //       })
+  //     })
+  //   }
+  // }
+
   $scope.productBlur = function (i) {
     if ($scope.products[i].product) {
-      const id = parseInt($scope.products[i].product)
-      $scope.products[i].productId = id
-      window.api.invoke('getProductById', id).then(function (res) {
+      const productCode = parseInt($scope.products[i].product)
+      $scope.products[i].productCode = productCode
+      window.api.invoke('getProductByCode', productCode).then(function (res) {
         $scope.$apply(function () {
           $scope.products[i].product = res.name
+          $scope.products[i].productId = res.id
         })
       })
     }
