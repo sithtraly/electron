@@ -41,11 +41,9 @@ async function createMainWindow() {
 
   // Auto-update check
   autoUpdater.setFeedURL({
-    provider: 'github',
-    owner: 'sithtraly',
-    repo: 'electron',
+    url: 'https://github.com/sithtraly/electron.git',
   })
-  autoUpdater.checkForUpdatesAndNotify();
+  autoUpdater.checkForUpdates();
 };
 
 async function createSplashWindow() {
@@ -103,7 +101,6 @@ autoUpdater.on("update-downloaded", () => {
       type: "info",
       title: "Update Ready",
       message: "Update downloaded. The app will restart to apply the update.",
-      buttons: ['No', 'Yes',]
     })
     .then(() => {
       autoUpdater.quitAndInstall();
