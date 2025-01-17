@@ -1,10 +1,10 @@
-const { app, BrowserWindow, ipcMain, autoUpdater } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 const { connectdb, sequelize, dbPath, configPath, SettingModel } = require('./db.config');
-const { customMenu } = require('./menu');
 const service = require('./services/service');
 const { writeFileSync } = require('node:fs');
+const autoUpdate = require('./auto.update');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -39,11 +39,7 @@ async function createMainWindow() {
   mainWindow.removeMenu()
   // Menu.setApplicationMenu(customMenu)
 
-  // Auto-update check
-  autoUpdater.setFeedURL({
-    url: 'https://github.com/sithtraly/electron.git',
-  })
-  autoUpdater.checkForUpdates();
+  autoUpdate()
 };
 
 async function createSplashWindow() {
@@ -84,31 +80,6 @@ app.whenReady().then(() => {
       app.dock.setIcon(iconPath)
     }
   });
-});
-
-// Handle update events
-autoUpdater.on("update-available", () => {
-  dialog.showMessageBox({
-    type: "info",
-    title: "Update Available",
-    message: "A new update is available. It will be downloaded in the background.",
-  });
-});
-
-autoUpdater.on("update-downloaded", () => {
-  dialog
-    .showMessageBox({
-      type: "info",
-      title: "Update Ready",
-      message: "Update downloaded. The app will restart to apply the update.",
-    })
-    .then(() => {
-      autoUpdater.quitAndInstall();
-    });
-});
-
-autoUpdater.on("error", (err) => {
-  console.error("Update Error:", err);
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
