@@ -1,4 +1,4 @@
-# Tele Khmer
+# Tela Khmer
 
 This application build using [Electrinjs](https://www.electronjs.org/), [Angularjs](https://angularjs.org/) and using [Sqlite](https://www.sqlite.org/) database. using [VsCode](https://code.visualstudio.com/) as text editor.
 
@@ -20,7 +20,7 @@ npm start
 npm run make
 ```
 
-after build exe file will generate in **/project-path/out/make/squirrel.windows/x64/setup.exe** this is installer but don't have any proccess like choose path and other install, just run and install, and a portable in **/project-path/out/make/Tele Khmer-win32-x64/Tele Khmer.exe** that allow to use without install
+after build exe file will generate in **/project-path/out/make/squirrel.windows/x64/setup.exe** this is installer but don't have any proccess like choose path and other install, just run and install, and a portable in **/project-path/out/make/Tela Khmer-win32-x64/Tela Khmer.exe** that allow to use without install
 
 if you wish to get installer you can use external tool like [Inno](https://jrsoftware.org/isinfo.php) by do the following step:
 
@@ -28,18 +28,18 @@ if you wish to get installer you can use external tool like [Inno](https://jrsof
 1. Open Inno => Click on file => **New (Ctrl+N)**
 1. Welcome to the Inno Scipt Wizard => **Next**
 1. Application Information
-    - Application Name: Enter your application name: **Tele Khmer**
+    - Application Name: Enter your application name: **Tela Khmer**
     - Application Version: Enter your application version: **1.0.0**
     - Application Publisher: Enter your name or company name: **Traly**
     - Application Webiste: remove text from textbox => **Next**
 1. Application Folder
     - Application destination base folder: **Program File Folder**
-    - Application folder name: **Tele Khmer** => **Next**
+    - Application folder name: **Tela Khmer** => **Next**
 1. Application Files
-    - Application main executable file: browser to **/project-path/out/make/Tele Khmer-win32-x64/Tele Khmer.exe**
-    - Other application files => **Add file(s)...** => select file **/project-path/out/make/Tele Khmer-win32-x64/ffmpeg.dll** => **Next**
+    - Application main executable file: browser to **/project-path/out/make/Tela Khmer-win32-x64/Tela Khmer.exe**
+    - Other application files => **Add file(s)...** => select file **/project-path/out/make/Tela Khmer-win32-x64/ffmpeg.dll** => **Next**
 1. Application File Association
-    - Application file type name: **Tele Khmer File**
+    - Application file type name: **Tela Khmer File**
     - Application file extension: **.gas** => **Next**
 1. Application Shortcuts => **Next**
 1. Application Documentation => **Next**

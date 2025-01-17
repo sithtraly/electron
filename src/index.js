@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, autoUpdater } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 const { connectdb, sequelize, dbPath, configPath, SettingModel } = require('./db.config');
@@ -38,6 +38,14 @@ async function createMainWindow() {
   mainWindow.maximize()
   mainWindow.removeMenu()
   // Menu.setApplicationMenu(customMenu)
+
+  // Auto-update check
+  autoUpdater.setFeedURL({
+    provider: 'github',
+    owner: 'sithtraly',
+    repo: 'electron',
+  })
+  autoUpdater.checkForUpdatesAndNotify();
 };
 
 async function createSplashWindow() {
@@ -78,6 +86,32 @@ app.whenReady().then(() => {
       app.dock.setIcon(iconPath)
     }
   });
+});
+
+// Handle update events
+autoUpdater.on("update-available", () => {
+  dialog.showMessageBox({
+    type: "info",
+    title: "Update Available",
+    message: "A new update is available. It will be downloaded in the background.",
+  });
+});
+
+autoUpdater.on("update-downloaded", () => {
+  dialog
+    .showMessageBox({
+      type: "info",
+      title: "Update Ready",
+      message: "Update downloaded. The app will restart to apply the update.",
+      buttons: ['No', 'Yes',]
+    })
+    .then(() => {
+      autoUpdater.quitAndInstall();
+    });
+});
+
+autoUpdater.on("error", (err) => {
+  console.error("Update Error:", err);
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
