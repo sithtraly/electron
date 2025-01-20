@@ -34,11 +34,11 @@
       </div>
       <div class="flex flex-column">
         <label for="txtQty" class="mt-2" ng-if="$index === 0">បរិមាណ</label>
-        <input type="number" id="txtQty" required ng-model="p.qty">
+        <input type="text" id="txtQty" required ng-model="p.qty" ng-keyup="formatNumber($event)">
       </div>
       <div class="flex flex-column">
         <label for="txtPrice" class="mt-2" ng-if="$index === 0">តម្លៃ</label>
-        <input type="number" id="txtPrice" required ng-model="p.price">
+        <input type="text" class="number" id="txtPrice" required ng-model="p.price" ng-keyup="formatNumber($event)">
       </div>
 
       <div class="flex flex-column" ng-if="products.length > 1">

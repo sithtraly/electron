@@ -51,6 +51,10 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
     $scope.products.forEach(function (product) {
       data.push({ ...product, customerId, carNo, address, code, phone })
     })
+    data.map(d => {
+      d.qty = d.qty.replace(/,/g, '')
+      d.price = d.price.replace(/,/g, '')
+    })
     if (!orders) {
       window.api.invoke('newOrder', data).then(function () {
         window.dialog.success('ការបញ្ជាទិញជោគជ័យ').then(function () {
@@ -127,5 +131,13 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
 
   $scope.removeProduct = function (i) {
     if ($scope.products.length > 1) $scope.products.splice(i, 1)
+  }
+
+  $scope.formatNumber = function (e) {
+    const validInput = e.target.value.replace(/[^0-9,]/g, '')
+    if (e.target.value !== validInput) {
+      e.target.value = validInput
+    }
+    e.target.value = StringUtil.number2ThousandSeparator(e.target.value)
   }
 }])
