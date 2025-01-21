@@ -1,9 +1,9 @@
-
-
 const { Sequelize, DataTypes } = require("sequelize")
 const path = require('path')
 const { app } = require("electron")
-const { existsSync, writeFileSync, readFileSync, mkdirSync } = require("fs")
+const { existsSync, writeFileSync, readFileSync, mkdirSync, fstat } = require("fs")
+const fs = require('fs')
+require('dotenv').config();
 
 
 const appdata = app.getPath('appData')
@@ -95,8 +95,14 @@ const OrderModel = sequelize.define('tb_order', {
 async function connectdb() {
   try {
     await sequelize.authenticate()
-    await sequelize.sync({ alter: true })
     console.log("Conntected to database successfully")
+
+    if (process.env.DB_SYNC == 'true') {
+      await sequelize.sync({ alter: true })
+      fs.writeFileSync(path.join(process.cwd(), '.env'), `DB_SYNC=false`)
+    } else {
+      await sequelize.sync()
+    }
 
     // seeder
     // create invoice number
@@ -114,10 +120,10 @@ async function connectdb() {
     const savePath = await SettingModel.findOne({ where: { key: 'savePath' } })
     if (!savePath) await SettingModel.create({ key: 'savePath', value: app.getPath('documents') })
 
-    const customers = await CustomerModel.findAll({ where: { customerCode: null }, raw: true })
-    if (customers.length > 0) await sequelize.query('update tb_customer set customerCode = id where customerCode is NULL;')
-    const products = await CustomerModel.findAll({ where: { code: null, raw: true } })
-    if (products.length > 0) await sequelize.query('update tb_product set code = id where code is NULL;')
+    // const customers = await CustomerModel.findAll({ where: { customerCode: null }, raw: true })
+    // if (customers.length > 0) await sequelize.query('update tb_customer set customerCode = id where customerCode is NULL;')
+    // const products = await CustomerModel.findAll({ where: { code: null, raw: true } })
+    // if (products.length > 0) await sequelize.query('update tb_product set code = id where code is NULL;')
 
   } catch (err) {
     console.error("Cannot conntect to database", err)

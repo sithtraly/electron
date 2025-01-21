@@ -13,7 +13,6 @@ if (started) {
 
 var mainWindow
 var splashWindow
-var mainWindow
 const iconPath = path.join(__dirname, 'favicon.ico')
 
 async function createMainWindow() {
@@ -56,7 +55,6 @@ async function createSplashWindow() {
   splashWindow.loadFile(path.join(__dirname, 'splash.html'))
 
   await connectdb()
-  await sequelize.sync({ alter: true })
 
   const settings = await SettingModel.findAll({ raw: true })
   if (settings.length < 1) {
