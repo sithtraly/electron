@@ -94,7 +94,6 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
       if (res) {
         window.api.invoke('removeOrder', code).then(res => {
           $scope.getOrder()
-          window.dialog.success('ការបញ្ជាទិញជោគជ័យ')
         })
       }
     })
