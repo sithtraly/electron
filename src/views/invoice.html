@@ -16,15 +16,15 @@
       <img src="assets/images/paten.png" alt="">
     </header>
 
-    <p class="text-center freehand" style="font-weight: 600; font-size: 18px;">របាយការដឹកប្រេងចេញ</p>
+    <p class="text-center freehand" style="font-weight: 600; font-size: 18px;">របាយការណ៍ដឹកប្រេងចេញ</p>
     <!-- របស់ទីផ្សារលក់រាយ -->
     <p class="text-center freehand">
       ចាប់ពីកាលបរិច្ឆេទ
-      <span class="mx-3">{{from}}</span>
+      <span class="mx-3">{{from | normalDate}}</span>
       ដល់
-      <span class="mx-3">{{to}}</span>
-      ឃ្លាំងទំនិញ:
-      <span class="mx-3">All</span>
+      <span class="mx-3">{{to | normalDate}}</span>
+      <!-- ឃ្លាំងទំនិញ:
+      <span class="mx-3">All</span> -->
     </p>
 
     <table>
@@ -80,7 +80,11 @@
       </tbody>
     </table>
     <div class="flex justify-end mt-3">
-      <button ng-click="savePdf()">
+      <button ng-click="print()" class="mr-2">
+        <i class="fa-solid fa-print"></i>
+        ព្រីន
+      </button>
+      <button ng-click="savePdf(null, true)">
         <i class="fa-solid fa-file-pdf"></i>
         Save PDF
       </button>

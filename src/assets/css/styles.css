@@ -392,6 +392,7 @@ body:has(.invoice) {
   /* box-shadow: 0 0 1px 1px gray; */
   padding: 0;
   margin: 0;
+  background-color: #ffffff;
 }
 .invoice-container * {
   font-size: 12px;
@@ -621,6 +622,7 @@ body:has(.invoice) {
     width: 21cm;
     margin: 0;
     padding: 0;
+    background-color: #ffffff !important;
   }
   .frame {
     display: none;
@@ -632,12 +634,18 @@ body:has(.invoice) {
   .invoice-container {
     box-shadow: none;
     margin: 0;
+    background-color: #ffffff;
   }
+  .invoice button,
   .invoice-container button {
     display: none;
   }
+  .invoice.customer-invoice img:nth-of-type(1),
   .invoice-container.customer-invoice img:nth-of-type(1) {
     margin-top: 0;
+  }
+  .invoice .invoice-container:nth-child(2) {
+    display: none;
   }
 }
 

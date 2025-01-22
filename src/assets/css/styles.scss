@@ -260,6 +260,7 @@ body:has(.invoice) {
   /* box-shadow: 0 0 1px 1px gray; */
   padding: 0;
   margin: 0;
+  background-color: #ffffff;
 
   * {
     font-size: 12px;
@@ -374,7 +375,7 @@ body:has(.invoice) {
         left: 155mm;
         font-size: 13px;
       }
-      
+
       &:nth-of-type(5) {
         top: 199px;
         left: 185px;
@@ -548,6 +549,7 @@ body:has(.invoice) {
     width: 21cm;
     margin: 0;
     padding: 0;
+    background-color: #ffffff !important;
   }
 
   .frame {
@@ -562,20 +564,22 @@ body:has(.invoice) {
   .invoice-container {
     box-shadow: none;
     margin: 0;
+    background-color: #ffffff;
+
+
+
+    button {
+      display: none;
+    }
+
+    &.customer-invoice img:nth-of-type(1) {
+      margin-top: 0;
+    }
   }
 
-  .invoice-container button {
-    display: none;
+  .invoice {
+    .invoice-container:nth-child(2) {
+      display: none;
+    }
   }
-
-  .invoice-container.customer-invoice img:nth-of-type(1) {
-    margin-top: 0;
-  }
-
-  // .invoice-container.customer-invoice {
-  //   background-image: url(../images/customer-invoice.jpg);
-  //   background-size: contain;
-  //   min-height: 29.7cm;
-  //   position: relative;
-  // }
 }

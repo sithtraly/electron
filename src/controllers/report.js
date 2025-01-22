@@ -91,6 +91,7 @@ app.controller('ReportController', function ($scope, $location, ShareData) {
   }
 
   $scope.downloadPdf = function () {
+    ShareData.set('invoiceDate', { from: $scope.from, to: $scope.to })
     const ids = $scope.reports.map(r => r.id)
     ShareData.set('invoiceIds', ids)
     $location.path('/invoice')
@@ -111,5 +112,4 @@ app.controller('ReportController', function ($scope, $location, ShareData) {
     $location.path('/customerInvoice')
     ShareData.set('backPath', '/reports')
   }
-
 })
