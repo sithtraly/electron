@@ -77,7 +77,7 @@
 }
 
 .bokor {
-  font-family: Bokor, "Times New Roman", sans-serif;
+  font-family: Bokor, "Times New Roman", sans-serif !important;
 }
 
 .times-new-roman {

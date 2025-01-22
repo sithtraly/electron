@@ -393,39 +393,34 @@ body:has(.invoice) {
   padding: 0;
   margin: 0;
 }
-
 .invoice-container * {
   font-size: 12px;
 }
-
 .invoice-container header {
   display: flex;
   justify-content: center;
   flex-direction: row;
 }
-
 .invoice-container header img {
   height: 70px;
 }
-
 .invoice-container header div span {
   font-size: 20px;
 }
-
 .invoice-container table * {
   border: none;
   padding: 0;
 }
-
 .invoice-container table tr > * {
   padding: 0 2px;
 }
-
-.invoice-container table tr:hover,
-.invoice-container table tr {
+.invoice-container table tr,
+.invoice-container table tr:hover {
   background-color: unset !important;
 }
-
+.invoice-container table thead tr {
+  vertical-align: baseline;
+}
 .invoice-container table thead tr th {
   color: #000000;
   font-family: Freehand, "Times New Roman";
@@ -433,19 +428,12 @@ body:has(.invoice) {
   text-shadow: 0.001px 0 0 #000000, -0.001px 0 0 #000000, 0 0.001px 0 #000000, 0 -0.001px 0 #000000;
   text-align: left;
 }
-
-.invoice-container table thead tr {
-  vertical-align: baseline;
-}
-
 .invoice-container table tbody tr td {
   font-size: 9px;
 }
-
 .invoice-container table tbody tr:nth-child(n+3) td:not(td:first-child) {
   border-bottom: 1px dashed gray;
 }
-
 .invoice-container.customer-invoice {
   min-height: 29.7cm;
   position: relative;
@@ -478,26 +466,29 @@ body:has(.invoice) {
   font-size: 12px;
 }
 .invoice-container.customer-invoice p:nth-of-type(2) {
-  top: 125px;
-  left: 180mm;
+  top: 124px;
+  left: 170mm;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 17px;
 }
 .invoice-container.customer-invoice p:nth-of-type(3) {
-  top: 165px;
-  left: 140px;
+  top: 162px;
+  left: 138px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice p:nth-of-type(4) {
-  top: 165px;
-  left: 160mm;
+  top: 162px;
+  left: 155mm;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice p:nth-of-type(5) {
-  top: 200px;
+  top: 199px;
   left: 185px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice p:nth-of-type(6) {
   top: 200px;
-  left: 620px;
+  left: 155mm;
 }
 .invoice-container.customer-invoice p:nth-of-type(7) {
   top: 260px;
@@ -515,8 +506,8 @@ body:has(.invoice) {
   display: none;
 }
 .invoice-container.customer-invoice p:nth-of-type(10) {
-  top: 259px;
-  left: 150mm;
+  top: 257px;
+  left: 140mm;
 }
 .invoice-container.customer-invoice p:nth-of-type(11) {
   top: 288px;
@@ -524,15 +515,16 @@ body:has(.invoice) {
 }
 .invoice-container.customer-invoice p:nth-of-type(12) {
   top: 290px;
-  left: 148mm;
+  left: 138mm;
 }
 .invoice-container.customer-invoice p:nth-of-type(13) {
   top: 319px;
   left: 201px;
 }
 .invoice-container.customer-invoice p:nth-of-type(14) {
-  top: 323px;
-  left: 145mm;
+  top: 322px;
+  left: 135mm;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice p:nth-of-type(15) {
   top: 350px;
@@ -540,7 +532,7 @@ body:has(.invoice) {
 }
 .invoice-container.customer-invoice p:nth-of-type(16) {
   top: 348px;
-  left: 162mm;
+  left: 152mm;
 }
 .invoice-container.customer-invoice p:nth-of-type(17) {
   top: 378px;
@@ -548,23 +540,26 @@ body:has(.invoice) {
 }
 .invoice-container.customer-invoice p:nth-of-type(18) {
   top: 381px;
-  left: 154mm;
+  left: 144mm;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice p:nth-of-type(19) {
   top: 800px;
   left: 156mm;
 }
 .invoice-container.customer-invoice p:nth-of-type(19) {
-  top: 856px;
+  top: 858px;
   left: 102mm;
   text-align: center;
   width: 80px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice p:nth-of-type(20) {
-  top: 856px;
+  top: 858px;
   left: 176mm;
   text-align: center;
   width: 115px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice p:nth-of-type(20)::before {
   position: absolute;
@@ -596,6 +591,7 @@ body:has(.invoice) {
 .invoice-container.customer-invoice div.table > div > div {
   position: unset;
   text-align: center;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(1) {
   width: 60px;
