@@ -343,7 +343,7 @@ body:has(.invoice) {
     img:nth-of-type(2) {
       width: 76px;
       left: 203px;
-      top: 5px;
+      top: 0px;
     }
 
     p {
@@ -368,12 +368,14 @@ body:has(.invoice) {
         top: 162px;
         left: 138px;
         font-size: 14px;
+        font-weight: bold;
       }
-
+      
       &:nth-of-type(4) {
         top: 162px;
         left: 155mm;
         font-size: 13px;
+        font-weight: bold;
       }
 
       &:nth-of-type(5) {
@@ -472,7 +474,7 @@ body:has(.invoice) {
         width: 115px;
         font-size: 14px;
 
-        &::before {
+        &:not(:empty)::before {
           position: absolute;
           content: '$';
           left: 0;

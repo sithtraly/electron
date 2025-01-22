@@ -455,7 +455,7 @@ body:has(.invoice) {
 .invoice-container.customer-invoice img:nth-of-type(2) {
   width: 76px;
   left: 203px;
-  top: 5px;
+  top: 0px;
 }
 .invoice-container.customer-invoice p {
   margin: 0;
@@ -476,11 +476,13 @@ body:has(.invoice) {
   top: 162px;
   left: 138px;
   font-size: 14px;
+  font-weight: bold;
 }
 .invoice-container.customer-invoice p:nth-of-type(4) {
   top: 162px;
   left: 155mm;
   font-size: 13px;
+  font-weight: bold;
 }
 .invoice-container.customer-invoice p:nth-of-type(5) {
   top: 199px;
@@ -562,7 +564,7 @@ body:has(.invoice) {
   width: 115px;
   font-size: 14px;
 }
-.invoice-container.customer-invoice p:nth-of-type(20)::before {
+.invoice-container.customer-invoice p:nth-of-type(20):not(:empty)::before {
   position: absolute;
   content: "$";
   left: 0;

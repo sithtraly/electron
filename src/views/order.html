@@ -51,8 +51,8 @@
       <td>{{ o.customer }}</td>
       <td>{{ o.phone }}</td>
       <td>{{ o.product }}</td>
-      <td>{{ o.qty | number }}</td>
-      <td>{{ o.price | number }}</td>
+      <td>{{ o.qty ? (o.qty | number) : '' }}</td>
+      <td>{{ o.price ? (o.price | number) : '' }}</td>
       <!-- <td>{{ o.currency }}</td> -->
       <td>{{ o.carNo }}</td>
       <td>{{ o.address }}</td>

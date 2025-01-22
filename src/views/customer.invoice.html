@@ -33,17 +33,17 @@
         <div>{{$index + 1}}</div>
         <div>{{o.product}}</div>
         <div>Litre</div>
-        <div>{{o.qty | number}}</div>
-        <div>{{o.price | number}}</div>
+        <div>{{o.qty ? (o.qty | number) : ''}}</div>
+        <div>{{o.price ? (o.price | number) : ''}}</div>
         <div></div>
         <div>{{o.total | number:2}}</div>
       </div>
     </div>
 
-    <p>{{totalQty | number:0}}</p>
-    <p>{{totalPrice | number:0}}</p>
+    <p>{{totalQty ? (totalQty | number:0) : ''}}</p>
+    <p>{{totalPrice ? (totalPrice | number:0) : ''}}</p>
 
-    <p>{{readPrice | number2word}}</p>
+    <p>{{readPrice ? (readPrice | number2word) : ''}}</p>
   </div>
 
   <div class="invoice-container">

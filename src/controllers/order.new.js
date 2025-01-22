@@ -52,8 +52,8 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
       data.push({ ...product, customerId, carNo, address, code, phone })
     })
     data.map(d => {
-      d.qty = d.qty.replace(/,/g, '')
-      d.price = d.price.replace(/,/g, '')
+      d.qty = d.qty ? d.qty.replace(/,/g, '') : ''
+      d.price = d.price ? d.price.replace(/,/g, '') : ''
     })
     if (!orders) {
       window.api.invoke('newOrder', data).then(function () {
