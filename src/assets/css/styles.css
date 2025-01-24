@@ -432,7 +432,7 @@ body:has(.invoice) {
 .invoice-container table tbody tr td {
   font-size: 9px;
 }
-.invoice-container table tbody tr:nth-child(n+3) td:not(td:first-child) {
+.invoice-container table tbody tr:nth-child(n+2) td:not(td:first-child) {
   border-bottom: 1px dashed gray;
 }
 .invoice-container.customer-invoice {
@@ -647,6 +647,9 @@ body:has(.invoice) {
     margin-top: 0;
   }
   .invoice .invoice-container:nth-child(2) {
+    display: none;
+  }
+  .print-d-none {
     display: none;
   }
 }

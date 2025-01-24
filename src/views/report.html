@@ -49,7 +49,7 @@
       <td>{{r.customer}}</td>
       <td>{{r.product}}</td>
       <td>{{ r.qty | number:0 }}</td>
-      <td>{{ r.price | number:0 }}</td>
+      <td>{{ r.price ? (r.price | number:0) : '' }}</td>
       <!-- <td class="text-right">{{ r.total | number:0 }}</td> -->
       <!-- <td>{{r.currency}}</td> -->
       <td>{{r.address}}</td>

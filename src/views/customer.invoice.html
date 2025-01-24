@@ -46,13 +46,13 @@
     <p>{{readPrice ? (readPrice | number2word) : ''}}</p>
   </div>
 
-  <div class="invoice-container">
-    <div class="flex justify-end mt-3">
-      <button ng-click="print()" class="mr-2">
+  <div class="invoice-container print-d-none">
+    <div class="flex justify-end">
+      <button ng-click="print()" class="mr-2 mt-3">
         <i class="fa-solid fa-print"></i>
         ព្រីន
       </button>
-      <button ng-click="savePdf()">
+      <button ng-click="savePdf()" class="mt-3">
         <i class="fa-solid fa-file-pdf"></i>
         Save PDF
       </button>
