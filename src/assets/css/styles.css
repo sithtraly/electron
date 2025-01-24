@@ -594,7 +594,7 @@ body:has(.invoice) {
 .invoice-container.customer-invoice div.table > div > div {
   position: unset;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(1) {
   width: 60px;
