@@ -91,13 +91,15 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   // }
 
   $scope.customerBlur = function () {
-    $scope.customerId = $scope.customer
-    window.api.invoke('getCustomerByCode', $scope.customerId).then(function (res) {
-      $scope.$apply(function () {
-        $scope.customer = res.name
-        $scope.customerId = res.id
+    if ($scope.customer) {
+      $scope.customerId = $scope.customer
+      window.api.invoke('getCustomerByCode', $scope.customerId).then(function (res) {
+        $scope.$apply(function () {
+          $scope.customer = res.name
+          $scope.customerId = res.id
+        })
       })
-    })
+    }
   }
 
   // $scope.productBlur = function (i) {
@@ -139,5 +141,16 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
       e.target.value = validInput
     }
     e.target.value = StringUtil.number2ThousandSeparator(e.target.value)
+  }
+
+  $scope.onKeydown = function (e) {
+    if (!['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'].includes(e.key)) return
+    const inputs = Array.from(document.querySelectorAll('input[ng-model]'))
+    const index = inputs.indexOf(e.target)
+    if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && index > 0) {
+      inputs[index - 1].focus()
+    } else if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && inputs.length - 1) {
+      inputs[index + 1].focus()
+    }
   }
 }])

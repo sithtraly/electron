@@ -22,23 +22,23 @@
     <p class="m-0">លេខបញ្ជាទិញ៖ {{orderCode}}</p>
 
     <label for="cbCustomer">អតិថិជន</label>
-    <input type="text" required list="cbCustomer" ng-model="customer" ng-blur="customerBlur()">
+    <input type="text" required list="cbCustomer" ng-model="customer" ng-blur="customerBlur()" ng-keydown="onKeydown($event)">
 
     <label for="cbCustomer">លេខទូរស័ព្ទ</label>
-    <input type="text" list="cbCustomer" ng-model="phone">
+    <input type="text" list="cbCustomer" ng-model="phone" ng-keydown="onKeydown($event)">
 
     <div class="flex flex-row gap-2 mb-2" ng-repeat="p in products">
       <div class="flex flex-column">
         <label for="cbProduct" class="mt-2" ng-if="$index === 0">ផលិតផល</label>
-        <input type="text" required list="cbProduct" ng-model="p.product" ng-blur="productBlur($index)">
+        <input type="text" required list="cbProduct" ng-model="p.product" ng-blur="productBlur($index)" ng-keydown="onKeydown($event)">
       </div>
       <div class="flex flex-column">
         <label for="txtQty" class="mt-2" ng-if="$index === 0">បរិមាណ</label>
-        <input type="text" id="txtQty" required ng-model="p.qty" ng-keyup="formatNumber($event)">
+        <input type="text" id="txtQty" required ng-model="p.qty" ng-keyup="formatNumber($event)" ng-keydown="onKeydown($event)">
       </div>
       <div class="flex flex-column">
         <label for="txtPrice" class="mt-2" ng-if="$index === 0">តម្លៃ</label>
-        <input type="text" class="number" id="txtPrice" required ng-model="p.price" ng-keyup="formatNumber($event)">
+        <input type="text" class="number" id="txtPrice" required ng-model="p.price" ng-keyup="formatNumber($event)" ng-keydown="onKeydown($event)">
       </div>
 
       <div class="flex flex-column" ng-if="products.length > 1">
@@ -81,10 +81,10 @@
     </div> -->
 
     <label for="carNo">លេខឡាន</label>
-    <input type="text" id="carNo" ng-model="carNo">
+    <input type="text" id="carNo" ng-model="carNo" ng-keydown="onKeydown($event)">
 
     <label for="address">អាស័យដ្ឋាន</label>
-    <input type="text" id="address" ng-model="address">
+    <input type="text" id="address" ng-model="address" ng-keydown="onKeydown($event)">
 
     <!-- <label for="stockNo" class="mt-2">លេខប័ណ្ណផ្ទេរឃ្លាំង</label>
     <input type="text" id="stockNo" required ng-model="stockNo">
