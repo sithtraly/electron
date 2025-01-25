@@ -97,12 +97,13 @@ async function connectdb() {
     await sequelize.authenticate()
     console.log("Conntected to database successfully")
 
-    if (process.env.DB_SYNC == 'true') {
-      await sequelize.sync({ alter: true })
-      fs.writeFileSync(path.join(process.cwd(), '.env'), `DB_SYNC=false`)
-    } else {
-      await sequelize.sync()
-    }
+    // if (process.env.DB_SYNC == 'true') {
+    //   await sequelize.sync({ alter: true })
+    //   fs.writeFileSync(path.join(process.cwd(), '.env'), `DB_SYNC=false`)
+    // } else {
+    //   await sequelize.sync()
+    // }.
+    await sequelize.sync({ alter: true })
 
     // seeder
     // create invoice number

@@ -6,13 +6,15 @@ module.exports = function () {
       const win = BrowserWindow.getFocusedWindow()
       win.webContents.print({
         silent: false,
-        pageSize: 'A4',
+        pageSize: options.pageSize || { width: 210000, height: 297000 },
         landscape: false,
         copies: options.copies || 1,
         printBackground: true,
         margins: {
           top: 0,
-          bottom: 0
+          bottom: 0,
+          left: 0,
+          right: 0
         }
       }, (success, error) => {
         if (success) resole(success)

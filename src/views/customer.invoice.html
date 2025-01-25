@@ -43,7 +43,7 @@
     <p>{{totalQty ? (totalQty | number:0) : ''}}</p>
     <p>{{totalPrice ? (totalPrice | number:0) : ''}}</p>
 
-    <p>{{readPrice ? (readPrice | number2word) : ''}}</p>
+    <p>{{readPrice ? ((readPrice | number2word) + 'ដុល្លារ') : ''}}</p>
   </div>
 
   <div class="invoice-container print-d-none">

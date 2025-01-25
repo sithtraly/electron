@@ -99,7 +99,7 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   }
 
   $scope.print = function () {
-    window.api.invoke('print', { copies: 3 }).then(function (success) {
+    window.api.invoke('print', { copies: 1, pageSize: 'A4' }).then(function (success) {
       const savePath = `${ShareData.get('savePath')}\\Invoice ${$scope.orders[0].customer} ${Date.now()}.pdf`
       savePdf(savePath)
     }).catch(function (err) {

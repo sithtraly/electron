@@ -65,7 +65,7 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
 
   $scope.print = function () {
     const savePath = ShareData.get('savePath')
-    window.api.invoke('print', { copies: 1 }).then(function (success) {
+    window.api.invoke('print', { copies: 1, pageSize: 'A4' }).then(function (success) {
       const savedPath = `${savePath}\\Report ${DateUtil.date2stdDate(new Date())}_${Date.now()}.pdf`
       $scope.content2pdf(savedPath, false)
       $scope.back()
