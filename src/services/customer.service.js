@@ -25,7 +25,7 @@ module.exports = function () {
     } else if (to) {
       findOption.createdAt = { [Op.lte]: to }
     }
-    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset: offset * limit })
+    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset: offset * limit, order: [['customerCode', 'ASC']] })
     const count = await CustomerModel.count({ where: findOption, raw: true })
     return { data: customer, total: count }
   })
