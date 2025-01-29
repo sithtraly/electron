@@ -1,6 +1,6 @@
 app.controller('ReportController', function ($scope, $location, ShareData) {
-  $scope.from
-  $scope.to
+  $scope.from // = new Date()
+  $scope.to = new Date()
   $scope.search
   $scope.page = 1
   $scope.totalItems = 0

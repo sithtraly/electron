@@ -17,7 +17,7 @@ module.exports = function () {
         pageSize: 'A4',
         printBackground: true,
         printSelectionOnly: false,
-        landscape: false,
+        landscape: options.landscape || false,
       }).then(data => {
         try {
           writeFileSync(options.pdfName, data)

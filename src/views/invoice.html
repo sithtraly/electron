@@ -5,8 +5,8 @@
   <h2>ចេញវិក័បត្រ</h2>
 </nav>
 
-<div class="invoice" id="invoice">
-  <div class="invoice-container">
+<div class="invoice flex flex-column items-center" id="invoice">
+  <div class="invoice-container landscape">
     <header>
       <img src="assets/images/tela-logo.jpg" alt="">
       <div class="flex flex-column">
@@ -19,7 +19,7 @@
     <p class="text-center freehand" style="font-weight: 600; font-size: 18px;">របាយការណ៍ដឹកប្រេងចេញ</p>
     <!-- របស់ទីផ្សារលក់រាយ -->
     <p class="text-center freehand">
-      ចាប់ពីកាលបរិច្ឆេទ
+      កាលបរិច្ឆេទចាប់ពី
       <span class="mx-3">{{from | normalDate}}</span>
       ដល់
       <span class="mx-3">{{to | normalDate}}</span>
@@ -28,24 +28,22 @@
     </p>
 
     <table>
-      <thead style="background-color: gainsboro;">
-        <tr>
+      <thead style="background-color: lightblue;">
+        <tr style="vertical-align: middle;">
           <th style="width: 15px;"></th>
-          <th style="width: 100px;" class="fs-11">ឈ្មោះ</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">REGULAR 92</th>
-          <th class="fs-8 freehand" style="transform: translateY(-5px);">តម្លៃ</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">SUPER UNL95</th>
-          <th class="fs-8 freehand" style="transform: translateY(-5px);">តម្លៃ</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">DIESEL EURO5</th>
-          <th class="fs-8 freehand" style="transform: translateY(-5px);">តម្លៃ</th>
-          <!-- <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">DIESEL AURO5</th>
-          <th class="fs-8 times-new-roman" style="transform: translateY(-5px);">SUPER UNL9</th> -->
-          <th class="fs-11" style="width: 160px;">អាស័យដ្ឋានដាក់ទំនិញ</th>
-          <th class="fs-9" style="width: 51px;">លេខទូរស័ព្ទ</th>
-          <th class="fs-9" style="width: 64px;">លេខបញ្ជាទិញ</th>
-          <th class="fs-9">លេខឡាន</th>
-          <th class="fs-9" style="width: 83px;">លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
-          <th class="fs-8" style="width: 40px;">លេខប័ណ្ណ ដឹកជញ្ជូន</th>
+          <th class="fs-10 text-left">ឈ្មោះ</th>
+          <th class="fs-10 text-right times-new-roman">REGULAR 92</th>
+          <th class="fs-10 text-right freehand">តម្លៃ</th>
+          <th class="fs-10 text-right times-new-roman">SUPER UNL95</th>
+          <th class="fs-10 text-right freehand">តម្លៃ</th>
+          <th class="fs-10 text-right times-new-roman">DIESEL EURO5</th>
+          <th class="fs-10 text-right freehand">តម្លៃ</th>
+          <th class="fs-10 text-center">អាស័យដ្ឋានដាក់ទំនិញ</th>
+          <th class="fs-10 text-center">លេខទូរស័ព្ទ</th>
+          <th class="fs-10 text-center">លេខបញ្ជាទិញ</th>
+          <th class="fs-10 text-center">លេខឡាន</th>
+          <th class="fs-10 text-center">លេខប័ណ្ណផ្ទេរឃ្លាំង</th>
+          <th class="fs-10 text-center">លេខប័ណ្ណ ដឹកជញ្ជូន</th>
         </tr>
       </thead>
 
@@ -79,10 +77,12 @@
         </tr>
       </tbody>
     </table>
-    <div class="flex justify-end mt-3">
+  </div>
+  <div class="invoice-container landscape print-d-none" style="height: unset;">
+    <div class="flex justify-end">
       <button ng-click="print()" class="mr-2">
         <i class="fa-solid fa-print"></i>
-        ព្រីន
+        បោះពុម្ភ
       </button>
       <button ng-click="savePdf(null, true)">
         <i class="fa-solid fa-file-pdf"></i>

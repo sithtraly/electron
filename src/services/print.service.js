@@ -7,7 +7,7 @@ module.exports = function () {
       win.webContents.print({
         silent: true,
         pageSize: options.pageSize || 'A4',
-        landscape: false,
+        landscape: options.landscape || false,
         copies: options.copies || 1,
         printBackground: true,
         margins: {

@@ -11,7 +11,6 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
     $scope.from = ids.from
     $scope.to = ids.to
     window.api.invoke('getInvoice', { ids }).then(res => {
-      console.log(res)
       $scope.$apply(function () {
         const merged = res.reduce((acc, item) => {
           const { code, product, price, qty, customer, address, carNo, phone } = item
@@ -28,7 +27,6 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
           return acc
         }, {})
         $scope.invoices = merged
-        console.log(merged)
       })
     })
   }
@@ -39,6 +37,7 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
   $scope.content2pdf = function (location, openFolderAfterSave = false) {
     window.api.html2pdf({
       pdfName: location,
+      landscape: true
     }).then(function (file) {
       if (file) {
         if (openFolderAfterSave) window.api.openItemInFolder(file)
@@ -47,7 +46,7 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
         })
       }
     }).catch(function (err) {
-      console.error(err)
+      console.table(err)
     })
   }
 
@@ -65,12 +64,14 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
 
   $scope.print = function () {
     const savePath = ShareData.get('savePath')
-    window.api.invoke('print', { copies: 1, pageSize: 'A4' }).then(function (success) {
+    window.api.invoke('print', { copies: 1, pageSize: 'A4', landscape: true }).then(function (success) {
       const savedPath = `${savePath}\\Report ${DateUtil.date2stdDate(new Date())}_${Date.now()}.pdf`
       $scope.content2pdf(savedPath, false)
-      $scope.back()
+      $scope.$apply(function () {
+        $scope.back()
+      })
     }).catch(function (err) {
-      console.error(err)
+      console.table(err)
     })
   }
 })

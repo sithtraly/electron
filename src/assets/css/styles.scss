@@ -204,15 +204,15 @@ table {
 }
 
 .text-center {
-  text-align: center
+  text-align: center !important;
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .p-relative {
@@ -247,6 +247,7 @@ nav {
   height: 64px;
   margin: -8px;
   margin-bottom: 8px;
+  max-width: 100vw;
 }
 
 nav>button {
@@ -345,6 +346,11 @@ body:has(.invoice) {
   margin: 0;
   background-color: #ffffff;
 
+  &.landscape {
+    width: 29.7cm;
+    height: 21cm;
+  }
+
   * {
     font-size: 12px;
   }
@@ -385,14 +391,15 @@ body:has(.invoice) {
         color: #000000;
         font-family: Freehand, "Times New Roman";
         font-weight: 600;
-        text-shadow: 0.001px 0 0 #000000, -0.001px 0 0 #000000, 0 0.001px 0 #000000, 0 -0.001px 0 #000000;
+        text-shadow: 0.001px 0 0 #000000;
+        // , -0.001px 0 0 #000000, 0 0.001px 0 #000000, 0 -0.001px 0 #000000;
         text-align: left;
       }
     }
 
     tbody tr {
       td {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       &:nth-child(n+2) td:not(td:first-child) {
@@ -884,9 +891,16 @@ body:has(.invoice) {
   body {
     max-width: 21cm;
     width: 21cm;
+    height: 29.7cm;
     margin: 0 !important;
     padding: 0 !important;
     background-color: #ffffff !important;
+
+    &:has(.landscape) {
+      width: 29.7cm;
+      max-width: 29.7cm;
+      height: 21cm;
+    }
   }
 
   .frame {
@@ -915,6 +929,6 @@ body:has(.invoice) {
   }
 
   .print-d-none {
-    display: none;
+    display: none !important;
   }
 }
