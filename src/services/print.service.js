@@ -5,8 +5,8 @@ module.exports = function () {
     return new Promise((resole, reject) => {
       const win = BrowserWindow.getFocusedWindow()
       win.webContents.print({
-        silent: false,
-        pageSize: options.pageSize || { width: 210000, height: 297000 },
+        silent: true,
+        pageSize: options.pageSize || 'A4',
         landscape: false,
         copies: options.copies || 1,
         printBackground: true,
@@ -15,7 +15,7 @@ module.exports = function () {
           bottom: 0,
           left: 0,
           right: 0
-        }
+        },
       }, (success, error) => {
         if (success) resole(success)
         else reject(error)

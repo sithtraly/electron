@@ -108,6 +108,26 @@ table {
   }
 }
 
+.w-0 {
+  width: 0;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 .flex {
   display: flex;
 
@@ -131,6 +151,10 @@ table {
     justify-content: end;
   }
 
+  &.justify-start {
+    justify-content: start;
+  }
+
   &.justify-between {
     justify-content: space-between;
   }
@@ -139,6 +163,31 @@ table {
     &.gap-#{$i} {
       gap: #{$i * 4}px;
     }
+  }
+
+  &.w-0,
+  .w-0 {
+    flex-basis: 0;
+  }
+
+  &.w-25,
+  .w-25 {
+    flex-basis: 25%;
+  }
+
+  &.w-50,
+  .w-50 {
+    flex-basis: 50%;
+  }
+
+  &.w-75,
+  .w-75 {
+    flex-basis: 75%;
+  }
+
+  &.w-100,
+  .w-100 {
+    flex-basis: 100%;
   }
 }
 
@@ -164,6 +213,30 @@ table {
 
 .text-left {
   text-align: left;
+}
+
+.p-relative {
+  position: relative !important;
+}
+
+.p-absolute {
+  position: absolute !important;
+}
+
+.p-fixed {
+  position: fixed !important;
+}
+
+.p-unset {
+  position: unset !important;
+}
+
+.p-static {
+  position: static !important;
+}
+
+.p-sticky {
+  position: sticky !important;
 }
 
 nav {
@@ -195,21 +268,25 @@ nav>h2 {
 @for $i from 0 through 5 {
 
   .mt-#{$i},
+  .my-#{$i},
   .m-#{$i} {
     margin-top: #{$i * 4}px;
   }
 
   .mb-#{$i},
+  .my-#{$i},
   .m-#{$i} {
     margin-bottom: #{$i * 4}px;
   }
 
   .ml-#{$i},
+  .mx-#{$i},
   .m-#{$i} {
     margin-left: #{$i * 4}px;
   }
 
   .mr-#{$i},
+  .mx-#{$i},
   .m-#{$i} {
     margin-right: #{$i * 4}px;
   }
@@ -248,6 +325,12 @@ nav>h2 {
 body:has(.invoice) {
   background-color: #cdcdcd;
   margin: 0;
+}
+
+body:has(.invoice) {
+  nav {
+    margin: 0;
+  }
 }
 
 .invoice {
@@ -323,6 +406,7 @@ body:has(.invoice) {
     // background-size: contain;
     min-height: 29.7cm;
     position: relative;
+    overflow: hidden;
 
     &>* {
       font-family: "Khmer Os Content", "Times New Roman";
@@ -341,8 +425,8 @@ body:has(.invoice) {
     }
 
     img:nth-of-type(2) {
-      width: 76px;
-      left: 203px;
+      width: 84px;
+      left: 180px;
       top: 0px;
     }
 
@@ -351,42 +435,42 @@ body:has(.invoice) {
       // font-weight: bold;
 
       &:nth-of-type(1) {
-        top: 123px;
-        left: 140px;
+        top: 130px;
+        left: 125px;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 14px;
       }
 
       &:nth-of-type(2) {
-        top: 124px;
-        left: 170mm;
+        top: 133px;
+        left: 183mm;
         font-weight: bold;
         font-size: 17px;
       }
 
       &:nth-of-type(3) {
-        top: 162px;
-        left: 138px;
+        top: 174px;
+        left: 130px;
         font-size: 14px;
         font-weight: bold;
       }
-      
+
       &:nth-of-type(4) {
-        top: 162px;
-        left: 155mm;
-        font-size: 13px;
+        top: 173px;
+        left: 166mm;
+        font-size: 15px;
         font-weight: bold;
       }
 
       &:nth-of-type(5) {
-        top: 199px;
-        left: 185px;
-        font-size: 13px;
+        top: 211px;
+        left: 187px;
+        font-size: 14px;
       }
 
       &:nth-of-type(6) {
-        top: 200px;
-        left: 155mm;
+        top: 211px;
+        left: 160mm;
       }
 
       &:nth-of-type(7) {
@@ -408,49 +492,49 @@ body:has(.invoice) {
       }
 
       &:nth-of-type(10) {
-        top: 257px;
-        left: 140mm;
+        top: 269px;
+        left: 146mm;
       }
 
       &:nth-of-type(11) {
-        top: 288px;
-        left: 201px;
+        top: 301px;
+        left: 184px;
       }
 
       &:nth-of-type(12) {
-        top: 290px;
-        left: 138mm;
+        top: 301px;
+        left: 148mm;
       }
 
       &:nth-of-type(13) {
-        top: 319px;
-        left: 201px;
+        top: 331px;
+        left: 180px;
       }
 
       &:nth-of-type(14) {
-        top: 322px;
-        left: 135mm;
+        top: 334px;
+        left: 142mm;
         font-size: 13px;
       }
 
       &:nth-of-type(15) {
-        top: 350px;
-        left: 174px;
+        top: 360px;
+        left: 154px;
       }
 
       &:nth-of-type(16) {
-        top: 348px;
-        left: 152mm;
+        top: 358px;
+        left: 162mm;
       }
 
       &:nth-of-type(17) {
-        top: 378px;
-        left: 177px;
+        top: 390px;
+        left: 166px;
       }
 
       &:nth-of-type(18) {
-        top: 381px;
-        left: 144mm;
+        top: 394px;
+        left: 153mm;
         font-size: 13px;
       }
 
@@ -460,16 +544,16 @@ body:has(.invoice) {
       }
 
       &:nth-of-type(19) {
-        top: 858px;
-        left: 102mm;
+        top: 870px;
+        left: 104mm;
         text-align: center;
         width: 80px;
         font-size: 14px;
       }
 
       &:nth-of-type(20) {
-        top: 858px;
-        left: 176mm;
+        top: 870px;
+        left: 178mm;
         text-align: center;
         width: 115px;
         font-size: 14px;
@@ -482,8 +566,8 @@ body:has(.invoice) {
       }
 
       &:nth-of-type(21) {
-        top: 891px;
-        left: 245px;
+        top: 915px;
+        left: 250px;
       }
     }
 
@@ -542,6 +626,257 @@ body:has(.invoice) {
       }
     }
   }
+
+  &.customer-invoice2 {
+    display: flex;
+    position: relative;
+    // background: transparent;
+    flex-direction: column;
+    // color: red;
+
+    $ml: 59px;
+    $mr: 73px;
+    $w: calc($ml + $mr);
+
+    .dot {
+      overflow: hidden;
+      text-wrap: nowrap;
+      width: var(--width);
+    }
+
+    .dot::after {
+      content: '..........................................................................................................................................................';
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 18px;
+    }
+
+    >* {
+      margin-left: $ml;
+      margin-right: $mr;
+      width: calc(100% - $w);
+      position: relative;
+    }
+
+    .header {
+      display: block;
+
+      *:not(img) {
+        position: unset;
+        padding-left: 223px;
+        color: #001f5e;
+      }
+
+      img.logo {
+        position: absolute;
+        width: 80px;
+        left: 135px;
+        top: 21px;
+      }
+
+      h1 {
+        margin: 24px 0 0 0;
+        font-family: "Khmer Muol";
+        font-size: 21px;
+      }
+
+      h2 {
+        margin: 3px 0 0 1px;
+        font-family: 'Times New Roman';
+        font-size: 19px;
+      }
+
+      h3 {
+        margin: 17px 0 0 15px;
+        font-family: Bokor, "Times New Roman";
+        font-size: 16px;
+      }
+    }
+
+    .row-1>h4 {
+      margin: 9px 0 0;
+      font-size: 12.4px;
+    }
+
+    .row-2 {
+      >h4 {
+        margin: 9px 0 0;
+        font-size: 12.4px;
+      }
+
+      &.add-mt>h4 {
+        margin-top: var(--mt);
+      }
+    }
+
+    table {
+      margin-top: 9px;
+      border-collapse: collapse;
+
+      * {
+        position: unset;
+        font-size: 13px;
+        height: 39px;
+      }
+
+      tr.total,
+      tr.total td {
+        height: 26px;
+      }
+
+      tr:nth-child(1) td {
+        line-height: 18px;
+        border-top-width: 2px !important;
+      }
+
+      td {
+        border: 1px solid #000000 !important;
+        width: var(--width);
+
+        &:nth-child(1) {
+          border-left-width: 2px !important;
+        }
+
+        &:nth-last-child(1) {
+          border-right-width: 2px !important;
+        }
+      }
+    }
+
+    p:nth-of-type(1) {
+      top: 137px;
+      left: 108px;
+    }
+
+    p:nth-of-type(2) {
+      top: 140px;
+      left: 162mm;
+    }
+
+    p:nth-of-type(3) {
+      top: 176px;
+      left: 114px;
+      font-size: 13px;
+    }
+
+    p:nth-of-type(4) {
+      top: 176px;
+      left: 144mm;
+      font-size: 14px;
+    }
+
+    p:nth-of-type(5) {
+      top: 209px;
+      left: 178px;
+    }
+
+    p:nth-of-type(6) {
+      top: 209px;
+      left: 138mm;
+    }
+
+    p:nth-of-type(7) {}
+
+    p:nth-of-type(8) {}
+
+    p:nth-of-type(9) {}
+
+    p:nth-of-type(10) {
+      top: 268px;
+      left: 128mm;
+    }
+
+    p:nth-of-type(11) {
+      top: 306px;
+      left: 171px;
+    }
+
+    p:nth-of-type(12) {
+      top: 303px;
+      left: 130.5mm;
+    }
+
+    p:nth-of-type(13) {
+      top: 342px;
+      left: 165px;
+    }
+
+    p:nth-of-type(14) {
+      top: 344px;
+      left: 123mm;
+    }
+
+    p:nth-of-type(15) {
+      top: 377px;
+      left: 141px;
+    }
+
+    p:nth-of-type(16) {
+      top: 376px;
+      left: 143mm;
+      text-wrap: nowrap;
+    }
+
+    p:nth-of-type(17) {
+      top: 410px;
+      left: 164px;
+      font-size: 13px;
+    }
+
+    p:nth-of-type(18) {
+      top: 415px;
+      left: 133mm;
+      font-size: 12px;
+    }
+
+    div.table {
+      position: absolute;
+      top: 486px;
+      padding: 0px 12px 0 26px;
+      left: 0;
+      right: -34px;
+
+      >div {
+        border: none;
+        background-image: url(../images/table-bottom-border.png);
+        background-size: auto 1px;
+        background-position-y: 100%;
+        background-repeat: repeat-x;
+
+        >div:nth-child(1) {
+          width: 51px;
+        }
+
+        >div:nth-child(2) {
+          text-indent: 7mm;
+        }
+
+        >div:nth-child(3) {}
+
+        >div:nth-child(4) {}
+
+        >div:nth-child(5) {}
+      }
+    }
+
+    p:nth-of-type(19) {
+      top: 776px;
+      left: 89mm;
+    }
+
+    p:nth-of-type(20) {
+      top: 776px;
+      left: 153mm;
+    }
+
+    p:nth-of-type(21) {
+      top: 819px;
+      left: 230px;
+    }
+  }
 }
 
 
@@ -549,8 +884,8 @@ body:has(.invoice) {
   body {
     max-width: 21cm;
     width: 21cm;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     background-color: #ffffff !important;
   }
 
@@ -565,7 +900,7 @@ body:has(.invoice) {
   .invoice,
   .invoice-container {
     box-shadow: none;
-    margin: 0;
+    margin: 0 !important;
     background-color: #ffffff;
 
 
@@ -575,13 +910,7 @@ body:has(.invoice) {
     }
 
     &.customer-invoice img:nth-of-type(1) {
-      margin-top: 0;
-    }
-  }
-
-  .invoice {
-    .invoice-container:nth-child(2) {
-      display: none;
+      margin: 0 !important;
     }
   }
 

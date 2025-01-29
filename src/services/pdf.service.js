@@ -7,7 +7,13 @@ module.exports = function () {
     return new Promise((resolve, reject) => {
       const win = BrowserWindow.getFocusedWindow()
       win.webContents.printToPDF({
-        marginsType: 0,
+        margins: {
+          bottom: 0,
+          left: 0,
+          right: 0,
+          top: 0,
+          marginType: "css",
+        },
         pageSize: 'A4',
         printBackground: true,
         printSelectionOnly: false,

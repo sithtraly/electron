@@ -13,6 +13,7 @@ const config = ['$routeProvider', function ($routeProvider) {
     .when('/invoice', { templateUrl: './views/invoice.html', controller: 'InvoiceController' })
     .when('/customerInvoice', { templateUrl: './views/customer.invoice.html', controller: 'CustomerInvoiceController' })
     .when('/settings', { templateUrl: './views/setting.html', controller: 'SettingController' })
+    .when('/customerInvoice2', { templateUrl: './views/customer.invoice2.html', controller: 'CustomerInvoiceController2' })
     .otherwise({ redirectTo: '/' })
 }]
 

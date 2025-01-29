@@ -32,8 +32,8 @@ module.exports = function () {
   })
 
   ipcMain.handle('printedInvoice', async (_, obj = {}) => {
-    const { ids, invNumber } = obj
-    const updated = await OrderModel.update({ isPrinted: true, invNumber }, { where: { id: { [Op.in]: ids } } })
-    return updated
+    const { code, invNumber } = obj
+    await OrderModel.update({ isPrinted: true, invNumber }, { where: { code } })
+    return true
   })
 }

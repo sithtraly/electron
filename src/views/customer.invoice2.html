@@ -1,0 +1,217 @@
+<nav>
+  <button ng-click="back()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <h2>ចេញវិក័បត្រ</h2>
+</nav>
+
+<div class="invoice flex flex-column items-center" id="invoice">
+  <img src="assets/images/sample-invoice.jpg" alt="" style="width: 21cm; position: absolute; top: 64px;display: none;">
+  <div class="invoice-container customer-invoice customer-invoice2">
+    <div class="header">
+      <img src="assets/images/tela-logo.jpg" alt="" class="logo">
+      <h1>ក្រុមហ៊ុនកម្ពុជាតេលា</h1>
+      <h2>KAMPUCHEA TELA LIMITED.</h2>
+      <H3>វិក័យបត្រលក់ទំនិញ / INVOICE</H3>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-1">
+        <h4 class="p-unset bokor dot" style="--width: 177px;">ស្ថានីយ តេលា</h4>
+        <h4 class="p-unset bokor dot" style="--width: 218px;">លេខវិក្ក័យបត្រ/<small class="p-unset">InvNum</small>:</h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-1">
+        <h4 class="p-unset bokor dot" style="--width: 177px;">លេខទូរស័ព្ទ/<small class="p-unset">Tel</small>:</h4>
+        <h4 class="p-unset bokor dot" style="--width: 218px;">ថ្ងៃខែឆ្នាំ/<small class="p-unset">Date</small>:</h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2">
+        <h4 class="p-unset bokor dot" style="--width: 256px;">លេខប័ណ្ណទំនិញ/<small class="p-unset">TransferNum</small>:
+        </h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">លេខប័ណ្ណដឺកជញ្ជូន/<small class="p-unset">D.N.No</small>:
+        </h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2">
+        <h4 class="p-unset content dot" style="--width: 256px;">យោងលេខបញ្ជាទំនិញ/<small class="p-unset">P.O.No</small>:
+        </h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">ថ្ងៃដឺកជញ្ជូន/<small class="p-unset">D.N.Date</small>:
+        </h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2">
+        <h4 class="p-unset content dot" style="--width: 256px;">ថ្ងៃបញ្ជាទិញ/<small class="p-unset">P.O.Date</small>:
+        </h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">អតិថិជន/<small class="p-unset">Customer</small>:</h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2 add-mt" style="--mt: 14px">
+        <h4 class="p-unset content dot" style="--width: 256px;">អនុម័តទី១ដោយ/<small class="p-unset">App. 1 by</small>:
+        </h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">អាស័យដ្ឋាន/<small class="p-unset">Address</small>:</h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2 add-mt" style="--mt: 13px">
+        <h4 class="p-unset content dot" style="--width: 256px;">អនុម័តទី២ដោយ/<small class="p-unset">App. 2 by</small>:
+        </h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">លេខទូរស័ព្ទ/<small class="p-unset">Tel</small>:</h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2 add-mt" style="--mt: 13px">
+        <h4 class="p-unset content dot" style="--width: 256px;">ប្រភេទលក់/<small class="p-unset">Sell Type</small>:</h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">មធ្យោបាយដឹកជញ្ជូន/<small class="p-unset">Del by</small>:
+        </h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-between row-2 add-mt" style="--mt: 10px">
+        <h4 class="p-unset content dot" style="--width: 256px;">រូបភាពទូទាត់/<small class="p-unset">Pay Term</small>:
+        </h4>
+        <h4 class="p-unset content dot" style="--width: 313px;">រថយន្ដលេខ/<small class="p-unset">Truck No</small>:</h4>
+      </div>
+    </div>
+
+    <table class="w-100 p-unset" style="z-index: 1;">
+      <tr>
+        <td class="text-center" style="--width: 42px;">ល.រ /<br>Nº</td>
+        <td class="text-center" style="--width: 204px;">ឈ្មោះទំនិញ / Item Name</td>
+        <td class="text-center" style="--width: 48px;">ឯកតា<br>Unit</td>
+        <td class="text-center" style="--width: 76px;">បរិមាណ<br>Quantity</td>
+        <td class="text-center" style="--width: 66px;">តម្លៃតោន<br>Ton Price</td>
+        <td class="text-center" style="--width: 85px;">តម្លៃរាយ<br>Unit Price</td>
+        <td class="text-center">ទឹកប្រាក់<br>Amount</td>
+      </tr>
+      <tr style="height: 286px;">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="total">
+        <td colspan="3" style="border-width: 2px 2px 0 0 !important;" class="text-right p-relative">
+          <h4 class="m-0 p-absolute" style="right: 29px;top: -3px;">សរុប/TOTAL</h4>
+        </td>
+        <td colspan="3" style="border-bottom-width: 2px !important;"></td>
+        <td style="border-width: 0 2px 2px 0 !important;"></td>
+      </tr>
+    </table>
+
+    <div class="flex flex-row p-unset row-2 add-mt" style="margin-top: 23px;">
+      <span class="fs-14 p-unset" style="width: 115px;">សរុបទឹកប្រាក់ជាអក្សរ / </span>
+      <small class="fs-13 p-unset dot" style="width: 475px;">Total In Word :</small>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-center row-2 add-mt w-100" style="margin-top: 16px">
+        <div class="p-unset text-center w-25" style="line-height: 18px;">
+          <h4 class="text-center w-25 my-0 fs-14">ប្រធានស្ថានីយ</h4>
+          <h5 class="text-center w-25 my-0 fs-12 mt-4">Station Manager</h5>
+        </div>
+        <div class="p-unset text-center w-25" style="line-height: 18px;">
+          <h4 class="text-center w-25 my-0 fs-14" style="padding-left: 8px;">ជំនួយការ</h4>
+          <h5 class="text-center w-25 my-0 fs-12 mt-4" style="padding-left: 8px;">Assistant</h5>
+        </div>
+        <div class="p-unset text-center w-25" style="line-height: 18px;">
+          <h4 class="text-center w-25 my-0 fs-14" style="padding-left: 17px;">អ្នកលក់</h4>
+          <h5 class="text-center w-25 my-0 fs-12 mt-4" style="padding-left: 16px;">Seller</h5>
+        </div>
+        <div class="p-unset text-center w-25" style="line-height: 18px;">
+          <h4 class="text-center w-25 my-0 fs-14" style="padding-left: 13px;">អ្នកទិញ</h4>
+          <h5 class="text-center w-25 my-0 fs-12 mt-4" style="padding-left: 13px;">Buyer</h5>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex flex-row p-unset justify-center row-2 add-mt w-100" style="margin-top: 90px">
+        <div class="p-unset text-center w-25 flex flex-row">
+          <span class="fs-14 p-unset w-25" style="padding-left: 8px;">ថ្ងៃ /</span>
+          <small class="fs-13 p-unset dot" style="display: block;width: 112px;margin-left: -9px;">Date :</small>
+        </div>
+        <div class="p-unset text-center w-25 flex flex-row">
+          <span class="fs-14 p-unset w-25" style="padding-left: 7px;">ថ្ងៃ /</span>
+          <small class="fs-13 p-unset dot" style="display: block;width: 118px;margin-left: -9px;">Date :</small>
+        </div>
+        <div class="p-unset text-center w-25 flex flex-row">
+          <span class="fs-14 p-unset w-25" style="padding-left: 16px;">ថ្ងៃ /</span>
+          <small class="fs-13 p-unset dot" style="display: block;width: 116px;margin-left: -9px;">Date :</small>
+        </div>
+        <div class="p-unset text-center w-25 flex flex-row">
+          <span class="fs-14 p-unset w-25" style="padding-left: 12px;">ថ្ងៃ /</span>
+          <small class="fs-13 p-unset dot" style="display: block;width: 112px;margin-left: -9px;">Date :</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data -->
+    <div class="p-absolute" style="top: 0; left: -24px;">
+      <p class="bokor">{{station}}</p>
+      <p>{{ (oldInvNum || invoiceNumber) | padStart:5:'0'}}</p>
+      <p>{{stationPhone}}</p>
+      <p>{{datetime | normalDatetime:"&nbsp;&nbsp;&nbsp;"}}</p>
+      <p>{{transferNo}}</p>
+      <p>{{dnNo}}</p>
+      <p>{{orderNo}}</p>
+      <p>{{dnDate | normalDatetime}}</p>
+      <p>{{orderDate | normalDatetime}}</p>
+      <p>{{customer}}<small>&nbsp;&nbsp;&nbsp;({{customerCode}})</small></p>
+      <p>{{app1}}</p>
+      <p class="fs-11">{{address}}</p>
+      <p>{{app2}}</p>
+      <p>{{tel}}</p>
+      <p>{{sellType}}</p>
+      <p>{{delBy}}</p>
+      <p>{{payTerm}}</p>
+      <p>{{carNo}}</p>
+
+      <div class="table">
+        <div class="flex items-center" ng-repeat="o in orders">
+          <div>{{$index + 1}}</div>
+          <div>{{o.product}}</div>
+          <div>Litre</div>
+          <div>{{o.qty ? (o.qty | number) : ''}}</div>
+          <div>{{o.price ? (o.price | number) : ''}}</div>
+          <div></div>
+          <div>{{o.total | number:2}}</div>
+        </div>
+      </div>
+
+      <p>{{totalQty ? (totalQty | number:0) : ''}}</p>
+      <p>{{totalPrice ? (totalPrice | number:0) : ''}}</p>
+
+      <p>{{readPrice ? ((readPrice | number2word) + 'ដុល្លារ') : ''}}</p>
+    </div>
+  </div>
+
+  <div class="invoice-container print-d-none">
+    <div class="flex justify-end">
+      <button ng-click="print()" class="mr-2 mt-3">
+        <i class="fa-solid fa-print"></i>
+        បោះពុម្ភ
+      </button>
+      <button ng-click="savePdf()" class="mt-3">
+        <i class="fa-solid fa-file-pdf"></i>
+        Save PDF
+      </button>
+    </div>
+  </div>
+</div>

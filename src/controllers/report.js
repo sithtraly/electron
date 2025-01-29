@@ -109,7 +109,7 @@ app.controller('ReportController', function ($scope, $location, ShareData) {
       from: DateUtil.date2ddmmyyyy($scope.from || new Date()),
       to: DateUtil.date2ddmmyyyy($scope.to || new Date()),
     })
-    $location.path('/customerInvoice')
+    $location.path('/customerInvoice2')
     ShareData.set('backPath', '/reports')
   }
 })

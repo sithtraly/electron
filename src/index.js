@@ -33,7 +33,7 @@ async function createMainWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'app.html'));
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   mainWindow.maximize()
   mainWindow.removeMenu()
   // Menu.setApplicationMenu(customMenu)

@@ -1,5 +1,5 @@
 app.controller('OrderController', function ($scope, $location, ShareData) {
-  $scope.from// = new Date()
+  $scope.from //= new Date()
   $scope.to = new Date()
   $scope.search
   $scope.rowsSelected = false
@@ -26,7 +26,13 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
       })
     })
   }
+
   $scope.getOrder()
+  setTimeout(() => {
+    $scope.$apply(function () {
+      $scope.getOrder()
+    })
+  }, 200)
 
   $scope.back = function () {
     $location.path('/')
@@ -77,7 +83,7 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
       from: DateUtil.date2ddmmyyyy($scope.from || new Date()),
       to: DateUtil.date2ddmmyyyy($scope.to || new Date()),
     })
-    $location.path('/customerInvoice')
+    $location.path('/customerInvoice2')
     ShareData.set('backPath', '/orders')
   }
 

@@ -1,9 +1,10 @@
-app.controller('CustomerInvoiceController', function ($scope, $location, ShareData) {
+app.controller('CustomerInvoiceController2', function ($scope, $location, ShareData) {
   $scope.datetime = new Date()
   $scope.stationPhone = '015505009'
   $scope.station = 'សៀមរាប'
   $scope.transferNo = 'TRFW-Station-SR2'
   $scope.dnNo = 'SR()'
+  $scope.customerCode = ''
   $scope.orderNo = 'D.O.1234123'
   $scope.dnDate = new Date()
   $scope.orderDate = new Date()
@@ -38,8 +39,8 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
         $scope.orders = res
         $scope.carNo = r0.carNo
         $scope.dnNo = r0.code // order number
+        $scope.customerCode = StringUtil.arabNumber2KhmerNumber(r0.customerCode) + ''
         $scope.customer = r0.customer
-        $scope.customerCode = StringUtil.arabNumber2KhmerNumber(r0.customerCode)
         $scope.tel = r0.phone
         $scope.orderDate = r0.orderDate
         $scope.address = r0.address
@@ -66,22 +67,20 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
     }).then(function (file) {
       if (file) {
         if (!$scope.oldInvNum) {
-          const max = ShareData.get('ShareData')
+          const max = ShareData.get('maxInvNum')
           window.api.invoke('setting', 'invNum').then(function (res) {
+            if (typeof res.value != 'number') res.value = parseInt(res.value)
             const newInvNum = res.value > max ? 1 : $scope.invoiceNumber + 1
             window.api.invoke('setting', 'invNum', newInvNum)
-            const ids = $scope.orders.map(o => o.id)
-            window.api.invoke('printedInvoice', { code, invNumber: $scope.invoiceNumber }).then(function () {
+            window.api.invoke('printedInvoice', { code: $scope.dnNo, invNumber: $scope.invoiceNumber }).then(function () {
               $scope.$apply(function () { $scope.back() })
             }) // update order to isPrinted = true
           })
         }
         if (showFolder) window.api.openItemInFolder(file)
-        if (!$scope.oldInvNum) {
-          $scope.$apply(function () {
-            $scope.back()
-          })
-        }
+        $scope.$apply(function () {
+          $scope.back()
+        })
       }
     })
   }
@@ -97,11 +96,11 @@ app.controller('CustomerInvoiceController', function ($scope, $location, ShareDa
   }
 
   $scope.print = function () {
-    window.api.invoke('print', { copies: 1, pageSize: 'A4' }).then(function (success) {
+    window.api.invoke('print', { copies: 3, pageSize: 'A4' }).then(function (success) {
       const savePath = `${ShareData.get('savePath')}\\Invoice ${$scope.orders[0].customer} ${Date.now()}.pdf`
       savePdf(savePath)
     }).catch(function (err) {
-      console.error(err)
+      console.table(err)
     })
   }
 })

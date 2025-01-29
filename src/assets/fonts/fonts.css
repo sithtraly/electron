@@ -76,6 +76,10 @@
   font-style: normal;
 }
 
+.content {
+  font-family: "Khmer Os Content", "Times New Roman";
+}
+
 .bokor {
   font-family: Bokor, "Times New Roman", sans-serif !important;
 }
