@@ -38,7 +38,7 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
   }
 
   $scope.back = function () {
-    $location.path('/orders')
+    $location.path(ShareData.get('backPath'))
   }
 
   $scope.save = function (isAdd = false) {

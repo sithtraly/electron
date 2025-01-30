@@ -3,7 +3,7 @@ const { OrderModel, CustomerModel, ProductModel, sequelize } = require("../db.co
 
 module.exports = function () {
   ipcMain.handle('getOrder', async (_, obj = {}) => {
-    const { search, from, to, limit = 50, offset = 0 } = obj
+    const { search, from, to } = obj
     const condition = `
       FROM tb_order o
       LEFT JOIN tb_customer c ON o.customerId = c.id
@@ -16,7 +16,6 @@ module.exports = function () {
       SELECT o.id, o.qty, o.price, o.isPrinted, c.id customerId, c.name customer, o.code, o.address,
       p.id productId, p.name product, o.carNo, o.createdAt, o.invNumber, o.phone
       ${condition}
-      LIMIT ${limit} OFFSET ${offset * limit}
       `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
 
     const count = await sequelize.query(`

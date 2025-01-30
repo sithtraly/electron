@@ -4,7 +4,7 @@ const { Op } = require("sequelize")
 
 module.exports = function () {
   ipcMain.handle('getCustomer', async (_, obj = {}) => {
-    const { limit = 50, offset = 0, search, from, to } = obj
+    const { search, from, to } = obj
     let findOption = {}
     if (search) {
       findOption = {
@@ -25,7 +25,7 @@ module.exports = function () {
     } else if (to) {
       findOption.createdAt = { [Op.lte]: to }
     }
-    const customer = await CustomerModel.findAll({ where: findOption, raw: true, limit, offset: offset * limit, order: [['customerCode', 'ASC']] })
+    const customer = await CustomerModel.findAll({ where: findOption, raw: true, order: [['customerCode', 'ASC']] })
     const count = await CustomerModel.count({ where: findOption, raw: true })
     return { data: customer, total: count }
   })

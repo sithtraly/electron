@@ -10,6 +10,8 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
   $scope.pageSize = 50
   $scope.totalPages = 0
 
+  ShareData.set('backPath', '/orders')
+
   $scope.getOrder = function () {
     window.api.getOrder({
       from: $scope.from ? DateUtil.date2stdDate($scope.from) : undefined,
@@ -84,7 +86,6 @@ app.controller('OrderController', function ($scope, $location, ShareData) {
       to: DateUtil.date2ddmmyyyy($scope.to || new Date()),
     })
     $location.path('/customerInvoice2')
-    ShareData.set('backPath', '/orders')
   }
 
   $scope.onPageChange = function () {

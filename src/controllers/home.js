@@ -5,4 +5,6 @@ app.controller('HomeController', function ($scope, ShareData) {
   window.api.invoke('setting', 'savePath').then(function (res) {
     ShareData.set('savePath', res.value)
   })
+
+  ShareData.set('backPath','/')
 })

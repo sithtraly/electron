@@ -4,7 +4,7 @@ const exceljs = require('exceljs')
 
 module.exports = function () {
   ipcMain.handle('getReports', async (_, obj = {}) => {
-    const { search, from, to, limit = 50, offset = 0 } = obj
+    const { search, from, to } = obj
     const condition = `FROM tb_order o
       LEFT JOIN tb_customer c ON o.customerId = c.id
       LEFT JOIN tb_product p ON o.productId = p.id
@@ -17,7 +17,6 @@ module.exports = function () {
       SELECT o.id, c.name customer, c.customercode,  o.qty, o.price, o.qty, o.price, p.dividend, o.isPrinted, c.id customerId, o.address,
       p.id productId, p.name product, o.carNo, o.code, o.createdAt, o.invNumber, o.phone
       ${condition}
-      LIMIT ${limit} OFFSET ${offset * limit}
     `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
     const count = await sequelize.query(`SELECT COUNT(o.id) count ${condition}`.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
     reports.map(r => r.total = r.price * r.qty / r.dividend)

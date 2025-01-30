@@ -4,7 +4,7 @@ const { Op } = require("sequelize")
 
 module.exports = function () {
   ipcMain.handle('getProducts', async (_, obj = {}) => {
-    const { search, from, to, offset = 0, limit = 50 } = obj
+    const { search, from, to } = obj
     let findOption = {}
     if (search) {
       findOption = {
@@ -14,7 +14,7 @@ module.exports = function () {
         }
       }
     }
-    const products = await ProductModel.findAll({ where: findOption, raw: true, limit, offset })
+    const products = await ProductModel.findAll({ where: findOption, raw: true})
     return products
   })
 
