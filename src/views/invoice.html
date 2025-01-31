@@ -60,12 +60,12 @@
         <tr ng-repeat="i in invoices">
           <td></td>
           <td>{{i.customer}}</td>
-          <td class="text-right">{{ i.RegularQty ? (i.RegularQty | number:0) : '-' }}</td>
-          <td class="text-right">{{ i.RegularPrice ? (i.RegularPrice | number:0) : '-' }}</td>
-          <td class="text-right">{{ i.SuperQty ? (i.SuperQty | number:0) : '-' }}</td>
-          <td class="text-right">{{ i.SuperPrice ? (i.SuperPrice | number:0) : '-' }}</td>
-          <td class="text-right">{{ i.DieselQty ? (i.DieselQty | number:0) : '-' }}</td>
-          <td class="text-right">{{ i.DieselPrice ? (i.DieselPrice | number:0) : '-' }}</td>
+          <td class="text-right">{{ i.pro1Qty ? (i.pro1Qty | number:0) : '-' }}</td>
+          <td class="text-right">{{ i.pro1Price ? (i.pro1Price | number:0) : '-' }}</td>
+          <td class="text-right">{{ i.pro2Qty ? (i.pro2Qty | number:0) : '-' }}</td>
+          <td class="text-right">{{ i.pro2Price ? (i.pro2Price | number:0) : '-' }}</td>
+          <td class="text-right">{{ i.pro5Qty ? (i.pro5Qty | number:0) : '-' }}</td>
+          <td class="text-right">{{ i.pro5Price ? (i.pro5Price | number:0) : '-' }}</td>
           <!-- <td class="text-right">{{ i.productId == 4 ? (i.qty | number) : '-' }}</td>
           <td class="text-right">{{ i.productId == 5 ? (i.qty | number) : '-' }}</td> -->
           <td>{{i.address}}</td>

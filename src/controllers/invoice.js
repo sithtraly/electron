@@ -13,13 +13,17 @@ app.controller('InvoiceController', function ($scope, $location, ShareData) {
     window.api.invoke('getInvoice', { ids }).then(res => {
       $scope.$apply(function () {
         const merged = res.reduce((acc, item) => {
-          const { code, product, price, qty, customer, address, carNo, phone } = item
+          const { code, product, price, qty, customer, address, carNo, phone, productId } = item
           if (!acc[code]) {
             acc[code] = { code }
           }
           const pro = product.split(' ')[0]
-          acc[code][pro + 'Price'] = acc[code][pro + 'Price'] ? acc[code][pro + 'Price'] + price : price
-          acc[code][pro + 'Qty'] = acc[code][pro + 'Qty'] ? acc[code][pro + 'Qty'] + qty : qty
+          // acc[code][pro + 'Price'] = acc[code][pro + 'Price'] ? acc[code][pro + 'Price'] + price : price
+          // acc[code][pro + 'Qty'] = acc[code][pro + 'Qty'] ? acc[code][pro + 'Qty'] + qty : qty
+          const proQty = 'pro' + productId + 'Qty'
+          const proPrice = 'pro' + productId + 'Price'
+          acc[code][proQty] = acc[code][proQty] ? acc[code][proQty] + qty : qty
+          acc[code][proPrice] = acc[code][proPrice] ? acc[code][proPrice] + price : price
           acc[code].customer = customer
           acc[code].address = address
           acc[code].carNo = carNo

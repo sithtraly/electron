@@ -90,7 +90,7 @@ table {
   }
 
   tbody tr:not(tr.no-data):hover {
-    background-color: blue;
+    background-color: blue !important;
     color: #ffffff;
   }
 
@@ -729,6 +729,11 @@ body:has(.invoice) {
         position: unset;
         font-size: 13px;
         height: 39px;
+      }
+
+      tr:hover {
+        background: none !important;
+        color: #000000 !important;
       }
 
       tr.total,
