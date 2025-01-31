@@ -1,5 +1,5 @@
 app.controller('OrderController', function ($scope, $location, ShareData) {
-  $scope.from //= new Date()
+  $scope.from = new Date()
   $scope.to = new Date()
   $scope.search
   $scope.rowsSelected = false

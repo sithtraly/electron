@@ -129,6 +129,10 @@ table {
   width: 100%;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 
@@ -414,6 +418,7 @@ body:has(.invoice) {
     // background: url(../images/customer-invoice.jpg);
     // background-size: contain;
     min-height: 29.7cm;
+    height: 29.7cm;
     position: relative;
     overflow: hidden;
 
@@ -423,7 +428,7 @@ body:has(.invoice) {
 
     * {
       position: absolute;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     img:nth-of-type(1) {
@@ -523,7 +528,7 @@ body:has(.invoice) {
       &:nth-of-type(14) {
         top: 334px;
         left: 142mm;
-        font-size: 13px;
+        font-size: 14px;
       }
 
       &:nth-of-type(15) {
@@ -603,14 +608,14 @@ body:has(.invoice) {
       &>div {
         position: unset;
         text-align: center;
-        font-size: 13px;
+        font-size: 14px;
 
         &:nth-child(1) {
-          width: 60px;
+          width: 52px;
         }
 
         &:nth-child(2) {
-          width: 239px;
+          width: 236px;
         }
 
         &:nth-child(3) {
@@ -618,15 +623,15 @@ body:has(.invoice) {
         }
 
         &:nth-child(4) {
-          width: 80px;
+          width: 92px;
         }
 
         &:nth-child(5) {
-          width: 89px;
+          width: 80px;
         }
 
         &:nth-child(6) {
-          width: 110px;
+          width: 102px;
         }
 
         &:nth-child(7) {
@@ -641,10 +646,14 @@ body:has(.invoice) {
     position: relative;
     // background: transparent;
     flex-direction: column;
-    // color: red;
 
-    $ml: 59px;
-    $mr: 73px;
+    // color: red;
+    * {
+      font-family: "Khmer Os Content", "Times New Roman";
+    }
+
+    $ml: 79px;
+    $mr: 53px;
     $w: calc($ml + $mr);
 
     .dot {
@@ -660,7 +669,7 @@ body:has(.invoice) {
       transform: translateY(-50%);
       white-space: nowrap;
       overflow: hidden;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     >* {
@@ -707,13 +716,13 @@ body:has(.invoice) {
 
     .row-1>h4 {
       margin: 9px 0 0;
-      font-size: 12.4px;
+      font-size: 13px;
     }
 
     .row-2 {
       >h4 {
         margin: 9px 0 0;
-        font-size: 12.4px;
+        font-size: 13px;
       }
 
       &.add-mt>h4 {
@@ -728,7 +737,7 @@ body:has(.invoice) {
       * {
         position: unset;
         font-size: 13px;
-        height: 39px;
+        height: 44px;
       }
 
       tr:hover {
@@ -741,22 +750,18 @@ body:has(.invoice) {
         height: 26px;
       }
 
+      tr:last-child,
+      tr:last-child * {
+        height: 26px;
+      }
+
       tr:nth-child(1) td {
         line-height: 18px;
-        border-top-width: 2px !important;
       }
 
       td {
         border: 1px solid #000000 !important;
         width: var(--width);
-
-        &:nth-child(1) {
-          border-left-width: 2px !important;
-        }
-
-        &:nth-last-child(1) {
-          border-right-width: 2px !important;
-        }
       }
     }
 
@@ -784,12 +789,14 @@ body:has(.invoice) {
 
     p:nth-of-type(5) {
       top: 209px;
-      left: 178px;
+      left: 183px;
+      font-weight: bold;
     }
 
     p:nth-of-type(6) {
       top: 209px;
-      left: 138mm;
+      left: 142mm;
+      font-weight: bold;
     }
 
     p:nth-of-type(7) {}
@@ -799,56 +806,66 @@ body:has(.invoice) {
     p:nth-of-type(9) {}
 
     p:nth-of-type(10) {
-      top: 268px;
-      left: 128mm;
+      top: 271px;
+      left: 129mm;
+      text-wrap: nowrap;
+      font-size: 12px;
+
+      small {
+        font-size: 11px;
+      }
     }
 
     p:nth-of-type(11) {
-      top: 306px;
-      left: 171px;
+      top: 308px;
+      left: 185px;
+      font-size: 13px;
     }
 
     p:nth-of-type(12) {
-      top: 303px;
-      left: 130.5mm;
+      top: 311px;
+      left: 132mm;
     }
 
     p:nth-of-type(13) {
-      top: 342px;
-      left: 165px;
+      top: 345px;
+      left: 182px;
+      font-size: 13px;
     }
 
     p:nth-of-type(14) {
-      top: 344px;
-      left: 123mm;
+      top: 350px;
+      left: 125mm;
     }
 
     p:nth-of-type(15) {
-      top: 377px;
-      left: 141px;
+      top: 382px;
+      left: 155px;
+      font-size: 13px
     }
 
     p:nth-of-type(16) {
-      top: 376px;
+      top: 379px;
       left: 143mm;
       text-wrap: nowrap;
+      font-size: 13px;
     }
 
     p:nth-of-type(17) {
-      top: 410px;
-      left: 164px;
+      top: 416px;
+      left: 171px;
       font-size: 13px;
     }
 
     p:nth-of-type(18) {
-      top: 415px;
+      top: 421px;
       left: 133mm;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     div.table {
       position: absolute;
-      top: 486px;
+      top: 500px;
       padding: 0px 12px 0 26px;
       left: 0;
       right: -34px;
@@ -861,10 +878,11 @@ body:has(.invoice) {
         background-repeat: repeat-x;
 
         >div:nth-child(1) {
-          width: 51px;
+          width: 52px;
         }
 
         >div:nth-child(2) {
+          width: 239px;
           text-indent: 7mm;
         }
 
@@ -877,18 +895,18 @@ body:has(.invoice) {
     }
 
     p:nth-of-type(19) {
-      top: 776px;
+      top: 792px;
       left: 89mm;
     }
 
     p:nth-of-type(20) {
-      top: 776px;
+      top: 792px;
       left: 153mm;
     }
 
     p:nth-of-type(21) {
-      top: 819px;
-      left: 230px;
+      top: 832px;
+      left: 215px;
     }
   }
 }

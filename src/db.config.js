@@ -112,10 +112,10 @@ async function connectdb() {
 
     // create max invoice number
     const maxInvNum = await SettingModel.findOne({ where: { key: 'maxInvNum' } })
-    if (!maxInvNum) await SettingModel.create({ key: 'maxInvNum', value: 99999 })
+    if (!maxInvNum) await SettingModel.create({ key: 'maxInvNum', value: 999999 })
     if (maxInvNum) {
       const maxInvNum = await SettingModel.findOne({ where: { key: 'maxInvNum' } })
-      if (maxInvNum != 99999) SettingModel.update({ value: 99999 }, { where: { key: 'maxInvNum' } })
+      if (maxInvNum != 999999) SettingModel.update({ value: 999999 }, { where: { key: 'maxInvNum' } })
     }
 
     const savePath = await SettingModel.findOne({ where: { key: 'savePath' } })

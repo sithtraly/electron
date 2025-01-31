@@ -116,6 +116,10 @@ table tr:not(table tr th) {
   width: 100%;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -539,6 +543,7 @@ body:has(.invoice) nav {
 }
 .invoice-container.customer-invoice {
   min-height: 29.7cm;
+  height: 29.7cm;
   position: relative;
   overflow: hidden;
 }
@@ -547,7 +552,7 @@ body:has(.invoice) nav {
 }
 .invoice-container.customer-invoice * {
   position: absolute;
-  font-size: 12px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice img:nth-of-type(1) {
   position: absolute;
@@ -630,7 +635,7 @@ body:has(.invoice) nav {
 .invoice-container.customer-invoice p:nth-of-type(14) {
   top: 334px;
   left: 142mm;
-  font-size: 13px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice p:nth-of-type(15) {
   top: 360px;
@@ -697,25 +702,25 @@ body:has(.invoice) nav {
 .invoice-container.customer-invoice div.table > div > div {
   position: unset;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(1) {
-  width: 60px;
+  width: 52px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(2) {
-  width: 239px;
+  width: 236px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(3) {
   width: 60px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(4) {
-  width: 80px;
+  width: 92px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(5) {
-  width: 89px;
+  width: 80px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(6) {
-  width: 110px;
+  width: 102px;
 }
 .invoice-container.customer-invoice div.table > div > div:nth-child(7) {
   width: 120px;
@@ -724,6 +729,9 @@ body:has(.invoice) nav {
   display: flex;
   position: relative;
   flex-direction: column;
+}
+.invoice-container.customer-invoice2 * {
+  font-family: "Khmer Os Content", "Times New Roman";
 }
 .invoice-container.customer-invoice2 .dot {
   overflow: hidden;
@@ -737,11 +745,11 @@ body:has(.invoice) nav {
   transform: translateY(-50%);
   white-space: nowrap;
   overflow: hidden;
-  font-size: 18px;
+  font-size: 16px;
 }
 .invoice-container.customer-invoice2 > * {
-  margin-left: 59px;
-  margin-right: 73px;
+  margin-left: 79px;
+  margin-right: 53px;
   width: calc(100% - 132px);
   position: relative;
 }
@@ -776,11 +784,11 @@ body:has(.invoice) nav {
 }
 .invoice-container.customer-invoice2 .row-1 > h4 {
   margin: 9px 0 0;
-  font-size: 12.4px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice2 .row-2 > h4 {
   margin: 9px 0 0;
-  font-size: 12.4px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice2 .row-2.add-mt > h4 {
   margin-top: var(--mt);
@@ -792,7 +800,7 @@ body:has(.invoice) nav {
 .invoice-container.customer-invoice2 table * {
   position: unset;
   font-size: 13px;
-  height: 39px;
+  height: 44px;
 }
 .invoice-container.customer-invoice2 table tr:hover {
   background: none !important;
@@ -802,19 +810,16 @@ body:has(.invoice) nav {
 .invoice-container.customer-invoice2 table tr.total td {
   height: 26px;
 }
+.invoice-container.customer-invoice2 table tr:last-child,
+.invoice-container.customer-invoice2 table tr:last-child * {
+  height: 26px;
+}
 .invoice-container.customer-invoice2 table tr:nth-child(1) td {
   line-height: 18px;
-  border-top-width: 2px !important;
 }
 .invoice-container.customer-invoice2 table td {
   border: 1px solid #000000 !important;
   width: var(--width);
-}
-.invoice-container.customer-invoice2 table td:nth-child(1) {
-  border-left-width: 2px !important;
-}
-.invoice-container.customer-invoice2 table td:nth-last-child(1) {
-  border-right-width: 2px !important;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(1) {
   top: 137px;
@@ -836,54 +841,65 @@ body:has(.invoice) nav {
 }
 .invoice-container.customer-invoice2 p:nth-of-type(5) {
   top: 209px;
-  left: 178px;
+  left: 183px;
+  font-weight: bold;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(6) {
   top: 209px;
-  left: 138mm;
+  left: 142mm;
+  font-weight: bold;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(10) {
-  top: 268px;
-  left: 128mm;
+  top: 271px;
+  left: 129mm;
+  text-wrap: nowrap;
+  font-size: 12px;
+}
+.invoice-container.customer-invoice2 p:nth-of-type(10) small {
+  font-size: 11px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(11) {
-  top: 306px;
-  left: 171px;
+  top: 308px;
+  left: 185px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(12) {
-  top: 303px;
-  left: 130.5mm;
+  top: 311px;
+  left: 132mm;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(13) {
-  top: 342px;
-  left: 165px;
+  top: 345px;
+  left: 182px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(14) {
-  top: 344px;
-  left: 123mm;
+  top: 350px;
+  left: 125mm;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(15) {
-  top: 377px;
-  left: 141px;
+  top: 382px;
+  left: 155px;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(16) {
-  top: 376px;
+  top: 379px;
   left: 143mm;
   text-wrap: nowrap;
+  font-size: 13px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(17) {
-  top: 410px;
-  left: 164px;
+  top: 416px;
+  left: 171px;
   font-size: 13px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(18) {
-  top: 415px;
+  top: 421px;
   left: 133mm;
-  font-size: 12px;
+  font-size: 14px;
 }
 .invoice-container.customer-invoice2 div.table {
   position: absolute;
-  top: 486px;
+  top: 500px;
   padding: 0px 12px 0 26px;
   left: 0;
   right: -34px;
@@ -896,22 +912,23 @@ body:has(.invoice) nav {
   background-repeat: repeat-x;
 }
 .invoice-container.customer-invoice2 div.table > div > div:nth-child(1) {
-  width: 51px;
+  width: 52px;
 }
 .invoice-container.customer-invoice2 div.table > div > div:nth-child(2) {
+  width: 239px;
   text-indent: 7mm;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(19) {
-  top: 776px;
+  top: 792px;
   left: 89mm;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(20) {
-  top: 776px;
+  top: 792px;
   left: 153mm;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(21) {
-  top: 819px;
-  left: 230px;
+  top: 832px;
+  left: 215px;
 }
 
 @media print {
