@@ -455,7 +455,8 @@ nav > h2 {
   font-weight: bold !important;
 }
 
-.fs-normal {
+.fs-normal,
+.fw-normal {
   font-weight: normal !important;
 }
 
@@ -850,13 +851,13 @@ body:has(.invoice) nav {
   font-weight: bold;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(10) {
-  top: 271px;
+  top: 274px;
   left: 129mm;
   text-wrap: nowrap;
-  font-size: 12px;
+  font-size: 11px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(10) small {
-  font-size: 11px;
+  font-size: 10px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(11) {
   top: 308px;
@@ -882,10 +883,10 @@ body:has(.invoice) nav {
   font-size: 13px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(16) {
-  top: 379px;
+  top: 384px;
   left: 143mm;
   text-wrap: nowrap;
-  font-size: 13px;
+  font-size: 11.5px;
 }
 .invoice-container.customer-invoice2 p:nth-of-type(17) {
   top: 416px;

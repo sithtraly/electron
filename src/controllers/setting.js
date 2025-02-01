@@ -4,6 +4,7 @@ app.controller('SettingController', ['$scope', '$location', 'ShareData', functio
   $scope.savePath
   $scope.stationName
   $scope.stationPhone
+  $scope.tranNo
 
   window.api.invoke('version').then((v) => {
     $scope.version = v
@@ -17,6 +18,7 @@ app.controller('SettingController', ['$scope', '$location', 'ShareData', functio
 
   $scope.stationName = ShareData.get('stationName')
   $scope.stationPhone = ShareData.get('stationPhone')
+  $scope.tranNo = ShareData.get('tranNo')
 
   $scope.browDatabase = function () {
     window.dialog.browseFile({ defaultPath: $scope.dbPath }).then(function (result) {
@@ -48,5 +50,9 @@ app.controller('SettingController', ['$scope', '$location', 'ShareData', functio
 
   $scope.changePhone = function () {
     $location.path('/stationPhone')
+  }
+
+  $scope.changeTranNo = function () {
+    $location.path('/tranNo')
   }
 }])

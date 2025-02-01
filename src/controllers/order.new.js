@@ -1,6 +1,6 @@
 app.controller('NewOrderController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
   function generateOrder() {
-    return 'SR' + Date.now()
+    return ShareData.get('tranNo') + Date.now()
   }
   $scope.title = 'ការបញ្ជាទិញថ្មី'
   $scope.orderCode = generateOrder()
@@ -30,8 +30,8 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
       $scope.products.push({
         productId: o.productId,
         product: o.product,
-        qty: o.qty,
-        price: o.price,
+        qty: o.qty.toLocaleString(),
+        price: o.price.toLocaleString(),
         id: o.id
       })
     })
@@ -52,8 +52,8 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
       data.push({ ...product, customerId, carNo, address, code, phone })
     })
     data.map(d => {
-      d.qty = d.qty ? d.qty.replace(/,/g, '') : ''
-      d.price = d.price ? d.price.replace(/,/g, '') : ''
+      d.qty = d.qty && d.qty.indexOf(',') > -1 ? d.qty.replace(/,/g, '') : d.qty
+      d.price = d.price && d.price.indexOf(',') > -1 ? d.price.replace(/,/g, '') : d.price
     })
     if (!orders) {
       window.api.invoke('newOrder', data).then(function () {

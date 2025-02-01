@@ -17,7 +17,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
     $scope.code = data.customerCode
   }
 
-  $scope.save = () => {
+  $scope.save = (isAdd = false) => {
     const id = $scope.id
     const name = $scope.name
     // const phone = $scope.phone
@@ -30,7 +30,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
         //   $scope.$apply(() => $location.path('/customers'))
         // })       
         window.dialog.success('បន្ថែមអតិថិជនថ្មីជោគជ័យ').then(() => {
-          $scope.$apply(() => $location.path('/customers'))
+          if (!isAdd) $scope.$apply(() => $location.path('/customers'))
         })
       })
     } else {
@@ -39,7 +39,7 @@ app.controller('NewCustomerController', ['$scope', '$location', 'ShareData', fun
         //   $scope.$apply(() => $location.path('/customers'))
         // })
         window.dialog.success('កែព័ត៌មានអតិថិជនជោគជ័យ').then(() => {
-          $scope.$apply(() => $location.path('/customers'))
+          if (!isAdd) $scope.$apply(() => $location.path('/customers'))
         })
       })
     }

@@ -18,5 +18,11 @@ app.controller('HomeController', function ($scope, ShareData) {
     })
   })
 
+  window.api.invoke('setting', 'tranNo').then(function (tranNo) {
+    $scope.$apply(function () {
+      ShareData.set('tranNo', tranNo.value)
+    })
+  })
+
   ShareData.set('backPath', '/')
 })

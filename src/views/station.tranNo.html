@@ -1,0 +1,19 @@
+<nav>
+  <button ng-click="back()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <h2>ប្ដូរប័ណ្ណដឺកជញ្ជូន</h2>
+</nav>
+
+<div class="flex jusify-center">
+  <div class="container flex flex-column" style="min-width: 500px;">
+    <label for="tranNo" class="mt-2">ប័ណ្ណដឺកជញ្ជូន</label>
+    <input type="text" id="tranNo" required ng-model="tranNo">
+
+    <div class="flex flex-row mt-2">
+      <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save()">រក្សាទុក</button>
+    </div>
+  </div>
+</div>

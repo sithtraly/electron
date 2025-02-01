@@ -12,10 +12,11 @@ const config = ['$routeProvider', function ($routeProvider) {
     .when('/reports', { templateUrl: './views/report.html', controller: 'ReportController' })
     .when('/invoice', { templateUrl: './views/invoice.html', controller: 'InvoiceController' })
     .when('/customerInvoice', { templateUrl: './views/customer.invoice.html', controller: 'CustomerInvoiceController' })
-    .when('/settings', { templateUrl: './views/setting.html', controller: 'SettingController' })
     .when('/customerInvoice2', { templateUrl: './views/customer.invoice2.html', controller: 'CustomerInvoiceController2' })
+    .when('/settings', { templateUrl: './views/setting.html', controller: 'SettingController' })
     .when('/stationName', { templateUrl: './views/station.name.html', controller: 'stationNameController' })
     .when('/stationPhone', { templateUrl: './views/station.phone.html', controller: 'stationPhoneController' })
+    .when('/tranNo', { templateUrl: './views/station.tranNo.html', controller: 'tranNoController' })
     .otherwise({ redirectTo: '/' })
 }]
 
