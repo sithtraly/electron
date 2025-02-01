@@ -22,7 +22,7 @@
     <p class="m-0">លេខបញ្ជាទិញ៖ {{orderCode}}</p>
 
     <label for="cbCustomer">អតិថិជន</label>
-    <input type="text" required list="cbCustomer" ng-model="customer" ng-blur="customerBlur()" ng-keydown="onKeydown($event)">
+    <input type="text" required list="cbCustomer" ng-model="customer" ng-blur="customerBlur()" ng-keydown="onKeydown($event)" autofocus>
 
     <label for="cbCustomer">លេខទូរស័ព្ទ</label>
     <input type="text" list="cbCustomer" ng-model="phone" ng-keydown="onKeydown($event)">
@@ -50,7 +50,7 @@
     </div>
 
     <div class="mt-2">
-      <button ng-click="addProduct()">
+      <button ng-click="addProduct()" ng-keydown="onKeydown($event)">
         <i class="fa-solid fa-plus"></i>
         Add
       </button>
@@ -98,11 +98,11 @@
     </div> -->
 
     <div class="flex flex-row mt-2 gap-2">
-      <button style="flex-grow: 1;" class="text-danger" ng-click="back()">បោះបង់</button>
-      <button style="flex-grow: 1;" class="text-primary" ng-click="save(true)" ng-if="orders.length == 0">
+      <button style="flex-grow: 1;" class="text-danger" ng-click="back()" ng-keydown="onKeydown($event)">បោះបង់</button>
+      <button  style="flex-grow: 1;" class="text-primary" ng-click="save(true)" ng-if="orders.length == 0" ng-keydown="onKeydown($event)">
         រក្សាទុក និងបញ្ជាទីញថ្មី
       </button>
-      <button style="flex-grow: 1;" class="text-primary" ng-click="save(false)">
+      <button style="flex-grow: 1;" class="text-primary" ng-click="save(false)" ng-keydown="onKeydown($event)">
         {{orders.length == 0 ? 'រក្សាទុក និងចាកចេញ' : 'រក្សាទុក' }} </button>
     </div>
   </div>

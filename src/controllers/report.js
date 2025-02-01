@@ -39,9 +39,9 @@ app.controller('ReportController', function ($scope, $location, ShareData) {
     let header = document.querySelector('table thead tr').textContent.split('\n')// get header from table
     header.forEach((v, i) => header[i] = v.trim())
     header = header.filter(h => h != '') // remove empty header
+    header.pop()
     let body = JSON.parse(JSON.stringify($scope.reports))
     body.map(b => {
-
       delete b['$$hashKey']
       delete b.customerId
       delete b.isPrinted
@@ -51,21 +51,21 @@ app.controller('ReportController', function ($scope, $location, ShareData) {
     const clone = []
     body.map(b => {
       const row = {}
-      row.id = b.id
+      row.code = b.code
+      row.id = b.customerCode
       row.customer = b.customer
       row.product = b.product
       row.qty = b.qty
       row.price = b.price //.toLocaleString()
-      row.total = b.total //.toLocaleString()
-      // row.currency = b.currency
       row.address = b.address
       row.phone = b.phone
-      row.code = b.code
       row.carNo = b.carNo
+      row.createdAt = DateUtil.datetime2stdDatetime(b.createdAt)
+      // row.currency = b.currency
       // row.stockNo = b.stockNo
       // row.transportNo = b.transportNo
       // row.isPaid = b.isPaid ? 'Yes' : 'No'
-      row.createdAt = DateUtil.datetime2stdDatetime(b.createdAt)
+      // row.total = b.total //.toLocaleString()
       clone.push(row)
     })
     body = clone

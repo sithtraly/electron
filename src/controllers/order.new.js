@@ -145,11 +145,11 @@ app.controller('NewOrderController', ['$scope', '$location', 'ShareData', functi
 
   $scope.onKeydown = function (e) {
     if (!['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'].includes(e.key)) return
-    const inputs = Array.from(document.querySelectorAll('input[ng-model]'))
+    const inputs = Array.from(document.querySelectorAll('[ng-keydown]'))
     const index = inputs.indexOf(e.target)
     if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && index > 0) {
       inputs[index - 1].focus()
-    } else if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && inputs.length - 1) {
+    } else if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && index < inputs.length - 1) {
       inputs[index + 1].focus()
     }
   }

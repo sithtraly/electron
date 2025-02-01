@@ -647,6 +647,9 @@ body:has(.invoice) {
     position: relative;
     // background: transparent;
     flex-direction: column;
+    height: unset;
+    max-height: 29.7cm;
+    min-height: unset;
 
     // color: red;
     * {

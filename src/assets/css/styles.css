@@ -730,6 +730,9 @@ body:has(.invoice) nav {
   display: flex;
   position: relative;
   flex-direction: column;
+  height: unset;
+  max-height: 29.7cm;
+  min-height: unset;
 }
 .invoice-container.customer-invoice2 * {
   font-family: "Khmer Os Content", "Times New Roman";
