@@ -97,13 +97,13 @@ async function connectdb() {
     await sequelize.authenticate()
     console.log("Conntected to database successfully")
 
-    if (process.env.DB_SYNC == 'true') {
-      await sequelize.sync({ alter: true })
-      fs.writeFileSync(path.join(process.cwd(), '.env'), `DB_SYNC=false`)
-    } else {
-      await sequelize.sync()
-    }
-    // await sequelize.sync({ alter: true })
+    // if (process.env.DB_SYNC == 'true') {
+    //   await sequelize.sync({ alter: true })
+    //   fs.writeFileSync(path.join(process.cwd(), '.env'), `DB_SYNC=false`)
+    // } else {
+    //   await sequelize.sync()
+    // }
+    await sequelize.sync({ alter: true })
 
     // seeder
     // create invoice number
@@ -120,6 +120,12 @@ async function connectdb() {
 
     const savePath = await SettingModel.findOne({ where: { key: 'savePath' } })
     if (!savePath) await SettingModel.create({ key: 'savePath', value: app.getPath('documents') })
+
+    const stName = await SettingModel.findOne({ where: { key: 'stationName' } })
+    if (!stName) await SettingModel.create({ key: 'stationName', value: 'Tela Siem Reap' })
+
+    const stPhone = await SettingModel.findOne({ where: { key: 'stationPhone' } })
+    if (!stPhone) await SettingModel.create({ key: 'stationPhone', value: '015505009' })
 
     // const customers = await CustomerModel.findAll({ where: { customerCode: null }, raw: true })
     // if (customers.length > 0) await sequelize.query('update tb_customer set customerCode = id where customerCode is NULL;')

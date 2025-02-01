@@ -16,6 +16,7 @@ module.exports = function () {
       SELECT o.id, o.qty, o.price, o.isPrinted, c.id customerId, c.name customer, o.code, o.address,
       p.id productId, p.name product, o.carNo, o.createdAt, o.invNumber, o.phone
       ${condition}
+      ORDER BY o.createdAt DESC 
       `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
 
     const count = await sequelize.query(`

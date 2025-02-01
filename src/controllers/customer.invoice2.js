@@ -1,7 +1,7 @@
 app.controller('CustomerInvoiceController2', function ($scope, $location, ShareData) {
   $scope.datetime = new Date()
-  $scope.stationPhone = '015505009'
-  $scope.station = 'សៀមរាប'
+  $scope.station = ShareData.get('stationName')
+  $scope.stationPhone = ShareData.get('stationPhone')
   $scope.transferNo = 'TRFW-Station-SR2'
   $scope.dnNo = 'SR()'
   $scope.customerCode = ''

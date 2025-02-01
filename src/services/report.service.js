@@ -17,6 +17,7 @@ module.exports = function () {
       SELECT o.id, c.name customer, c.customercode,  o.qty, o.price, o.qty, o.price, p.dividend, o.isPrinted, c.id customerId, o.address,
       p.id productId, p.name product, o.carNo, o.code, o.createdAt, o.invNumber, o.phone
       ${condition}
+      ORDER BY o.createdAt DESC
     `.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
     const count = await sequelize.query(`SELECT COUNT(o.id) count ${condition}`.replaceAll(/\s+/g, ' '), { type: 'SELECT' })
     reports.map(r => r.total = r.price * r.qty / r.dividend)

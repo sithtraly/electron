@@ -14,6 +14,8 @@ const config = ['$routeProvider', function ($routeProvider) {
     .when('/customerInvoice', { templateUrl: './views/customer.invoice.html', controller: 'CustomerInvoiceController' })
     .when('/settings', { templateUrl: './views/setting.html', controller: 'SettingController' })
     .when('/customerInvoice2', { templateUrl: './views/customer.invoice2.html', controller: 'CustomerInvoiceController2' })
+    .when('/stationName', { templateUrl: './views/station.name.html', controller: 'stationNameController' })
+    .when('/stationPhone', { templateUrl: './views/station.phone.html', controller: 'stationPhoneController' })
     .otherwise({ redirectTo: '/' })
 }]
 

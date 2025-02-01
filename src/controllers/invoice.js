@@ -1,6 +1,7 @@
 app.controller('InvoiceController', function ($scope, $location, ShareData) {
   $scope.from
   $scope.to
+  $scope.stationName = ShareData.get('stationName')
   $scope.invoices = []
   $scope.back = function () {
     $location.path('/reports')

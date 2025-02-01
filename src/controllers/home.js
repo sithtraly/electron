@@ -6,5 +6,17 @@ app.controller('HomeController', function ($scope, ShareData) {
     ShareData.set('savePath', res.value)
   })
 
-  ShareData.set('backPath','/')
+  window.api.invoke('setting', 'stationName').then(function (stationName) {
+    $scope.$apply(function () {
+      ShareData.set('stationName', stationName.value)
+    })
+  })
+
+  window.api.invoke('setting', 'stationPhone').then(function (stationPhone) {
+    $scope.$apply(function () {
+      ShareData.set('stationPhone', stationPhone.value)
+    })
+  })
+
+  ShareData.set('backPath', '/')
 })

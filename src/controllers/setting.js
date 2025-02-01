@@ -1,7 +1,9 @@
-app.controller('SettingController', ['$scope', '$location', function ($scope, $location) {
+app.controller('SettingController', ['$scope', '$location', 'ShareData', function ($scope, $location, ShareData) {
   $scope.back = function () { $location.path('/') }
   $scope.dbPath
   $scope.savePath
+  $scope.stationName
+  $scope.stationPhone
 
   window.api.invoke('version').then((v) => {
     $scope.version = v
@@ -13,11 +15,8 @@ app.controller('SettingController', ['$scope', '$location', function ($scope, $l
     })
   })
 
-  window.api.invoke('setting', 'savePath').then(function (savePath) {
-    $scope.$apply(function () {
-      $scope.savePath = savePath.value + ''
-    })
-  })
+  $scope.stationName = ShareData.get('stationName')
+  $scope.stationPhone = ShareData.get('stationPhone')
 
   $scope.browDatabase = function () {
     window.dialog.browseFile({ defaultPath: $scope.dbPath }).then(function (result) {
@@ -41,5 +40,13 @@ app.controller('SettingController', ['$scope', '$location', function ($scope, $l
         })
       }
     })
+  }
+
+  $scope.changeName = function () {
+    $location.path('/stationName')
+  }
+
+  $scope.changePhone = function () {
+    $location.path('/stationPhone')
   }
 }])
